@@ -22,7 +22,7 @@ const AuthContext = createContext<AuthContextType>({
 
 // Check if demo mode is enabled
 const isDemoModeEnabled = () => {
-  return process.env.NEXT_PUBLIC_DEMO_MODE === "true";
+  return true; // Always enable demo mode for this demo deployment
 };
 
 // Create a mock demo user
