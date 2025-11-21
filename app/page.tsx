@@ -1,22 +1,15 @@
 "use client";
 
 import { useAuth } from "@/contexts/auth-context";
-import Link from "next/link";
-import { usePathname, useRouter } from "next/navigation";
-import { LayoutDashboard, Search as SearchIcon, Calendar, Users, LogOut, ArrowUp, Plus, Mic } from "lucide-react";
+import { useRouter } from "next/navigation";
+import Sidebar from "@/components/sidebar";
+import { ArrowUp, Plus, Mic } from "lucide-react";
 import { useState } from "react";
 
 export default function DashboardPage() {
-  const { user, signOut } = useAuth();
-  const pathname = usePathname();
+  const { user } = useAuth();
   const router = useRouter();
   const [searchInput, setSearchInput] = useState("");
-
-  const navigation = [
-    { name: "Dashboard", href: "/", icon: LayoutDashboard },
-    { name: "Daily Reports", href: "/daily-reports", icon: Calendar },
-    { name: "Team", href: "/team", icon: Users },
-  ];
 
   const handleSearchSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -26,90 +19,11 @@ export default function DashboardPage() {
   };
 
   return (
-    <div className="flex h-screen bg-white" style={{ margin: 0, padding: 0, border: 'none' }}>
-      {/* Light grey bubble nav bar - completely isolated */}
-      <div className="p-6" style={{ border: 'none' }}>
-        <div className="w-64 rounded-3xl flex flex-col relative" style={{ backgroundColor: '#E3E4EA', border: 'none', boxShadow: 'none', height: 'calc(100vh - 48px)' }}>
-          <div className="p-6 flex-1 flex flex-col">
-          {/* Logo */}
-          <div className="mb-8">
-            <Link href="/">
-              <div className="cursor-pointer hover:opacity-80 transition-opacity">
-                <img src="/highforce-logo-cropped.png" alt="HighForce" className="h-16 w-auto" style={{ objectFit: 'contain', objectPosition: 'left center' }} />
-              </div>
-            </Link>
-          </div>
-
-          {/* Search */}
-          <div className="relative mb-3">
-            {pathname === "/search" && (
-              <div className="absolute top-1/2 -translate-y-1/2 w-1 rounded-r-full z-10" style={{ left: '-20px', height: '34px', backgroundColor: '#2c8492' }} />
-            )}
-            <button
-              onClick={() => router.push("/search")}
-              className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-normal ${
-                pathname === "/search"
-                  ? "bg-white text-gray-800 shadow-sm"
-                  : "text-gray-700 hover:bg-white/50"
-              }`}
-            >
-              <SearchIcon className="h-4 w-4" />
-              <span>Search</span>
-            </button>
-          </div>
-
-          {/* Navigation */}
-          <nav className="flex-1 space-y-2">
-            {navigation.map((item) => {
-              const Icon = item.icon;
-              const isActive = pathname === item.href;
-              return (
-                <Link key={item.name} href={item.href}>
-                  <div className="relative mb-3">
-                    {isActive && (
-                      <div className="absolute top-1/2 -translate-y-1/2 w-1 rounded-r-full z-10" style={{ left: '-20px', height: '34px', backgroundColor: '#2c8492' }} />
-                    )}
-                    <button
-                      className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-normal ${
-                        isActive
-                          ? "bg-white text-gray-800 shadow-sm"
-                          : "text-gray-700 hover:bg-white/50"
-                      }`}
-                    >
-                      <Icon className="h-4 w-4" />
-                      <span>{item.name}</span>
-                    </button>
-                  </div>
-                </Link>
-              );
-            })}
-          </nav>
-
-          {/* User Profile */}
-          <div className="mt-auto">
-            <div className="flex items-center gap-3 mb-4 px-2">
-              <div className="w-8 h-8 rounded-full bg-gray-300 flex items-center justify-center">
-                <span className="text-gray-700 text-xs font-medium">
-                  {user?.email?.[0]?.toUpperCase() || "U"}
-                </span>
-              </div>
-              <div className="flex-1 min-w-0">
-                <p className="text-sm font-light truncate text-gray-800">
-                  {user?.user_metadata?.name || user?.email?.split("@")[0] || "User"}
-                </p>
-                <p className="text-xs text-gray-600 font-light">Admin</p>
-              </div>
-            </div>
-
-            <button
-              onClick={() => signOut()}
-              className="w-full flex items-center gap-3 px-4 py-3 text-gray-700 hover:bg-white/50 rounded-xl text-sm font-normal"
-            >
-              <LogOut className="h-4 w-4" />
-              <span>Log out</span>
-            </button>
-          </div>
-          </div>
+    <div className="flex h-screen bg-white">
+      {/* Grey bubble sidebar wrapper */}
+      <div className="p-6">
+        <div className="rounded-3xl overflow-hidden" style={{ height: 'calc(100vh - 48px)', backgroundColor: '#E3E4EA' }}>
+          <Sidebar user={user} />
         </div>
       </div>
 

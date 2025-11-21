@@ -38,6 +38,13 @@ export default function Sidebar({ user }: SidebarProps) {
   const [historyExpanded, setHistoryExpanded] = useState(true);
   const [mounted, setMounted] = useState(false);
 
+  // Mock chat history for demo
+  const mockChats = [
+    { id: "1", title: "Q3 Revenue Analysis", created_at: new Date(Date.now() - 2 * 60 * 60 * 1000).toISOString() },
+    { id: "2", title: "Client Meeting Notes", created_at: new Date(Date.now() - 5 * 60 * 60 * 1000).toISOString() },
+    { id: "3", title: "Product Launch Plan", created_at: new Date(Date.now() - 24 * 60 * 60 * 1000).toISOString() },
+  ];
+
   // Prevent hydration mismatch
   useEffect(() => {
     setMounted(true);
@@ -130,7 +137,7 @@ export default function Sidebar({ user }: SidebarProps) {
       </div>
 
       {/* Navigation */}
-      <nav className="flex-1 space-y-2">
+      <nav className="space-y-2 mb-6">
         {navigation.map((item) => {
           const Icon = item.icon;
           const isActive = pathname === item.href;
@@ -156,62 +163,43 @@ export default function Sidebar({ user }: SidebarProps) {
         })}
       </nav>
 
-      {/* Chat History Section - Hidden in demo mode */}
-      {!isDemoMode && (
-        <>
-          <Separator className="my-4 bg-gray-300" />
-          <div className="pt-2">
-            <button
-              onClick={() => setHistoryExpanded(!historyExpanded)}
-              className="w-full flex items-center justify-between px-4 py-3 text-sm font-normal text-gray-700 hover:bg-white/50 rounded-xl"
-            >
-              <div className="flex items-center gap-2">
-                <MessageSquare className="h-4 w-4" />
-                <span>Recent Chats</span>
-              </div>
-              <ChevronDown className={`h-4 w-4 transition-transform duration-200 ${historyExpanded ? '' : '-rotate-90'}`} />
-            </button>
+      {/* Chat History Section - Always show with mock data */}
+      <div className="border-t border-gray-300 pt-4 pb-4 flex-1">
+        <button
+          onClick={() => setHistoryExpanded(!historyExpanded)}
+          className="w-full flex items-center justify-between px-4 py-3 text-sm font-normal text-gray-700 hover:bg-white/50 rounded-xl"
+        >
+          <span>Recent Chats</span>
+          <ChevronDown className={`h-4 w-4 transition-transform duration-200 ${historyExpanded ? '' : '-rotate-90'}`} />
+        </button>
 
-            {historyExpanded && (
-              <div className="mt-3 space-y-1">
-                {loadingHistory ? (
-                  <div className="px-3 py-2 text-sm font-light text-gray-600">Loading...</div>
-                ) : chatHistory.length === 0 ? (
-                  <div className="px-3 py-2 text-sm font-light text-gray-600">No chats yet</div>
-                ) : (
-                  chatHistory.slice(0, 10).map((chat) => (
-                    <div
-                      key={chat.id}
-                      className="relative group/chat mb-1"
-                    >
-                      <button
-                        onClick={() => router.push(`/search?chat_id=${chat.id}`)}
-                        className="w-full h-auto py-2 px-3 text-sm font-normal text-gray-700 hover:bg-white/50 rounded-xl flex items-start gap-2"
-                      >
-                        <Clock className="h-4 w-4 flex-shrink-0 mt-0.5" />
-                        <div className="flex-1 min-w-0 text-left pr-6">
-                          <p className="text-sm font-normal truncate">
-                            {chat.title || "Untitled Chat"}
-                          </p>
-                          <p className="text-xs text-gray-600 font-light mt-0.5">
-                            {formatTimestamp(chat.created_at)}
-                          </p>
-                        </div>
-                      </button>
-                      <button
-                        onClick={(e) => handleDeleteChat(chat.id, e)}
-                        className="absolute right-1 top-1/2 -translate-y-1/2 opacity-0 group-hover/chat:opacity-100 h-6 w-6 rounded-full hover:bg-red-500 hover:text-white flex items-center justify-center text-gray-600"
-                      >
-                        <Trash2 className="h-3 w-3" />
-                      </button>
-                    </div>
-                  ))
-                )}
+        <div
+          className={`overflow-hidden transition-all duration-300 ease-in-out ${
+            historyExpanded ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+          }`}
+        >
+          <div className="mt-3 space-y-1">
+            {mockChats.map((chat) => (
+              <div key={chat.id} className="relative group/chat mb-1">
+                <button
+                  onClick={() => router.push(`/search?chat_id=${chat.id}`)}
+                  className="w-full h-auto py-2 px-3 text-sm font-normal text-gray-700 hover:bg-white/50 rounded-xl flex items-start gap-2"
+                >
+                  <MessageSquare className="h-4 w-4 flex-shrink-0 mt-0.5" />
+                  <div className="flex-1 min-w-0 text-left">
+                    <p className="text-sm font-normal truncate">
+                      {chat.title}
+                    </p>
+                    <p className="text-xs text-gray-600 font-light mt-0.5">
+                      {formatTimestamp(chat.created_at)}
+                    </p>
+                  </div>
+                </button>
               </div>
-            )}
+            ))}
           </div>
-        </>
-      )}
+        </div>
+      </div>
 
       {/* User Section */}
       <div className="mt-auto">
