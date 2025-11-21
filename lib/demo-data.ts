@@ -721,5 +721,17 @@ export const getDemoConversation = (chatId: string): ChatConversation | null => 
 };
 
 export const getDailyReports = (dateString: string): DailyReport[] => {
-  return mockDailyReports[dateString] || [];
+  // Always return the Nov 20 reports for any date (demo purposes)
+  // Update the generated_date to match the selected date
+  const baseReports = mockDailyReports['2025-11-20'] || [];
+
+  return baseReports.map(report => ({
+    ...report,
+    generated_date: dateString + 'T06:00:00Z',
+    content: report.content.replace('November 20, 2025', new Date(dateString).toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric'
+    }))
+  }));
 };

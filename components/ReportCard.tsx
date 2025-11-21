@@ -39,74 +39,32 @@ export default function ReportCard({ title, icon, summary, sourceCount, sources,
           <h3 className="text-xl font-semibold text-gray-900 group-hover:text-gray-700 transition-colors mb-3">
             {title}
           </h3>
-          <p className="text-sm text-gray-600" style={{ lineHeight: '1.8', letterSpacing: '0.01em' }}>
+          <p className="text-sm text-gray-600 mb-4" style={{ lineHeight: '1.8', letterSpacing: '0.01em' }}>
             {summary}
           </p>
-        </div>
 
-        {/* Source Logos */}
-        <div className="flex items-start gap-4 flex-shrink-0">
-          {/* Pills in columns if more than 2 */}
-          <div className={`flex gap-3 ${appCounts.length > 2 ? 'flex-row' : 'flex-col'}`}>
-            {appCounts.length > 2 ? (
-              <>
-                <div className="flex flex-col gap-2">
-                  {appCounts.slice(0, Math.ceil(appCounts.length / 2)).map((app, idx) => (
-                    <div
-                      key={idx}
-                      className="flex items-center gap-2 bg-gray-50 rounded-full px-3 py-1.5 border border-gray-200"
-                    >
-                      <img
-                        src={app.config.logo}
-                        alt={app.config.name}
-                        className="w-4 h-4 object-contain"
-                      />
-                      <span className="text-xs text-gray-600 font-medium whitespace-nowrap">
-                        {app.count} {app.count === 1 ? 'source' : 'sources'}
-                      </span>
-                    </div>
-                  ))}
-                </div>
-                <div className="flex flex-col gap-2">
-                  {appCounts.slice(Math.ceil(appCounts.length / 2)).map((app, idx) => (
-                    <div
-                      key={idx}
-                      className="flex items-center gap-2 bg-gray-50 rounded-full px-3 py-1.5 border border-gray-200"
-                    >
-                      <img
-                        src={app.config.logo}
-                        alt={app.config.name}
-                        className="w-4 h-4 object-contain"
-                      />
-                      <span className="text-xs text-gray-600 font-medium whitespace-nowrap">
-                        {app.count} {app.count === 1 ? 'source' : 'sources'}
-                      </span>
-                    </div>
-                  ))}
-                </div>
-              </>
-            ) : (
-              appCounts.map((app, idx) => (
-                <div
-                  key={idx}
-                  className="flex items-center gap-2 bg-gray-50 rounded-full px-3 py-1.5 border border-gray-200"
-                >
-                  <img
-                    src={app.config.logo}
-                    alt={app.config.name}
-                    className="w-4 h-4 object-contain"
-                  />
-                  <span className="text-xs text-gray-600 font-medium whitespace-nowrap">
-                    {app.count} {app.count === 1 ? 'source' : 'sources'}
-                  </span>
-                </div>
-              ))
-            )}
+          {/* Source Logos as Horizontal String */}
+          <div className="flex items-center gap-2 flex-wrap">
+            {appCounts.map((app, idx) => (
+              <div
+                key={idx}
+                className="flex items-center gap-2 bg-gray-50 rounded-full px-3 py-1.5 border border-gray-200"
+              >
+                <img
+                  src={app.config.logo}
+                  alt={app.config.name}
+                  className="w-4 h-4 object-contain"
+                />
+                <span className="text-xs text-gray-600 font-medium whitespace-nowrap">
+                  {app.count} {app.count === 1 ? 'source' : 'sources'}
+                </span>
+              </div>
+            ))}
           </div>
-
-          {/* Chevron to the right of pills */}
-          <ChevronRight className="w-5 h-5 text-gray-400 group-hover:text-gray-600 transition-colors mt-1" />
         </div>
+
+        {/* Chevron top right */}
+        <ChevronRight className="w-5 h-5 text-gray-400 group-hover:text-gray-600 transition-colors flex-shrink-0 mt-1" />
       </div>
     </button>
   );
