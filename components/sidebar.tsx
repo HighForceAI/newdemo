@@ -212,19 +212,19 @@ export default function Sidebar({ user }: SidebarProps) {
 
       {/* User Section */}
       <div className="mt-auto">
-        <div className="flex items-center gap-3 mb-4 px-2">
+        <button className="w-full flex items-center gap-3 mb-4 px-4 py-3 rounded-xl text-gray-700 hover:bg-white/40 transition-colors">
           <div className="w-8 h-8 rounded-full flex items-center justify-center" style={{ backgroundColor: '#2c8492' }}>
             <span className="text-white text-xs font-medium">
               {user?.email?.[0]?.toUpperCase() || "U"}
             </span>
           </div>
-          <div className="flex-1 min-w-0">
+          <div className="flex-1 min-w-0 text-left">
             <p className="text-sm font-light truncate text-gray-800">
               {mounted && user ? (user.user_metadata?.name || user.email?.split("@")[0]) : "Loading..."}
             </p>
             <p className="text-xs text-gray-600 font-light">Admin</p>
           </div>
-        </div>
+        </button>
 
         <div className="space-y-3">
           {/* Hide Settings in demo mode */}
