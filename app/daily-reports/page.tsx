@@ -51,12 +51,12 @@ export default function DailyReportsPage() {
         </div>
       </div>
       <div className="flex-1 overflow-y-auto p-8 pt-12">
-        <div className="max-w-7xl mx-auto">
+        <div className="max-w-7xl mx-auto" style={{ minWidth: '800px' }}>
           {/* Header with Date and Calendar */}
-          <div className="flex items-start justify-between mb-12">
+          <div className="flex items-end justify-between mb-12">
             {/* Left: Selected Date Display */}
             <div>
-              <h1 className="text-4xl font-normal text-gray-900">
+              <h1 className="text-3xl font-normal text-gray-900">
                 {selectedDate.toLocaleDateString('en-US', {
                   weekday: 'long',
                   year: 'numeric',
@@ -64,22 +64,22 @@ export default function DailyReportsPage() {
                   day: 'numeric'
                 })}
               </h1>
-              <p className="text-sm text-gray-400 font-light mt-2">Viewing all reports for this day</p>
+              <p className="text-base text-gray-400 font-light mt-2">Viewing all reports for this day</p>
             </div>
 
             {/* Right: Date Navigation */}
             <div className="flex gap-2">
-              <Button variant="outline" size="sm" onClick={() => navigateDay('prev')} className="font-normal">
+              <Button variant="outline" size="lg" onClick={() => navigateDay('prev')} className="font-normal">
                 <ChevronLeft className="h-4 w-4 mr-1" />
                 Previous Day
               </Button>
-              <Button variant="outline" size="sm" onClick={() => navigateDay('next')} className="font-normal">
+              <Button variant="outline" size="lg" onClick={() => navigateDay('next')} className="font-normal">
                 Next Day
                 <ChevronRight className="h-4 w-4 ml-1" />
               </Button>
               <Popover open={calendarOpen} onOpenChange={setCalendarOpen}>
                 <PopoverTrigger asChild>
-                  <Button variant="outline" size="sm" className="font-normal">
+                  <Button variant="outline" size="lg" className="font-normal">
                     <CalendarIcon className="h-4 w-4" />
                   </Button>
                 </PopoverTrigger>

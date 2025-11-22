@@ -179,7 +179,7 @@ function SearchPageContent() {
                 </p>
 
                 {/* Search Bar */}
-                <div className="w-full mb-8 px-4" style={{ maxWidth: '55rem' }}>
+                <div className="w-full mb-8 px-4" style={{ maxWidth: '55rem', minWidth: '400px' }}>
                   <form onSubmit={(e) => { e.preventDefault(); handleSearch(); }}>
                     <div className="relative">
                       <div className="relative bg-white/95 backdrop-blur-xl rounded-full border border-gray-300" style={{ boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)' }}>
@@ -349,7 +349,7 @@ function SearchPageContent() {
         {/* Input Area - Fixed at bottom (only show when there are messages) */}
         {messages.length > 0 && (
         <div className="fixed bottom-6 right-0 flex justify-center px-4 z-30 pointer-events-none" style={{ left: 'calc(256px + 48px)' }}>
-          <div className="w-full pointer-events-auto" style={{ maxWidth: '55rem' }}>
+          <div className="w-full pointer-events-auto" style={{ maxWidth: '55rem', minWidth: '400px' }}>
             <form onSubmit={(e) => { e.preventDefault(); handleSearch(); }}>
               <div className="relative">
                 <div className="relative bg-white/95 backdrop-blur-xl rounded-full border border-gray-300" style={{ boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)' }}>

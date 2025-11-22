@@ -3,13 +3,16 @@
 import { useAuth } from "@/contexts/auth-context";
 import { useRouter } from "next/navigation";
 import Sidebar from "@/components/sidebar";
-import { ArrowUp, Plus, Mic, Calendar, AlertTriangle, TrendingUp, Info, ChevronDown, SlidersHorizontal } from "lucide-react";
+import { ArrowUp, Plus, Mic, Calendar, AlertTriangle, TrendingUp, Info, ChevronDown, SlidersHorizontal, Flag, MoreVertical, Check, Trash2 } from "lucide-react";
 import { useState } from "react";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuSeparator,
+  DropdownMenuSub,
+  DropdownMenuSubContent,
+  DropdownMenuSubTrigger,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Button } from "@/components/ui/button";
@@ -24,8 +27,11 @@ export default function DashboardPage() {
   const [searchInput, setSearchInput] = useState("");
   const [selectedSource, setSelectedSource] = useState<any>(null);
   const [selectedReport, setSelectedReport] = useState<any>(null);
-  const [actionFilter, setActionFilter] = useState<string>('all');
+  const [actionFilters, setActionFilters] = useState<string[]>([]);
   const [actionSort, setActionSort] = useState<string>('date');
+  const [flaggedActions, setFlaggedActions] = useState<string[]>([]);
+  const [completedActions, setCompletedActions] = useState<string[]>([]);
+  const [showCompleted, setShowCompleted] = useState<'none' | '30' | '60' | '90' | 'all'>('none');
 
   const handleSearchSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -40,17 +46,35 @@ export default function DashboardPage() {
   const reports = getDailyReports(dateString);
 
   // Filter and sort action items
-  let filteredActions = mockActionItems;
-  if (actionFilter !== 'all') {
-    filteredActions = filteredActions.filter(action => action.source.appType === actionFilter);
+  let filteredActions = showCompleted === 'none'
+    ? mockActionItems.filter(action => !completedActions.includes(action.id))
+    : mockActionItems.filter(action => completedActions.includes(action.id));
+
+  if (actionFilters.length > 0) {
+    filteredActions = filteredActions.filter(action => actionFilters.includes(action.source.appType));
   }
 
   const sortedActions = [...filteredActions].sort((a, b) => {
+    // Flagged items first
+    const aFlagged = flaggedActions.includes(a.id);
+    const bFlagged = flaggedActions.includes(b.id);
+    if (aFlagged && !bFlagged) return -1;
+    if (!aFlagged && bFlagged) return 1;
+
+    // Then by date
     if (actionSort === 'date') {
       return new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime();
     }
     return 0;
   });
+
+  const toggleFilter = (appType: string) => {
+    setActionFilters(prev =>
+      prev.includes(appType)
+        ? prev.filter(f => f !== appType)
+        : [...prev, appType]
+    );
+  };
 
   const getAlertColor = (level: string) => {
     switch (level) {
@@ -83,12 +107,12 @@ export default function DashboardPage() {
       <div className="flex-1 overflow-y-auto p-8 pt-12">
         <div className="max-w-7xl mx-auto">
           {/* Two Column Layout */}
-          <div className="grid grid-cols-3 gap-6">
+          <div className="grid grid-cols-3 gap-6" style={{ minWidth: '900px' }}>
             {/* Left Column - Main Content */}
-            <div className="col-span-2 space-y-6">
+            <div className="col-span-2 space-y-6" style={{ minWidth: '600px' }}>
               {/* Daily Reports Summary */}
               <div>
-                <h2 className="text-2xl font-normal text-gray-900 mb-4">Today's Awareness Reports</h2>
+                <h2 className="text-3xl font-normal text-gray-900 mb-4">Today's Awareness Reports</h2>
                 <div className="grid grid-cols-3 gap-4">
                   {reports.map((report) => {
                     const uniqueApps = [...new Set(report.sources.map(s => s.appType))];
@@ -144,7 +168,7 @@ export default function DashboardPage() {
               {/* Key Action Items */}
               <div className="flex flex-col" style={{ maxHeight: '400px' }}>
                 <div className="flex items-center justify-between mb-4">
-                  <h2 className="text-2xl font-normal text-gray-900 mb-0">Key Action Items</h2>
+                  <h2 className="text-3xl font-normal text-gray-900 mb-0">Key Action Items</h2>
                   <DropdownMenu>
                     <DropdownMenuTrigger asChild>
                       <Button variant="outline" size="sm" className="gap-2">
@@ -154,30 +178,53 @@ export default function DashboardPage() {
                       </Button>
                     </DropdownMenuTrigger>
                     <DropdownMenuContent align="end">
-                      <DropdownMenuItem onClick={() => setActionFilter('all')}>
-                        All Sources
+                      <DropdownMenuItem onClick={() => setActionFilters([])}>
+                        {actionFilters.length === 0 ? '✓ ' : ''}All Sources
                       </DropdownMenuItem>
                       <DropdownMenuSeparator />
-                      <DropdownMenuItem onClick={() => setActionFilter('gmail')} className="gap-2">
+                      <DropdownMenuItem onClick={() => toggleFilter('gmail')} className="gap-2">
                         <img src="/logos/gmail.webp" alt="Gmail" className="w-4 h-4 object-contain" />
-                        Gmail Only
+                        {actionFilters.includes('gmail') ? '✓ ' : ''}Gmail
                       </DropdownMenuItem>
-                      <DropdownMenuItem onClick={() => setActionFilter('slack')} className="gap-2">
+                      <DropdownMenuItem onClick={() => toggleFilter('slack')} className="gap-2">
                         <img src="/logos/slack.png" alt="Slack" className="w-4 h-4 object-contain" />
-                        Slack Only
+                        {actionFilters.includes('slack') ? '✓ ' : ''}Slack
                       </DropdownMenuItem>
-                      <DropdownMenuItem onClick={() => setActionFilter('drive')} className="gap-2">
+                      <DropdownMenuItem onClick={() => toggleFilter('drive')} className="gap-2">
                         <img src="/logos/drive.png" alt="Drive" className="w-4 h-4 object-contain" />
-                        Drive Only
+                        {actionFilters.includes('drive') ? '✓ ' : ''}Drive
                       </DropdownMenuItem>
-                      <DropdownMenuItem onClick={() => setActionFilter('sheets')} className="gap-2">
+                      <DropdownMenuItem onClick={() => toggleFilter('sheets')} className="gap-2">
                         <img src="/logos/google-sheets.png" alt="Sheets" className="w-4 h-4 object-contain" />
-                        Sheets Only
+                        {actionFilters.includes('sheets') ? '✓ ' : ''}Sheets
                       </DropdownMenuItem>
-                      <DropdownMenuItem onClick={() => setActionFilter('salesforce')} className="gap-2">
+                      <DropdownMenuItem onClick={() => toggleFilter('salesforce')} className="gap-2">
                         <img src="/logos/salesforce.png" alt="Salesforce" className="w-4 h-4 object-contain" />
-                        Salesforce Only
+                        {actionFilters.includes('salesforce') ? '✓ ' : ''}Salesforce
                       </DropdownMenuItem>
+                      <DropdownMenuSeparator />
+                      <DropdownMenuSub>
+                        <DropdownMenuSubTrigger>
+                          Completed Items
+                        </DropdownMenuSubTrigger>
+                        <DropdownMenuSubContent>
+                          <DropdownMenuItem onClick={() => setShowCompleted('none')}>
+                            {showCompleted === 'none' ? '✓ ' : ''}Hide Completed
+                          </DropdownMenuItem>
+                          <DropdownMenuItem onClick={() => setShowCompleted('30')}>
+                            {showCompleted === '30' ? '✓ ' : ''}Last 30 Days
+                          </DropdownMenuItem>
+                          <DropdownMenuItem onClick={() => setShowCompleted('60')}>
+                            {showCompleted === '60' ? '✓ ' : ''}Last 60 Days
+                          </DropdownMenuItem>
+                          <DropdownMenuItem onClick={() => setShowCompleted('90')}>
+                            {showCompleted === '90' ? '✓ ' : ''}Last 90 Days
+                          </DropdownMenuItem>
+                          <DropdownMenuItem onClick={() => setShowCompleted('all')}>
+                            {showCompleted === 'all' ? '✓ ' : ''}All Completed
+                          </DropdownMenuItem>
+                        </DropdownMenuSubContent>
+                      </DropdownMenuSub>
                     </DropdownMenuContent>
                   </DropdownMenu>
                 </div>
@@ -187,24 +234,74 @@ export default function DashboardPage() {
                       <button
                         key={action.id}
                         onClick={() => setSelectedSource(action.source)}
-                        className="w-full bg-white hover:bg-gray-50 rounded-xl p-4 transition-all text-left group flex items-start gap-4"
+                        className="w-full bg-white hover:bg-gray-50 rounded-xl p-4 transition-all duration-700 ease-in-out text-left group flex items-start gap-4 animate-in fade-in slide-in-from-top-2"
+                        style={{ animationDelay: `${idx * 50}ms`, animationDuration: '600ms' }}
                       >
                         <div className="flex-1">
-                          <p className="text-sm text-gray-900 mb-1 group-hover:text-gray-700">
-                            {action.title}
-                          </p>
-                          <p className="text-xs text-gray-400">{action.createdAt}</p>
-                        </div>
-                        <div className="flex items-center gap-2 text-xs text-gray-400 flex-shrink-0">
-                          <img
-                            src={action.source.appType === 'gmail' ? '/logos/gmail.webp' :
-                                 action.source.appType === 'slack' ? '/logos/slack.png' :
-                                 action.source.appType === 'drive' ? '/logos/drive.png' :
-                                 action.source.appType === 'sheets' ? '/logos/google-sheets.png' :
-                                 '/logos/salesforce.png'}
-                            alt={action.source.appType}
-                            className="w-4 h-4 object-contain"
-                          />
+                          <div className="flex items-start justify-between mb-1">
+                            <p className="text-sm text-gray-900 flex-1 group-hover:text-gray-700">
+                              {action.title}
+                            </p>
+                            <div className="flex items-center gap-1 flex-shrink-0 ml-3">
+                              <button
+                                onClick={(e) => {
+                                  e.stopPropagation();
+                                  setFlaggedActions(prev =>
+                                    prev.includes(action.id) ? prev.filter(id => id !== action.id) : [...prev, action.id]
+                                  );
+                                }}
+                                className={`p-1 rounded hover:bg-gray-100 transition-colors ${
+                                  flaggedActions.includes(action.id) ? 'text-red-500' : 'text-gray-400'
+                                }`}
+                              >
+                                <Flag className={`h-4 w-4 ${flaggedActions.includes(action.id) ? 'fill-current' : ''}`} />
+                              </button>
+                              <DropdownMenu>
+                                <DropdownMenuTrigger asChild>
+                                  <button
+                                    onClick={(e) => e.stopPropagation()}
+                                    className="p-1 rounded hover:bg-gray-100 transition-colors text-gray-400"
+                                  >
+                                    <MoreVertical className="h-4 w-4" />
+                                  </button>
+                                </DropdownMenuTrigger>
+                                <DropdownMenuContent align="end">
+                                  <DropdownMenuItem onClick={(e) => {
+                                    e.stopPropagation();
+                                    setCompletedActions([...completedActions, action.id]);
+                                  }}>
+                                    <Check className="h-4 w-4 mr-2" />
+                                    Mark as Done
+                                  </DropdownMenuItem>
+                                  <DropdownMenuItem
+                                    className="text-red-600 focus:text-red-600 focus:bg-red-50"
+                                    onClick={(e) => {
+                                      e.stopPropagation();
+                                      setCompletedActions([...completedActions, action.id]);
+                                    }}
+                                  >
+                                    <Trash2 className="h-4 w-4 mr-2" />
+                                    Delete
+                                  </DropdownMenuItem>
+                                </DropdownMenuContent>
+                              </DropdownMenu>
+                            </div>
+                          </div>
+                          <div className="flex items-center gap-2">
+                            <p className="text-xs text-gray-400">{action.createdAt}</p>
+                            <div className="flex items-center gap-1.5 px-2 py-0.5 bg-white border border-gray-200 rounded-full max-w-xs">
+                              <img
+                                src={action.source.appType === 'gmail' ? '/logos/gmail.webp' :
+                                     action.source.appType === 'slack' ? '/logos/slack.png' :
+                                     action.source.appType === 'drive' ? '/logos/drive.png' :
+                                     action.source.appType === 'sheets' ? '/logos/google-sheets.png' :
+                                     '/logos/salesforce.png'}
+                                alt={action.source.appType}
+                                className="w-3 h-3 object-contain flex-shrink-0"
+                              />
+                              <span className="text-xs text-gray-500 truncate">{action.source.title}</span>
+                            </div>
+                          </div>
                         </div>
                       </button>
                     ))}
@@ -214,15 +311,22 @@ export default function DashboardPage() {
             </div>
 
             {/* Right Column - Alerts */}
-            <div className="col-span-1 flex flex-col" style={{ maxHeight: '726px' }}>
-              <h2 className="text-2xl font-normal text-gray-900 mb-4">Alerts</h2>
+            <div className="col-span-1 flex flex-col" style={{ maxHeight: '730px', minWidth: '300px' }}>
+              <h2 className="text-3xl font-normal text-gray-900 mb-4">Alerts</h2>
               <div className="space-y-3 overflow-y-auto flex-1 rounded-2xl">
                 {mockAlerts.map((alert) => (
                   <div
                     key={alert.id}
-                    className={`rounded-2xl p-4 border-2 ${getAlertColor(alert.level)}`}
+                    className={`rounded-2xl p-4 border-2 ${getAlertColor(alert.level)} relative`}
                   >
-                    <div className="flex items-start gap-3 mb-2">
+                    <button className={`absolute top-1.5 right-1.5 p-0.5 rounded hover:bg-black/5 transition-colors ${
+                      alert.level === 'critical' ? 'text-red-600' :
+                      alert.level === 'important' ? 'text-orange-600' :
+                      'text-blue-600'
+                    }`}>
+                      <MoreVertical className="h-4 w-4" />
+                    </button>
+                    <div className="flex items-start gap-3 mb-2 pr-8">
                       {getAlertIcon(alert.level)}
                       <h3 className="text-sm font-semibold flex-1">{alert.title}</h3>
                     </div>
@@ -242,7 +346,7 @@ export default function DashboardPage() {
 
       {/* Search Bar at Bottom */}
       <div className="fixed bottom-8 left-0 right-0 flex justify-center px-8" style={{ left: 'calc(256px + 48px)' }}>
-          <div className="w-full max-w-3xl">
+          <div className="w-full max-w-3xl" style={{ minWidth: '400px' }}>
             <form onSubmit={handleSearchSubmit}>
               <div className="relative">
                 <div className="relative bg-white/95 backdrop-blur-xl rounded-full border border-gray-300" style={{ boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)' }}>

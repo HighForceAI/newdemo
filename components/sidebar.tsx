@@ -16,6 +16,7 @@ import {
   FileText,
   Users,
   Calendar,
+  MoreHorizontal,
 } from "lucide-react";
 import { useAuth } from "@/contexts/auth-context";
 import { getChatHistory, deleteChat, type ChatHistoryItem } from "@/lib/api";
@@ -53,7 +54,7 @@ export default function Sidebar({ user }: SidebarProps) {
   const navigation = [
     { name: "Dashboard", href: "/", icon: LayoutDashboard },
     { name: "Daily Reports", href: "/daily-reports", icon: Calendar },
-    { name: "Team", href: "/team", icon: Users },
+    { name: "Teams", href: "/team", icon: Users },
   ];
 
   // Load chat history only once when user is available
@@ -183,14 +184,23 @@ export default function Sidebar({ user }: SidebarProps) {
               <div key={chat.id} className="relative group/chat mb-1">
                 <button
                   onClick={() => router.push(`/search?chat_id=${chat.id}`)}
-                  className="w-full h-auto py-2 px-4 text-sm font-normal text-gray-700 hover:bg-white/40 rounded-xl text-left"
+                  className="w-full h-auto py-2 px-4 text-sm font-normal text-gray-700 hover:bg-white/40 rounded-xl text-left relative"
                 >
-                  <p className="text-sm font-normal truncate">
-                    {chat.title}
-                  </p>
-                  <p className="text-xs text-gray-600 font-light mt-0.5">
-                    {formatTimestamp(chat.created_at)}
-                  </p>
+                  <div>
+                    <p className="text-sm font-normal">
+                      {chat.title}
+                    </p>
+                    <p className="text-xs text-gray-600 font-light mt-0.5">
+                      {formatTimestamp(chat.created_at)}
+                    </p>
+                  </div>
+                  <button
+                    onClick={(e) => e.stopPropagation()}
+                    className="absolute right-1 top-2 px-2.5 py-1.5 rounded hover:bg-white transition-colors opacity-0 group-hover/chat:opacity-100 text-gray-400"
+                    style={{ backgroundColor: '#E3E4EA' }}
+                  >
+                    <MoreHorizontal className="h-4 w-4" />
+                  </button>
                 </button>
               </div>
             ))}
