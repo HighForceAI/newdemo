@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import { useAuth } from '@/contexts/auth-context';
 import Sidebar from '@/components/sidebar';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { ButtonGroup } from "@/components/ui/button-group";
 import { Button } from "@/components/ui/button";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuSeparator, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger, DialogFooter } from "@/components/ui/dialog";
@@ -22,6 +23,7 @@ export default function TeamPage() {
   const [newTeamDescription, setNewTeamDescription] = useState('');
   const [selectedManager, setSelectedManager] = useState('');
   const [isLoaded, setIsLoaded] = useState(false);
+  const [activeTab, setActiveTab] = useState<'users' | 'teams'>('users');
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -103,11 +105,30 @@ export default function TeamPage() {
         style={{ willChange: isLoaded ? 'auto' : 'opacity' }}
       >
         <div className="max-w-7xl mx-auto" style={{ minWidth: '900px' }}>
-          <div className="flex items-end justify-between mb-8">
-            <div>
-              <h1 className="text-3xl font-normal text-gray-900">Team Management</h1>
-              <p className="text-base text-gray-400 font-light mt-2">Manage users, roles, and team assignments</p>
-            </div>
+          <div className="mb-8">
+            <h1 className="text-3xl font-normal text-gray-900">Team Management</h1>
+            <p className="text-base text-gray-400 font-light mt-2">Manage users, roles, and team assignments</p>
+          </div>
+
+          <div className="flex items-center justify-between mb-8">
+            <ButtonGroup>
+              <Button
+                variant={activeTab === 'users' ? 'default' : 'outline'}
+                onClick={() => setActiveTab('users')}
+                className="font-normal"
+                style={activeTab === 'users' ? { backgroundColor: '#2c8492' } : {}}
+              >
+                All Users
+              </Button>
+              <Button
+                variant={activeTab === 'teams' ? 'default' : 'outline'}
+                onClick={() => setActiveTab('teams')}
+                className="font-normal"
+                style={activeTab === 'teams' ? { backgroundColor: '#2c8492' } : {}}
+              >
+                Teams
+              </Button>
+            </ButtonGroup>
 
             <Dialog open={createTeamOpen} onOpenChange={setCreateTeamOpen}>
               <DialogTrigger asChild>
@@ -159,14 +180,9 @@ export default function TeamPage() {
             </Dialog>
           </div>
 
-          <Tabs defaultValue="users" className="w-full">
-            <TabsList>
-              <TabsTrigger value="users">All Users</TabsTrigger>
-              <TabsTrigger value="teams">Teams</TabsTrigger>
-            </TabsList>
-
+          <Tabs value={activeTab} onValueChange={(v) => setActiveTab(v as 'users' | 'teams')} className="w-full">
             {/* All Users Tab - Table Layout */}
-            <TabsContent value="users" className="mt-6">
+            <TabsContent value="users" className="mt-0">
               <div className="bg-white border border-gray-200 rounded-2xl overflow-hidden">
                 {/* Header */}
                 <div className="grid grid-cols-12 gap-4 px-6 py-4 text-xs font-semibold text-gray-600 uppercase tracking-wide" style={{ backgroundColor: 'rgba(44, 132, 146, 0.25)' }}>

@@ -53,7 +53,7 @@ export default function Sidebar({ user }: SidebarProps) {
 
   const navigation = [
     { name: "Dashboard", href: "/", icon: LayoutDashboard },
-    { name: "Daily Reports", href: "/daily-reports", icon: Calendar },
+    { name: "Reports", href: "/daily-reports", icon: Calendar },
     { name: "Teams", href: "/team", icon: Users },
   ];
 
@@ -126,10 +126,10 @@ export default function Sidebar({ user }: SidebarProps) {
         )}
         <button
           onClick={() => router.push("/search")}
-          className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-normal ${
+          className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-normal transition-colors ${
             pathname === "/search"
               ? "bg-white text-gray-800 shadow-sm"
-              : "text-gray-700 hover:bg-white/40"
+              : "text-gray-700 hover:bg-[#2c8492]/20"
           }`}
         >
           <SearchIcon className="h-4 w-4" />
@@ -149,10 +149,10 @@ export default function Sidebar({ user }: SidebarProps) {
                   <div className="absolute top-1/2 -translate-y-1/2 w-1 rounded-r-full z-10" style={{ left: '-20px', height: '34px', backgroundColor: '#2c8492' }} />
                 )}
                 <button
-                  className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-normal ${
+                  className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-normal transition-colors ${
                     isActive
                       ? "bg-white text-gray-800 shadow-sm"
-                      : "text-gray-700 hover:bg-white/40"
+                      : "text-gray-700 hover:bg-[#2c8492]/20"
                   }`}
                 >
                   <Icon className="h-4 w-4" />
@@ -168,7 +168,7 @@ export default function Sidebar({ user }: SidebarProps) {
       <div className="border-t border-gray-300 pt-4 pb-4 flex-1">
         <button
           onClick={() => setHistoryExpanded(!historyExpanded)}
-          className="w-full flex items-center justify-between px-4 py-3 text-sm font-normal text-gray-500 hover:bg-white/40 rounded-xl"
+          className="w-full flex items-center justify-between px-4 py-3 text-sm font-normal text-gray-500 hover:bg-[#2c8492]/20 rounded-xl transition-colors"
         >
           <span>Recent Chats</span>
           <ChevronDown className={`h-4 w-4 text-gray-400 transition-transform duration-200 ${historyExpanded ? '' : '-rotate-90'}`} />
@@ -181,29 +181,33 @@ export default function Sidebar({ user }: SidebarProps) {
         >
           <div className="mt-3 space-y-1">
             {mockChats.map((chat) => (
-              <div key={chat.id} className="relative group/chat mb-1">
+              <div key={chat.id} className="relative group/chat mb-1 rounded-xl hover:bg-[#2c8492]/20 transition-colors">
                 <div
                   onClick={() => router.push(`/search?chat_id=${chat.id}`)}
-                  className="w-full h-auto py-2 px-4 text-sm font-normal text-gray-700 hover:bg-white/40 rounded-xl cursor-pointer relative"
+                  className="w-full h-auto py-2 px-4 pr-10 text-sm font-normal text-gray-700 rounded-xl cursor-pointer relative"
                 >
                   <div>
-                    <p className="text-sm font-normal">
+                    <p className="text-sm font-normal truncate">
                       {chat.title}
                     </p>
                     <p className="text-xs text-gray-600 font-light mt-0.5">
                       {formatTimestamp(chat.created_at)}
                     </p>
                   </div>
-                  <button
-                    onClick={(e) => {
-                      e.stopPropagation();
-                    }}
-                    className="absolute right-1 top-2 px-2.5 py-1.5 rounded hover:bg-white transition-colors opacity-0 group-hover/chat:opacity-100 text-gray-400"
-                    style={{ backgroundColor: '#E3E4EA' }}
-                  >
-                    <MoreHorizontal className="h-4 w-4" />
-                  </button>
                 </div>
+                {/* Gradient fade overlay */}
+                <div className="absolute right-0 top-0 bottom-0 w-16 pointer-events-none opacity-0 group-hover/chat:opacity-100 transition-opacity rounded-r-xl" style={{ background: 'linear-gradient(to right, transparent, #E3E4EA 50%)' }} />
+                {/* Delete button */}
+                <button
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    handleDeleteChat(chat.id, e);
+                  }}
+                  className="absolute right-2 top-2 p-1 rounded hover:bg-[#2c8492]/30 transition-all opacity-0 group-hover/chat:opacity-100"
+                  style={{ color: '#2c8492' }}
+                >
+                  <MoreHorizontal className="h-4 w-4" />
+                </button>
               </div>
             ))}
           </div>
@@ -212,7 +216,7 @@ export default function Sidebar({ user }: SidebarProps) {
 
       {/* User Section */}
       <div className="mt-auto">
-        <button className="w-full flex items-center gap-3 mb-4 px-4 py-3 rounded-xl text-gray-700 hover:bg-white/40 transition-colors">
+        <button className="w-full flex items-center gap-3 mb-4 px-4 py-3 rounded-xl text-gray-700 hover:bg-[#2c8492]/20 transition-colors">
           <div className="w-8 h-8 rounded-full flex items-center justify-center" style={{ backgroundColor: '#2c8492' }}>
             <span className="text-white text-xs font-medium">
               {user?.email?.[0]?.toUpperCase() || "U"}
@@ -231,7 +235,7 @@ export default function Sidebar({ user }: SidebarProps) {
           {!isDemoMode && (
             <button
               onClick={() => router.push("/connections")}
-              className="w-full flex items-center gap-3 px-4 py-3 text-gray-700 hover:bg-white/40 rounded-xl text-sm font-normal"
+              className="w-full flex items-center gap-3 px-4 py-3 text-gray-700 hover:bg-[#2c8492]/20 rounded-xl text-sm font-normal transition-colors"
             >
               <Settings className="h-4 w-4" />
               <span>Settings</span>
@@ -239,7 +243,7 @@ export default function Sidebar({ user }: SidebarProps) {
           )}
           <button
             onClick={() => signOut()}
-            className="w-full flex items-center gap-3 px-4 py-3 text-gray-700 hover:bg-white/40 rounded-xl text-sm font-normal"
+            className="w-full flex items-center gap-3 px-4 py-3 text-gray-700 hover:bg-[#2c8492]/20 rounded-xl text-sm font-normal transition-colors"
           >
             <LogOut className="h-4 w-4" />
             <span>Log out</span>

@@ -6,14 +6,19 @@ import { useAuth } from "@/contexts/auth-context";
 import { Button } from "@/components/ui/button";
 import { Calendar } from "@/components/ui/calendar";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { ButtonGroup } from "@/components/ui/button-group";
 import { Calendar as CalendarIcon, ChevronLeft, ChevronRight } from "lucide-react";
 import { getDailyReports, DailyReport } from "@/lib/demo-data";
 import ReportCard from "@/components/ReportCard";
 import ReportModal from "@/components/ReportModal";
 
-export default function DailyReportsPage() {
+export default function ReportsPage() {
   const { user } = useAuth();
+  const [activeTab, setActiveTab] = useState<'daily' | 'weekly' | 'monthly'>('daily');
   const [selectedDate, setSelectedDate] = useState<Date>(new Date());
+  const [selectedWeek, setSelectedWeek] = useState<Date>(new Date());
+  const [selectedMonth, setSelectedMonth] = useState<Date>(new Date());
   const [calendarOpen, setCalendarOpen] = useState(false);
   const [selectedReport, setSelectedReport] = useState<DailyReport | null>(null);
   const [isLoaded, setIsLoaded] = useState(false);
@@ -32,11 +37,32 @@ export default function DailyReportsPage() {
     return `${yyyy}-${mm}-${dd}`;
   };
 
+  const getWeekRange = (date: Date): { start: Date; end: Date } => {
+    const start = new Date(date);
+    const day = start.getDay();
+    const diff = start.getDate() - day;
+    start.setDate(diff);
+    const end = new Date(start);
+    end.setDate(start.getDate() + 6);
+    return { start, end };
+  };
+
+  const formatWeekRange = (date: Date): string => {
+    const { start, end } = getWeekRange(date);
+    return `${start.toLocaleDateString('en-US', { month: 'short', day: 'numeric' })} - ${end.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}`;
+  };
+
+  const formatMonth = (date: Date): string => {
+    return date.toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
+  };
+
   const reports = getDailyReports(formatDateToString(selectedDate));
 
   const handleDateSelect = (date: Date | undefined) => {
     if (date) {
-      setSelectedDate(date);
+      if (activeTab === 'daily') setSelectedDate(date);
+      else if (activeTab === 'weekly') setSelectedWeek(date);
+      else setSelectedMonth(date);
       setCalendarOpen(false);
     }
   };
@@ -49,6 +75,26 @@ export default function DailyReportsPage() {
       newDate.setDate(newDate.getDate() + 1);
     }
     setSelectedDate(newDate);
+  };
+
+  const navigateWeek = (direction: 'prev' | 'next') => {
+    const newDate = new Date(selectedWeek);
+    if (direction === 'prev') {
+      newDate.setDate(newDate.getDate() - 7);
+    } else {
+      newDate.setDate(newDate.getDate() + 7);
+    }
+    setSelectedWeek(newDate);
+  };
+
+  const navigateMonth = (direction: 'prev' | 'next') => {
+    const newDate = new Date(selectedMonth);
+    if (direction === 'prev') {
+      newDate.setMonth(newDate.getMonth() - 1);
+    } else {
+      newDate.setMonth(newDate.getMonth() + 1);
+    }
+    setSelectedMonth(newDate);
   };
 
   return (
@@ -74,70 +120,256 @@ export default function DailyReportsPage() {
         style={{ willChange: isLoaded ? 'auto' : 'opacity' }}
       >
         <div className="max-w-7xl mx-auto" style={{ minWidth: '800px' }}>
-          {/* Header with Date and Calendar */}
-          <div className="flex items-end justify-between mb-12">
-            {/* Left: Selected Date Display */}
-            <div>
-              <h1 className="text-3xl font-normal text-gray-900">
-                {selectedDate.toLocaleDateString('en-US', {
-                  weekday: 'long',
-                  year: 'numeric',
-                  month: 'long',
-                  day: 'numeric'
-                })}
-              </h1>
-              <p className="text-base text-gray-400 font-light mt-2">Viewing all reports for this day</p>
-            </div>
+          {/* Tabs */}
+          <Tabs value={activeTab} onValueChange={(v) => setActiveTab(v as 'daily' | 'weekly' | 'monthly')} className="w-full">
+            {/* Daily Tab */}
+            <TabsContent value="daily" className="mt-0">
+              <div className="mb-8">
+                <div className="mb-6">
+                  <h1 className="text-3xl font-normal text-gray-900">
+                    {selectedDate.toLocaleDateString('en-US', {
+                      weekday: 'long',
+                      year: 'numeric',
+                      month: 'long',
+                      day: 'numeric'
+                    })}
+                  </h1>
+                  <p className="text-base text-gray-400 font-light mt-2">Viewing all reports for this day</p>
+                </div>
 
-            {/* Right: Date Navigation */}
-            <div className="flex gap-2">
-              <Button variant="outline" size="lg" onClick={() => navigateDay('prev')} className="font-normal">
-                <ChevronLeft className="h-4 w-4 mr-1" />
-                Previous Day
-              </Button>
-              <Button variant="outline" size="lg" onClick={() => navigateDay('next')} className="font-normal">
-                Next Day
-                <ChevronRight className="h-4 w-4 ml-1" />
-              </Button>
-              <Popover open={calendarOpen} onOpenChange={setCalendarOpen}>
-                <PopoverTrigger asChild>
-                  <Button variant="outline" size="lg" className="font-normal">
-                    <CalendarIcon className="h-4 w-4" />
-                  </Button>
-                </PopoverTrigger>
-                <PopoverContent className="w-auto p-0" align="end">
-                  <Calendar
-                    mode="single"
-                    selected={selectedDate}
-                    onSelect={handleDateSelect}
-                    captionLayout="dropdown"
+                <div className="flex items-center justify-between">
+                  <ButtonGroup>
+                    <Button
+                      variant={activeTab === 'daily' ? 'default' : 'outline'}
+                      onClick={() => setActiveTab('daily')}
+                      className="font-normal"
+                      style={activeTab === 'daily' ? { backgroundColor: '#2c8492' } : {}}
+                    >
+                      Daily
+                    </Button>
+                    <Button
+                      variant={activeTab === 'weekly' ? 'default' : 'outline'}
+                      onClick={() => setActiveTab('weekly')}
+                      className="font-normal"
+                      style={activeTab === 'weekly' ? { backgroundColor: '#2c8492' } : {}}
+                    >
+                      Weekly
+                    </Button>
+                    <Button
+                      variant={activeTab === 'monthly' ? 'default' : 'outline'}
+                      onClick={() => setActiveTab('monthly')}
+                      className="font-normal"
+                      style={activeTab === 'monthly' ? { backgroundColor: '#2c8492' } : {}}
+                    >
+                      Monthly
+                    </Button>
+                  </ButtonGroup>
+
+                  <div className="flex gap-2">
+                    <Button variant="outline" size="lg" onClick={() => navigateDay('prev')} className="font-normal">
+                      <ChevronLeft className="h-4 w-4 mr-1" />
+                      Previous Day
+                    </Button>
+                    <Button variant="outline" size="lg" onClick={() => navigateDay('next')} className="font-normal">
+                      Next Day
+                      <ChevronRight className="h-4 w-4 ml-1" />
+                    </Button>
+                    <Popover open={calendarOpen} onOpenChange={setCalendarOpen}>
+                      <PopoverTrigger asChild>
+                        <Button variant="outline" size="lg" className="font-normal">
+                          <CalendarIcon className="h-4 w-4" />
+                        </Button>
+                      </PopoverTrigger>
+                      <PopoverContent className="w-auto p-0" align="end">
+                        <Calendar
+                          mode="single"
+                          selected={selectedDate}
+                          onSelect={handleDateSelect}
+                          captionLayout="dropdown"
+                        />
+                      </PopoverContent>
+                    </Popover>
+                  </div>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 gap-6">
+                {reports.map((report) => (
+                  <ReportCard
+                    key={report.id}
+                    title={report.title}
+                    icon={report.icon}
+                    summary={report.summary}
+                    sourceCount={report.sources.length}
+                    sources={report.sources}
+                    onClick={() => setSelectedReport(report)}
                   />
-                </PopoverContent>
-              </Popover>
-            </div>
-          </div>
+                ))}
+              </div>
+            </TabsContent>
 
-          {/* Report Cards */}
-          <div className="grid grid-cols-1 gap-6">
-            {reports.map((report) => (
-              <ReportCard
-                key={report.id}
-                title={report.title}
-                icon={report.icon}
-                summary={report.summary}
-                sourceCount={report.sources.length}
-                sources={report.sources}
-                onClick={() => setSelectedReport(report)}
-              />
-            ))}
-          </div>
+            {/* Weekly Tab */}
+            <TabsContent value="weekly" className="mt-0">
+              <div className="mb-8">
+                <div className="mb-6">
+                  <h1 className="text-3xl font-normal text-gray-900">
+                    Week of {formatWeekRange(selectedWeek)}
+                  </h1>
+                  <p className="text-base text-gray-400 font-light mt-2">Viewing all end of week reports</p>
+                </div>
 
-          {/* Empty State */}
-          {reports.length === 0 && (
-            <div className="text-center py-20">
-              <p className="text-gray-400">No reports available for this date</p>
-            </div>
-          )}
+                <div className="flex items-center justify-between">
+                  <ButtonGroup>
+                    <Button
+                      variant={activeTab === 'daily' ? 'default' : 'outline'}
+                      onClick={() => setActiveTab('daily')}
+                      className="font-normal"
+                      style={activeTab === 'daily' ? { backgroundColor: '#2c8492' } : {}}
+                    >
+                      Daily
+                    </Button>
+                    <Button
+                      variant={activeTab === 'weekly' ? 'default' : 'outline'}
+                      onClick={() => setActiveTab('weekly')}
+                      className="font-normal"
+                      style={activeTab === 'weekly' ? { backgroundColor: '#2c8492' } : {}}
+                    >
+                      Weekly
+                    </Button>
+                    <Button
+                      variant={activeTab === 'monthly' ? 'default' : 'outline'}
+                      onClick={() => setActiveTab('monthly')}
+                      className="font-normal"
+                      style={activeTab === 'monthly' ? { backgroundColor: '#2c8492' } : {}}
+                    >
+                      Monthly
+                    </Button>
+                  </ButtonGroup>
+
+                  <div className="flex gap-2">
+                    <Button variant="outline" size="lg" onClick={() => navigateWeek('prev')} className="font-normal">
+                      <ChevronLeft className="h-4 w-4 mr-1" />
+                      Previous Week
+                    </Button>
+                    <Button variant="outline" size="lg" onClick={() => navigateWeek('next')} className="font-normal">
+                      Next Week
+                      <ChevronRight className="h-4 w-4 ml-1" />
+                    </Button>
+                    <Popover open={calendarOpen} onOpenChange={setCalendarOpen}>
+                      <PopoverTrigger asChild>
+                        <Button variant="outline" size="lg" className="font-normal">
+                          <CalendarIcon className="h-4 w-4" />
+                        </Button>
+                      </PopoverTrigger>
+                      <PopoverContent className="w-auto p-0" align="end">
+                        <Calendar
+                          mode="single"
+                          selected={selectedWeek}
+                          onSelect={handleDateSelect}
+                          captionLayout="dropdown"
+                        />
+                      </PopoverContent>
+                    </Popover>
+                  </div>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 gap-6">
+                {reports.map((report) => (
+                  <ReportCard
+                    key={report.id}
+                    title={report.title}
+                    icon={report.icon}
+                    summary={report.summary}
+                    sourceCount={report.sources.length}
+                    sources={report.sources}
+                    onClick={() => setSelectedReport(report)}
+                  />
+                ))}
+              </div>
+            </TabsContent>
+
+            {/* Monthly Tab */}
+            <TabsContent value="monthly" className="mt-0">
+              <div className="mb-8">
+                <div className="mb-6">
+                  <h1 className="text-3xl font-normal text-gray-900">
+                    {formatMonth(selectedMonth)}
+                  </h1>
+                  <p className="text-base text-gray-400 font-light mt-2">Viewing all end of month reports</p>
+                </div>
+
+                <div className="flex items-center justify-between">
+                  <ButtonGroup>
+                    <Button
+                      variant={activeTab === 'daily' ? 'default' : 'outline'}
+                      onClick={() => setActiveTab('daily')}
+                      className="font-normal"
+                      style={activeTab === 'daily' ? { backgroundColor: '#2c8492' } : {}}
+                    >
+                      Daily
+                    </Button>
+                    <Button
+                      variant={activeTab === 'weekly' ? 'default' : 'outline'}
+                      onClick={() => setActiveTab('weekly')}
+                      className="font-normal"
+                      style={activeTab === 'weekly' ? { backgroundColor: '#2c8492' } : {}}
+                    >
+                      Weekly
+                    </Button>
+                    <Button
+                      variant={activeTab === 'monthly' ? 'default' : 'outline'}
+                      onClick={() => setActiveTab('monthly')}
+                      className="font-normal"
+                      style={activeTab === 'monthly' ? { backgroundColor: '#2c8492' } : {}}
+                    >
+                      Monthly
+                    </Button>
+                  </ButtonGroup>
+
+                  <div className="flex gap-2">
+                    <Button variant="outline" size="lg" onClick={() => navigateMonth('prev')} className="font-normal">
+                      <ChevronLeft className="h-4 w-4 mr-1" />
+                      Previous Month
+                    </Button>
+                    <Button variant="outline" size="lg" onClick={() => navigateMonth('next')} className="font-normal">
+                      Next Month
+                      <ChevronRight className="h-4 w-4 ml-1" />
+                    </Button>
+                    <Popover open={calendarOpen} onOpenChange={setCalendarOpen}>
+                      <PopoverTrigger asChild>
+                        <Button variant="outline" size="lg" className="font-normal">
+                          <CalendarIcon className="h-4 w-4" />
+                        </Button>
+                      </PopoverTrigger>
+                      <PopoverContent className="w-auto p-0" align="end">
+                        <Calendar
+                          mode="single"
+                          selected={selectedMonth}
+                          onSelect={handleDateSelect}
+                          captionLayout="dropdown"
+                        />
+                      </PopoverContent>
+                    </Popover>
+                  </div>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 gap-6">
+                {reports.map((report) => (
+                  <ReportCard
+                    key={report.id}
+                    title={report.title}
+                    icon={report.icon}
+                    summary={report.summary}
+                    sourceCount={report.sources.length}
+                    sources={report.sources}
+                    onClick={() => setSelectedReport(report)}
+                  />
+                ))}
+              </div>
+            </TabsContent>
+          </Tabs>
         </div>
       </div>
 
