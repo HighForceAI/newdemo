@@ -268,7 +268,7 @@ function SearchPageContent() {
                 ) : (
                   <div className="w-full">
                     <div className="bg-white rounded-2xl p-5">
-                      <div className="prose prose-sm max-w-none">
+                      <div className="prose prose-sm max-w-none prose-code:text-gray-900 prose-code:bg-gray-100">
                         <SmartMarkdown content={message.content} />
                       </div>
 

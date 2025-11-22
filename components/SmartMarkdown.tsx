@@ -74,12 +74,12 @@ const SmartMarkdown = ({ content, onLinkClick }: SmartMarkdownProps) => {
       </ul>
     ),
     ol: ({ children }: any) => (
-      <ol className="my-4 space-y-2 pl-6 list-decimal">
+      <ol className="my-4 space-y-2 pl-6 list-decimal marker:text-gray-900">
         {children}
       </ol>
     ),
     li: ({ children }: any) => (
-      <li className="text-gray-700 leading-relaxed marker:text-blue-500 marker:font-bold">
+      <li className="text-gray-700 leading-relaxed marker:text-gray-900 marker:font-bold">
         {children}
       </li>
     ),
