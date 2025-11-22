@@ -139,7 +139,14 @@ export default function GroupedSourceCard({ appType, sources, count }: GroupedSo
       {selectedSource && (
         <SourceModal
           isOpen={!!selectedSource}
-          onClose={() => setSelectedSource(null)}
+          onClose={() => {
+            setSelectedSource(null);
+            setIsExpanded(false);
+          }}
+          onBack={() => {
+            setSelectedSource(null);
+            setIsExpanded(true);
+          }}
           source={selectedSource}
         />
       )}

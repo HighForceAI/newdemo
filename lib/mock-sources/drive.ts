@@ -55,7 +55,7 @@ Investment: $55,000
 TOTAL INVESTMENT: $450,000
 
 TEAM STRUCTURE
-Lead Consultant: Nicole Kelly (AWS Certified Solutions Architect)
+Lead Consultant: Nicole Howell (AWS Certified Solutions Architect)
 Cloud Engineer: William Marquez (10+ years infrastructure experience)
 Data Architect: Isabella Reynolds
 Change Management: Jessie Montoya
@@ -209,7 +209,7 @@ Attendees:
 - Isabella Reynolds (COO, NetLogic)
 - Tom Richardson (CTO, NetLogic)
 - Hayden (Summit Strategy)
-- Nicole Kelly (Summit Strategy)
+- Nicole Howell (Summit Strategy)
 
 COMPANY BACKGROUND
 - B2B SaaS company
@@ -321,7 +321,7 @@ Status: Healthy capacity for new work
 Available Capacity Q1 2026:
 - William Marquez: Full (Vertex completing)
 - Isabella Reynolds: 80% (DataCorp maintenance is light)
-- Nicole Kelly: 50% (can lead new project)
+- Nicole Howell: 50% (can lead new project)
 
 STRATEGIC INITIATIVES
 

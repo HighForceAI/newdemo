@@ -633,7 +633,7 @@ Deliverables:
 - Executive presentation
 
 Timeline: 3 weeks
-Team: Hayden Woodburn, Nicole Kelly, Technical Architect
+Team: Hayden Woodburn, Nicole Howell, Technical Architect
 
 Subtotal: $35,000.00
 Tax: $0.00

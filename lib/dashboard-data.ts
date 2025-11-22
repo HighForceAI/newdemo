@@ -43,7 +43,7 @@ A few key points we'd like to discuss:
 
 2. Budget: The $450K estimate is within our approved range. However, we'd like to understand the breakdown for the cloud migration component.
 
-3. Team: Your proposed team structure looks solid. Will Nicole Kelly be the lead consultant? We worked with her on the CRM project last year and she was fantastic.
+3. Team: Your proposed team structure looks solid. Will Nicole Howell be the lead consultant? We worked with her on the CRM project last year and she was fantastic.
 
 4. Next Steps: Can we schedule a kickoff meeting for the week of December 2nd? I'd like to get the executive team aligned before the holidays.
 
@@ -73,7 +73,7 @@ ATTENDEES
 - Isabella Reynolds (COO, NetLogic)
 - Tom Richardson (CTO, NetLogic)
 - Hayden (Summit Strategy)
-- Nicole Kelly (Summit Strategy)
+- Nicole Howell (Summit Strategy)
 
 OBJECTIVES
 1. Understand technical complexity of 3-platform integration
@@ -244,7 +244,7 @@ export const mockAlerts: Alert[] = [
   {
     id: 'alert_002',
     level: 'critical',
-    title: 'Nicole Kelly capacity constraint',
+    title: 'Nicole Howell capacity constraint',
     message: 'Mentioned by name in 3 client emails this week (ACME, DataCorp, FinServe). High demand creates retention and allocation risk.',
     impact: 'Key person dependency across multiple high-value opportunities'
   },

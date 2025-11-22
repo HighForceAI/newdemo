@@ -23,7 +23,7 @@ A few key points we'd like to discuss:
 
 2. Budget: The $450K estimate is within our approved range. However, we'd like to understand the breakdown for the cloud migration component.
 
-3. Team: Your proposed team structure looks solid. Will Nicole Kelly be the lead consultant? We worked with her on the CRM project last year and she was fantastic.
+3. Team: Your proposed team structure looks solid. Will Nicole Howell be the lead consultant? We worked with her on the CRM project last year and she was fantastic.
 
 4. Next Steps: Can we schedule a kickoff meeting for the week of December 2nd? I'd like to get the executive team aligned before the holidays.
 
@@ -424,9 +424,9 @@ Lisa`
     id: 'email_014',
     appType: 'gmail',
     title: 'Summit Team - Q4 Goals Check-in',
-    subtitle: 'Internal - Nicole Kelly',
+    subtitle: 'Internal - Nicole Howell',
     metadata: {
-      from: 'Nicole Kelly <nicole@summitconsulting.com>',
+      from: 'Nicole Howell <nicole@summitconsulting.com>',
       to: 'Team <team@summitconsulting.com>',
       date: 'Nov 18, 2025 8:30 AM',
       subject: 'Q4 Goals - We\'re Crushing It!'

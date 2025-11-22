@@ -213,8 +213,8 @@ export default function Sidebar({ user }: SidebarProps) {
       {/* User Section */}
       <div className="mt-auto">
         <div className="flex items-center gap-3 mb-4 px-2">
-          <div className="w-8 h-8 rounded-full bg-gray-300 flex items-center justify-center">
-            <span className="text-gray-700 text-xs font-medium">
+          <div className="w-8 h-8 rounded-full flex items-center justify-center" style={{ backgroundColor: '#2c8492' }}>
+            <span className="text-white text-xs font-medium">
               {user?.email?.[0]?.toUpperCase() || "U"}
             </span>
           </div>

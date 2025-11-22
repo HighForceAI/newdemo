@@ -45,7 +45,7 @@ Next Steps:
 4. Planned start date: January 6, 2026
 
 Notes:
-Sarah mentioned board approval is likely but wants to see Phase 1 accelerated. Need to revise timeline and present updated proposal. Nicole Kelly requested as lead consultant based on prior CRM project success.`
+Sarah mentioned board approval is likely but wants to see Phase 1 accelerated. Need to revise timeline and present updated proposal. Nicole Howell requested as lead consultant based on prior CRM project success.`
   },
 
   {
@@ -366,7 +366,7 @@ Inbound referral from FinServe. Early stage but qualified lead. Will need to ass
       dealValue: '$280,000',
       stage: 'Closed Lost',
       closeDate: 'Oct 15, 2025',
-      owner: 'Nicole Kelly'
+      owner: 'Nicole Howell'
     },
     content: `Opportunity Details:
 

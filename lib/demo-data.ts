@@ -85,7 +85,7 @@ A few key points we'd like to discuss:
 
 2. Budget: The $450K estimate is within our approved range. However, we'd like to understand the breakdown for the cloud migration component.
 
-3. Team: Your proposed team structure looks solid. Will Nicole Kelly be the lead consultant? We worked with her on the CRM project last year and she was fantastic.
+3. Team: Your proposed team structure looks solid. Will Nicole Howell be the lead consultant? We worked with her on the CRM project last year and she was fantastic.
 
 4. Next Steps: Can we schedule a kickoff meeting for the week of December 2nd? I'd like to get the executive team aligned before the holidays.
 
@@ -150,16 +150,16 @@ Sarah mentioned board approval is likely but wants to see Phase 1 accelerated. N
     subtitle: 'Team discussion',
     metadata: {
       channel: 'client-acme',
-      participants: ['Demo', 'Nicole Kelly', 'William Marquez'],
+      participants: ['Demo', 'Nicole Howell', 'William Marquez'],
       date: 'Nov 19, 2025'
     },
-    content: `Nicole Kelly  11:24 AM
+    content: `Nicole Howell  11:24 AM
 Hey team - just got off the call with Heidi Sheppard from ACME. They're ready to move forward! 🎉
 
 Hayden  11:25 AM
 That's awesome! What's the timeline looking like?
 
-Nicole Kelly  11:26 AM
+Nicole Howell  11:26 AM
 They want Phase 1 done by end of Q1. That's aggressive but doable if we staff it properly.
 
 William Marquez  11:28 AM
@@ -168,7 +168,7 @@ I can free up bandwidth in January. The Vertex project wraps up Dec 15.
 Hayden  11:30 AM
 Perfect. Let me update the SOW and send it over by EOD. Sarah wants a kickoff meeting first week of December.
 
-Nicole Kelly  11:32 AM
+Nicole Howell  11:32 AM
 Sounds good. Also heads up - they specifically asked for me to lead based on the CRM project. Hope that works with everyone's schedule?
 
 Hayden  11:33 AM
@@ -231,7 +231,7 @@ Investment: $55,000
 TOTAL INVESTMENT: $450,000
 
 TEAM STRUCTURE
-Lead Consultant: Nicole Kelly (AWS Certified Solutions Architect)
+Lead Consultant: Nicole Howell (AWS Certified Solutions Architect)
 Cloud Engineer: William Marquez (10+ years infrastructure experience)
 Data Architect: Isabella Reynolds
 Change Management: Jessie Montoya
@@ -326,13 +326,13 @@ ACME Corporation`
     subtitle: 'Sales team discussion',
     metadata: {
       channel: 'sales-pipeline',
-      participants: ['Demo', 'Nicole Kelly', 'Jessie Montoya'],
+      participants: ['Demo', 'Nicole Howell', 'Jessie Montoya'],
       date: 'Nov 12, 2025'
     },
     content: `Hayden  2:15 PM
 Just had a great discovery call with ACME Corp. They're serious about this transformation project.
 
-Nicole Kelly  2:17 PM
+Nicole Howell  2:17 PM
 Nice! What's the size we're looking at?
 
 Hayden  2:18 PM
@@ -344,7 +344,7 @@ That's perfect timing. We have capacity in Q1. What's the competition look like?
 Hayden  2:22 PM
 They're talking to Deloitte and McKinsey. But I think we have an advantage - they specifically mentioned liking our approach on similar projects.
 
-Nicole Kelly  2:25 PM
+Nicole Howell  2:25 PM
 I worked with their CTO on a CRM project 2 years ago. Should I reach out?
 
 Hayden  2:26 PM
@@ -388,7 +388,7 @@ Heidi Sheppard (VP Digital Strategy) responded to your proposal on November 18th
 **Client Requirements:**
 - Accelerate Phase 1 timeline to Q1 instead of Q2 (driven by March board presentation)
 - Request detailed breakdown for the $180K cloud migration component
-- Preference for Nicole Kelly as lead consultant based on previous CRM project success
+- Preference for Nicole Howell as lead consultant based on previous CRM project success
 - Kickoff meeting during week of December 2nd
 
 ---
@@ -396,7 +396,7 @@ Heidi Sheppard (VP Digital Strategy) responded to your proposal on November 18th
 ## Team Readiness
 
 Your team discussed this in the client-acme Slack channel on November 19th:
-- Nicole Kelly confirmed availability to lead
+- Nicole Howell confirmed availability to lead
 - William Marquez available starting January after Vertex project completes
 - Team consensus to prioritize this as a reference account opportunity
 
@@ -567,7 +567,7 @@ Sarah made four specific asks in her email. First, she wants to **accelerate Pha
 
 Second, she asks for a detailed breakdown of the **$180K cloud migration component**. This tells us she's building an internal business case, likely for CFO approval of the payment schedule. Your Google Sheets budget tracker already contains exactly this breakdown.
 
-Third, and perhaps most significantly, she asks if **Nicole Kelly will be the lead consultant**, referencing their collaboration on last year's CRM project where Jennifer "was fantastic." Named person requests based on prior successful delivery eliminate the primary risk factor in enterprise deals - execution capability doubt.
+Third, and perhaps most significantly, she asks if **Nicole Howell will be the lead consultant**, referencing their collaboration on last year's CRM project where Jennifer "was fantastic." Named person requests based on prior successful delivery eliminate the primary risk factor in enterprise deals - execution capability doubt.
 
 Fourth, she wants to schedule a kickoff meeting for the **week of December 2nd**. This is two weeks before the Christmas holiday freeze. The aggressiveness of this timing confirms their urgency to get contracts signed before year-end.
 
@@ -632,7 +632,7 @@ One of the strongest predictors of deal closure that emerges from your integrate
 
 Similarly, TechStart moved from receiving clarification questions on November 17th to sending a "ready to move forward" email on November 19th - just 2 days. As a contrast, BrightStart received a proposal on November 15th and it's been 5 days with no response, suggesting the project is lower priority for them.
 
-Sentiment analysis across your 15 most recent client emails shows **83% positive tone**, representing a 5-point improvement from last week's analysis. Your portfolio health is improving, not deteriorating. Team capacity data shows current utilization at 78%, with William Marquez available January 6th when Vertex completes, and Nicole Kelly ready to take the ACME lead role the client specifically requested.
+Sentiment analysis across your 15 most recent client emails shows **83% positive tone**, representing a 5-point improvement from last week's analysis. Your portfolio health is improving, not deteriorating. Team capacity data shows current utilization at 78%, with William Marquez available January 6th when Vertex completes, and Nicole Howell ready to take the ACME lead role the client specifically requested.
 
 ---
 
@@ -766,7 +766,7 @@ The ACME project budget breakdown in your Google Sheets shows thoughtful revenue
 
 One financial risk worth monitoring is pipeline concentration. The ACME opportunity represents 58% of your active weighted pipeline value ($383K of $772K). If this deal were to unexpectedly stall or lose, it would significantly impact Q4 and Q1 projections.
 
-However, the cross-platform intelligence provides confidence that this risk is lower than it appears. The combination of board approval email signals, Salesforce deal progression, Slack team confirmation, and budget preparation all validate the opportunity strength. Additionally, the client's specific request for Nicole Kelly as lead consultant based on prior successful delivery substantially reduces execution risk.
+However, the cross-platform intelligence provides confidence that this risk is lower than it appears. The combination of board approval email signals, Salesforce deal progression, Slack team confirmation, and budget preparation all validate the opportunity strength. Additionally, the client's specific request for Nicole Howell as lead consultant based on prior successful delivery substantially reduces execution risk.
 
 The mitigation strategy for concentration risk is already working - you have three other active opportunities (Vertex, TechStart, BrightStart) plus two expansion opportunities (DataCorp, FinServe) plus two new inbound leads (NetLogic, GlobalManufacturing). Diversification is improving.
 
@@ -841,12 +841,12 @@ You're making financial decisions with operational and relationship context, not
       title: 'Department Activity & Productivity',
       icon: '',
       sourceCount: '5 Slack channels • 3 emails • 1 utilization sheet',
-      summary: 'Team operating at 78% utilization with strong cross-functional coordination between sales and delivery departments. Email response time averaging 2.3 hours demonstrates high responsiveness without overload. Collaboration patterns from Slack show proactive capacity planning with team members self-organizing around resource availability. Performance signals exceptional - William Marquez delivering Vertex ahead of schedule and Nicole Kelly requested by name for ACME engagement. Internal knowledge sharing active with Isabella Reynolds supporting teammates on technical questions. Department dynamics healthy with no bottlenecks or communication silos detected.',
+      summary: 'Team operating at 78% utilization with strong cross-functional coordination between sales and delivery departments. Email response time averaging 2.3 hours demonstrates high responsiveness without overload. Collaboration patterns from Slack show proactive capacity planning with team members self-organizing around resource availability. Performance signals exceptional - William Marquez delivering Vertex ahead of schedule and Nicole Howell requested by name for ACME engagement. Internal knowledge sharing active with Isabella Reynolds supporting teammates on technical questions. Department dynamics healthy with no bottlenecks or communication silos detected.',
       content: `## Executive Summary
 
 Your team is operating at **78% utilization** across four key functions, sitting comfortably within the healthy 80-85% target range. Department collaboration patterns from Slack show strong cross-functional coordination with sales and delivery teams actively aligned on the ACME opportunity. Response time analysis reveals average email turnaround of **2.3 hours** on client communications, indicating high responsiveness without signs of overload.
 
-Notable productivity signals include William Marquez's ahead-of-schedule delivery on Vertex (completing December 12th vs contracted December 15th) and Nicole Kelly being specifically requested by name for the ACME project based on prior successful client work. Internal Slack communication shows proactive capacity planning with team members self-organizing around resource availability.
+Notable productivity signals include William Marquez's ahead-of-schedule delivery on Vertex (completing December 12th vs contracted December 15th) and Nicole Howell being specifically requested by name for the ACME project based on prior successful client work. Internal Slack communication shows proactive capacity planning with team members self-organizing around resource availability.
 
 The key insight: your departments aren't operating in silos. Sales shares pipeline intelligence that delivery uses for capacity planning. Delivery communicates project timing that sales uses for new deal scoping. This cross-functional coordination is enabling the smooth project transitions that prevent utilization volatility.
 
@@ -856,7 +856,7 @@ The key insight: your departments aren't operating in silos. Sales shares pipeli
 
 The team utilization tracker shows how work is currently distributed across your consulting staff. William Marquez is running at 95% billable utilization on the Vertex Systems cloud migration project, with the remaining 5% allocated to pre-sales technical support for the ACME opportunity. His Slack updates in #delivery channel indicate final testing is complete and the project is tracking for early completion.
 
-Nicole Kelly's time breaks down into 38% on ACME proposal development, 20% on FinServe quarterly business review preparation, and 42% on internal activities including strategy work and administrative tasks. The #client-acme Slack channel shows she's confirmed availability to lead the ACME engagement full-time starting in January, transitioning from her current mixed workload to dedicated project leadership.
+Nicole Howell's time breaks down into 38% on ACME proposal development, 20% on FinServe quarterly business review preparation, and 42% on internal activities including strategy work and administrative tasks. The #client-acme Slack channel shows she's confirmed availability to lead the ACME engagement full-time starting in January, transitioning from her current mixed workload to dedicated project leadership.
 
 Isabella Reynolds is allocated 20% to DataCorp platform support (which has moved to maintenance mode), 30% to TechStart proposal development, and 50% to internal activities including training and capability building. Her Slack message in #sales-pipeline expressing interest in the TechStart AI project aligns with her background in machine learning from her previous role.
 
@@ -868,7 +868,7 @@ Jessie Montoya shows 62% utilization on FinServe project delivery, 25% on market
 
 Analyzing Slack activity reveals strong coordination between your sales and delivery functions. The #sales-pipeline channel shows a pattern where Demo shares new opportunity updates and delivery team members respond with capacity confirmations and capability assessments. This isn't just acknowledgment - it's active participation in qualification decisions.
 
-On November 12th, when Demo posted about the ACME Corp discovery call, Nicole Kelly immediately asked about deal size and timeline. William Marquez followed up with capacity confirmation. Isabella Reynolds offered to support on the data warehouse component. This rapid, collaborative response demonstrates that deals aren't being sold in isolation from delivery reality.
+On November 12th, when Demo posted about the ACME Corp discovery call, Nicole Howell immediately asked about deal size and timeline. William Marquez followed up with capacity confirmation. Isabella Reynolds offered to support on the data warehouse component. This rapid, collaborative response demonstrates that deals aren't being sold in isolation from delivery reality.
 
 The #client-acme channel created specifically for the ACME opportunity shows 12 messages over the past week. The tone is confident and strategic rather than concerned or reactive. Jennifer is leading team alignment on approach, Alex is already reviewing infrastructure documentation proactively, and there's consensus on making this a reference account opportunity. This level of coordination before contract signature indicates strong delivery readiness.
 
@@ -904,7 +904,7 @@ For the ACME opportunity specifically, the capacity math shows Jennifer at 100% 
 
 Client feedback provides the strongest performance indicators. Brent Soto' November 19th email about Vertex specifically states "everything performed better than expected" with concrete metrics: database migration completed 2 days ahead of schedule, query performance improvements of 60% versus the promised 40%, and zero data integrity issues. This level of exceeding expectations doesn't happen accidentally - it reflects team skill and project management discipline.
 
-Heidi Sheppard's request for Nicole Kelly by name on the ACME project, referencing her as "fantastic" from their prior CRM implementation, represents peer validation of individual performance. This type of named consultant request is rare and valuable - it indicates execution capability that the client has personally validated.
+Heidi Sheppard's request for Nicole Howell by name on the ACME project, referencing her as "fantastic" from their prior CRM implementation, represents peer validation of individual performance. This type of named consultant request is rare and valuable - it indicates execution capability that the client has personally validated.
 
 The Slack #wins channel from November 12th captured the team celebrating the FinServe deal closure, with specific recognition of Jessie Montoya's delivery quality. The collaborative celebration and peer recognition suggest healthy team culture and mutual respect rather than competitive internal dynamics.
 
@@ -919,7 +919,7 @@ Internal collaboration quality shows in knowledge-sharing patterns. When Jennife
 - Coordinate December 10th final review with client
 
 **Sales Support:**
-- ACME SOW revision completion by Friday (Nicole Kelly + Demo)
+- ACME SOW revision completion by Friday (Nicole Howell + Demo)
 - NetLogic discovery call preparation for November 25th
 - TechStart contract review follow-up
 

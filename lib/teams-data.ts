@@ -28,7 +28,7 @@ export const mockUsers: User[] = [
   },
   {
     id: 'user_002',
-    name: 'Nicole Kelly',
+    name: 'Nicole Howell',
     email: 'nicole@summitconsulting.com',
     role: 'manager',
     teams: ['team_001', 'team_002']

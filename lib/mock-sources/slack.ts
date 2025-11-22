@@ -9,16 +9,16 @@ export const mockSlackMessages: Source[] = [
     subtitle: 'Deal strategy discussion',
     metadata: {
       channel: 'client-acme',
-      participants: ['Demo', 'Nicole Kelly', 'William Marquez'],
+      participants: ['Demo', 'Nicole Howell', 'William Marquez'],
       date: 'Nov 19, 2025'
     },
-    content: `Nicole Kelly  11:24 AM
+    content: `Nicole Howell  11:24 AM
 Hey team - just got off the call with Heidi Sheppard from ACME. They're ready to move forward! 🎉
 
 Hayden  11:25 AM
 That's awesome! What's the timeline looking like?
 
-Nicole Kelly  11:26 AM
+Nicole Howell  11:26 AM
 They want Phase 1 done by end of Q1. That's aggressive but doable if we staff it properly.
 
 William Marquez  11:28 AM
@@ -27,7 +27,7 @@ I can free up bandwidth in January. The Vertex project wraps up Dec 15.
 Hayden  11:30 AM
 Perfect. Let me update the SOW and send it over by EOD. Sarah wants a kickoff meeting first week of December.
 
-Nicole Kelly  11:32 AM
+Nicole Howell  11:32 AM
 Sounds good. Also heads up - they specifically asked for me to lead based on the CRM project. Hope that works with everyone's schedule?
 
 Hayden  11:33 AM
@@ -44,13 +44,13 @@ William Marquez  11:35 AM
     subtitle: 'Weekly pipeline review',
     metadata: {
       channel: 'sales-pipeline',
-      participants: ['Demo', 'Nicole Kelly', 'Jessie Montoya', 'Isabella Reynolds'],
+      participants: ['Demo', 'Nicole Howell', 'Jessie Montoya', 'Isabella Reynolds'],
       date: 'Nov 12, 2025'
     },
     content: `Hayden  2:15 PM
 Just had a great discovery call with ACME Corp. They're serious about this transformation project.
 
-Nicole Kelly  2:17 PM
+Nicole Howell  2:17 PM
 Nice! What's the size we're looking at?
 
 Hayden  2:18 PM
@@ -62,7 +62,7 @@ That's perfect timing. We have capacity in Q1. What's the competition look like?
 Hayden  2:22 PM
 They're talking to Deloitte and McKinsey. But I think we have an advantage - they specifically mentioned liking our approach on similar projects.
 
-Nicole Kelly  2:25 PM
+Nicole Howell  2:25 PM
 I worked with their CTO on a CRM project 2 years ago. Should I reach out?
 
 Hayden  2:26 PM
@@ -111,13 +111,13 @@ Exactly. Already started reviewing their infrastructure docs.`
     subtitle: 'Team celebration',
     metadata: {
       channel: 'general',
-      participants: ['Demo', 'Nicole Kelly', 'William Marquez', 'Isabella Reynolds', 'Jessie Montoya'],
+      participants: ['Demo', 'Nicole Howell', 'William Marquez', 'Isabella Reynolds', 'Jessie Montoya'],
       date: 'Nov 14, 2025'
     },
     content: `Hayden  5:30 PM
 Team - just closed FinServe! $185K project signed and sealed.
 
-Nicole Kelly  5:31 PM
+Nicole Howell  5:31 PM
 Congrats! That's a great win.
 
 William Marquez  5:32 PM
@@ -146,7 +146,7 @@ I'm in. Great quarter everyone!`
     subtitle: 'Partnership discussion',
     metadata: {
       channel: 'bizdev',
-      participants: ['Demo', 'Nicole Kelly', 'Jessie Montoya'],
+      participants: ['Demo', 'Nicole Howell', 'Jessie Montoya'],
       date: 'Nov 15, 2025'
     },
     content: `Hayden  10:45 AM
@@ -158,7 +158,7 @@ CloudScale? The cost optimization platform?
 Hayden  10:48 AM
 Yep. They work with 15 consulting firms on referrals. We send them migration clients, they send us optimization opportunities.
 
-Nicole Kelly  10:50 AM
+Nicole Howell  10:50 AM
 Could be good. Our clients often ask about cost management after migrations.
 
 Jessie Montoya  10:52 AM
@@ -167,7 +167,7 @@ What's the economics?
 Hayden  10:53 AM
 They offer our clients 20% discount, we get 15% commission on any sales. Plus they refer migration opportunities to us.
 
-Nicole Kelly  10:55 AM
+Nicole Howell  10:55 AM
 I like it. Low risk, potential upside. Let's set up a call.
 
 Hayden  10:56 AM
@@ -245,7 +245,7 @@ I'll schedule a scoping call for early December.`
     subtitle: 'Daily standup - Nov 20',
     metadata: {
       channel: 'team-standup',
-      participants: ['Demo', 'Nicole Kelly', 'William Marquez', 'Isabella Reynolds', 'Jessie Montoya'],
+      participants: ['Demo', 'Nicole Howell', 'William Marquez', 'Isabella Reynolds', 'Jessie Montoya'],
       date: 'Nov 20, 2025'
     },
     content: `Hayden  9:00 AM
@@ -254,7 +254,7 @@ Good morning team! Daily standup time.
 William Marquez  9:01 AM
 Vertex: Final testing this week. On track for Dec 15 delivery. No blockers.
 
-Nicole Kelly  9:02 AM
+Nicole Howell  9:02 AM
 ACME: Proposal in their hands. Had good follow-up call with Sarah yesterday. Waiting on feedback. Should hear back this week.
 
 Isabella Reynolds  9:03 AM
@@ -266,7 +266,7 @@ FinServe: QBR prep. Admin stuff. Nothing urgent.
 Hayden  9:05 AM
 Great updates. For context - if ACME closes, we'll hit 140% of Q4 target. Keep pushing!
 
-Nicole Kelly  9:06 AM
+Nicole Howell  9:06 AM
 I'm feeling good about ACME. Sarah mentioned board approval.
 
 Hayden  9:07 AM
@@ -292,7 +292,7 @@ I'm in!
 William Marquez  12:32 PM
 Can't today - client call at 1pm.
 
-Nicole Kelly  12:33 PM
+Nicole Howell  12:33 PM
 I'll join. Need a break from proposals.
 
 Hayden  12:35 PM
@@ -315,7 +315,7 @@ You got it boss!`
     content: `Hayden  4:45 PM
 🎉 FinServe just signed the QBR and committed to Q1 2026 European expansion discussion!
 
-Nicole Kelly  4:46 PM
+Nicole Howell  4:46 PM
 Fantastic! That's the power of delivering quality work.
 
 Isabella Reynolds  4:47 PM
@@ -338,25 +338,25 @@ Hayden  4:51 PM
     subtitle: 'New inbound lead',
     metadata: {
       channel: 'sales-pipeline',
-      participants: ['Demo', 'Nicole Kelly'],
+      participants: ['Demo', 'Nicole Howell'],
       date: 'Nov 13, 2025'
     },
     content: `Hayden  3:40 PM
 New inbound from GlobalManufacturing. ERP modernization project. $300-400K budget.
 
-Nicole Kelly  3:42 PM
+Nicole Howell  3:42 PM
 Nice! How'd they find us?
 
 Hayden  3:43 PM
 Referral from Jessie Montoya at FinServe. His contact is the IT Director.
 
-Nicole Kelly  3:45 PM
+Nicole Howell  3:45 PM
 Referrals are the best leads. What's the timeline?
 
 Hayden  3:46 PM
 Q2 2026 start. They're evaluating SAP vs cloud ERP options.
 
-Nicole Kelly  3:48 PM
+Nicole Howell  3:48 PM
 That's a meaty project. We should bring in an ERP specialist.
 
 Hayden  3:49 PM
@@ -457,13 +457,13 @@ Excellent work Alex. This is the kind of delivery that builds reputation.`
     subtitle: '2026 planning',
     metadata: {
       channel: 'leadership',
-      participants: ['Demo', 'Nicole Kelly', 'Jessie Montoya'],
+      participants: ['Demo', 'Nicole Howell', 'Jessie Montoya'],
       date: 'Nov 14, 2025'
     },
     content: `Hayden  2:00 PM
 Started thinking about 2026 goals. If we close ACME and NetLogic, Q1 is looking really strong.
 
-Nicole Kelly  2:02 PM
+Nicole Howell  2:02 PM
 NetLogic would be huge. $600-800K project over 18 months.
 
 Jessie Montoya  2:04 PM
@@ -472,7 +472,7 @@ Do we have the capacity for both ACME and NetLogic simultaneously?
 Hayden  2:06 PM
 We'd need to hire. Probably 2-3 senior consultants.
 
-Nicole Kelly  2:08 PM
+Nicole Howell  2:08 PM
 I know a few people who might be interested. Let me reach out quietly.
 
 Hayden  2:10 PM
