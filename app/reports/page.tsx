@@ -54,7 +54,10 @@ export default function ReportsPage() {
   const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
-    setIsLoaded(true);
+    const timer = setTimeout(() => {
+      setIsLoaded(true);
+    }, 10);
+    return () => clearTimeout(timer);
   }, []);
 
   useEffect(() => {
@@ -158,13 +161,18 @@ export default function ReportsPage() {
 
   return (
     <div className="flex h-full">
-      {/* Loading overlay */}
+      {/* Sidebar - fixed position, always visible */}
+      <div className="fixed left-0 top-0 bottom-0" style={{ width: '256px', zIndex: 50 }}>
+        <Sidebar user={user} />
+      </div>
+
+      {/* Loading overlay - only covers content area */}
       {!isLoaded && (
-        <div className="fixed inset-0 bg-white z-50" />
+        <div className="fixed bg-white z-40" style={{ left: '256px', top: 0, right: 0, bottom: 0 }} />
       )}
 
-      {/* Sidebar - no animation */}
-      <Sidebar user={user} />
+      {/* Spacer for fixed sidebar */}
+      <div style={{ width: '256px', flexShrink: 0 }} />
 
       {/* Main content with fade-in */}
       <div

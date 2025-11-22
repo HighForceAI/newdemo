@@ -35,7 +35,10 @@ export default function DashboardPage() {
   const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
-    setIsLoaded(true);
+    const timer = setTimeout(() => {
+      setIsLoaded(true);
+    }, 10);
+    return () => clearTimeout(timer);
   }, []);
 
   const handleSearchSubmit = (e: React.FormEvent) => {
@@ -101,17 +104,20 @@ export default function DashboardPage() {
 
   return (
     <div className="flex h-screen bg-white">
-      {/* Loading overlay */}
-      {!isLoaded && (
-        <div className="fixed inset-0 bg-white z-50" />
-      )}
-
-      {/* Grey bubble sidebar wrapper - no animation */}
-      <div className="p-6">
+      {/* Grey bubble sidebar wrapper - fixed position, always visible */}
+      <div className="fixed left-0 top-0 bottom-0 p-6" style={{ width: 'calc(256px + 48px)', zIndex: 50 }}>
         <div className="rounded-3xl" style={{ height: 'calc(100vh - 48px)', backgroundColor: '#E3E4EA', boxShadow: '4px 4px 12px rgba(0, 0, 0, 0.08)', overflow: 'hidden' }}>
           <Sidebar user={user} />
         </div>
       </div>
+
+      {/* Loading overlay - only covers content area */}
+      {!isLoaded && (
+        <div className="fixed bg-white z-40" style={{ left: 'calc(256px + 48px)', top: 0, right: 0, bottom: 0 }} />
+      )}
+
+      {/* Spacer for fixed sidebar */}
+      <div style={{ width: 'calc(256px + 48px)', flexShrink: 0 }} />
 
       {/* Main content area with fade-in */}
       <div
@@ -282,10 +288,15 @@ export default function DashboardPage() {
                                 <DropdownMenuContent align="end">
                                   <DropdownMenuItem onClick={(e) => {
                                     e.stopPropagation();
-                                    setCompletedActions([...completedActions, action.id]);
+                                    if (completedActions.includes(action.id)) {
+                                      setCompletedActions(completedActions.filter(id => id !== action.id));
+                                    } else {
+                                      setCompletedActions([...completedActions, action.id]);
+                                    }
                                   }}>
-                                    <Check className="h-4 w-4 mr-2" />
-                                    Mark as Done
+                                    {completedActions.includes(action.id) && <Check className="h-4 w-4 mr-2" />}
+                                    {!completedActions.includes(action.id) && <div className="w-4 h-4 mr-2" />}
+                                    {completedActions.includes(action.id) ? 'Unmark as Done' : 'Mark as Done'}
                                   </DropdownMenuItem>
                                   <DropdownMenuItem
                                     className="text-red-600 focus:text-red-600 focus:bg-red-50"

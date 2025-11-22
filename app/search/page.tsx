@@ -157,8 +157,8 @@ function SearchPageContent() {
 
   if (loading) {
     return (
-      <div className="flex h-screen items-center justify-center bg-gray-50">
-        <Loader2 className="h-12 w-12 animate-spin text-blue-500" />
+      <div className="flex h-screen items-center justify-center bg-white">
+        {/* Loading - no spinner, just white screen */}
       </div>
     );
   }
@@ -443,7 +443,7 @@ export default function SearchPage() {
 
       <Suspense fallback={
         <div className="flex-1 flex items-center justify-center bg-white">
-          <Loader2 className="h-12 w-12 animate-spin text-blue-500" />
+          {/* Loading - no spinner */}
         </div>
       }>
         <SearchPageContent />

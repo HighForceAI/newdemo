@@ -24,7 +24,10 @@ export default function TeamPage() {
   const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
-    setIsLoaded(true);
+    const timer = setTimeout(() => {
+      setIsLoaded(true);
+    }, 10);
+    return () => clearTimeout(timer);
   }, []);
 
   // Handler functions
@@ -79,17 +82,20 @@ export default function TeamPage() {
 
   return (
     <div className="flex h-screen bg-white">
-      {/* Loading overlay */}
-      {!isLoaded && (
-        <div className="fixed inset-0 bg-white z-50" />
-      )}
-
-      {/* Sidebar - no animation */}
-      <div className="p-6">
+      {/* Sidebar - fixed position, always visible */}
+      <div className="fixed left-0 top-0 bottom-0 p-6" style={{ width: 'calc(256px + 48px)', zIndex: 50 }}>
         <div className="rounded-3xl" style={{ height: 'calc(100vh - 48px)', backgroundColor: '#E3E4EA', boxShadow: '4px 4px 12px rgba(0, 0, 0, 0.08)', overflow: 'hidden' }}>
           <Sidebar user={user} />
         </div>
       </div>
+
+      {/* Loading overlay - only covers content area */}
+      {!isLoaded && (
+        <div className="fixed bg-white z-40" style={{ left: 'calc(256px + 48px)', top: 0, right: 0, bottom: 0 }} />
+      )}
+
+      {/* Spacer for fixed sidebar */}
+      <div style={{ width: 'calc(256px + 48px)', flexShrink: 0 }} />
 
       {/* Main content with fade-in */}
       <div
