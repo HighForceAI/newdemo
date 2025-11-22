@@ -114,7 +114,10 @@ export default function DashboardPage() {
       </div>
 
       {/* Main content area with fade-in */}
-      <div className={`flex-1 overflow-y-auto p-8 pt-12 transition-opacity duration-1000 ease-out ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
+      <div
+        className={`flex-1 overflow-y-auto p-8 pt-12 transition-opacity duration-1000 ease-out ${isLoaded ? 'opacity-100' : 'opacity-0'}`}
+        style={{ willChange: isLoaded ? 'auto' : 'opacity' }}
+      >
         <div className="max-w-7xl mx-auto">
           {/* Two Column Layout */}
           <div className="grid grid-cols-3 gap-6" style={{ minWidth: '900px' }}>

@@ -63,7 +63,10 @@ export default function DailyReportsPage() {
       </div>
 
       {/* Main content with fade-in */}
-      <div className={`flex-1 overflow-y-auto p-8 pt-12 transition-opacity duration-1000 ease-out ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
+      <div
+        className={`flex-1 overflow-y-auto p-8 pt-12 transition-opacity duration-1000 ease-out ${isLoaded ? 'opacity-100' : 'opacity-0'}`}
+        style={{ willChange: isLoaded ? 'auto' : 'opacity' }}
+      >
         <div className="max-w-7xl mx-auto" style={{ minWidth: '800px' }}>
           {/* Header with Date and Calendar */}
           <div className="flex items-end justify-between mb-12">

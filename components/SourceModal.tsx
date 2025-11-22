@@ -373,6 +373,7 @@ export default function SourceModal({ isOpen, onClose, onBack, source }: SourceM
                 onClick={onBack}
                 className="w-10 h-10 rounded-full hover:bg-gray-100 flex items-center justify-center transition-colors"
                 title="Back to list"
+                aria-label="Back to list"
               >
                 <ArrowLeft className="h-5 w-5 text-gray-500" />
               </button>
@@ -388,6 +389,7 @@ export default function SourceModal({ isOpen, onClose, onBack, source }: SourceM
           <button
             onClick={onClose}
             className="w-10 h-10 rounded-full hover:bg-gray-100 flex items-center justify-center transition-colors"
+            aria-label="Close modal"
           >
             <X className="h-5 w-5 text-gray-500" />
           </button>

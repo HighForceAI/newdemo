@@ -246,7 +246,10 @@ export default function ConnectionsPage() {
       <Sidebar user={user} />
 
       {/* Main content with fade-in */}
-      <div className={`flex-1 overflow-y-auto transition-opacity duration-1000 ease-out ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
+      <div
+        className={`flex-1 overflow-y-auto transition-opacity duration-1000 ease-out ${isLoaded ? 'opacity-100' : 'opacity-0'}`}
+        style={{ willChange: isLoaded ? 'auto' : 'opacity' }}
+      >
         <div className="max-w-6xl mx-auto p-8">
           {/* Header */}
           <div className="mb-8">

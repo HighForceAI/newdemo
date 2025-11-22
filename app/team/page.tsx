@@ -92,7 +92,10 @@ export default function TeamPage() {
       </div>
 
       {/* Main content with fade-in */}
-      <div className={`flex-1 overflow-y-auto p-8 pt-12 transition-opacity duration-1000 ease-out ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
+      <div
+        className={`flex-1 overflow-y-auto p-8 pt-12 transition-opacity duration-1000 ease-out ${isLoaded ? 'opacity-100' : 'opacity-0'}`}
+        style={{ willChange: isLoaded ? 'auto' : 'opacity' }}
+      >
         <div className="max-w-7xl mx-auto" style={{ minWidth: '900px' }}>
           <div className="flex items-end justify-between mb-8">
             <div>

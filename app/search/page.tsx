@@ -173,7 +173,10 @@ function SearchPageContent() {
       )}
 
       {/* Main Content container */}
-      <div className={`flex-1 flex flex-col overflow-hidden transition-opacity duration-1000 ease-out ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
+      <div
+        className={`flex-1 flex flex-col overflow-hidden transition-opacity duration-1000 ease-out ${isLoaded ? 'opacity-100' : 'opacity-0'}`}
+        style={{ willChange: isLoaded ? 'auto' : 'opacity' }}
+      >
         {/* Messages Area */}
         <div className="flex-1 overflow-y-auto flex justify-center" style={{ paddingTop: '24px', paddingBottom: messages.length > 0 ? 'calc(180px + 5vh)' : '24px' }}>
           <div className={`w-full space-y-4 ${messages.length > 0 ? 'pt-20' : ''} px-4`} style={{ maxWidth: 'calc(55rem + 2rem)' }}>

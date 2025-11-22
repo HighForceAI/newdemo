@@ -167,7 +167,10 @@ export default function ReportsPage() {
       <Sidebar user={user} />
 
       {/* Main content with fade-in */}
-      <div className={`flex-1 overflow-y-auto p-8 transition-opacity duration-1000 ease-out ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
+      <div
+        className={`flex-1 overflow-y-auto p-8 transition-opacity duration-1000 ease-out ${isLoaded ? 'opacity-100' : 'opacity-0'}`}
+        style={{ willChange: isLoaded ? 'auto' : 'opacity' }}
+      >
         <div className="max-w-7xl mx-auto">
           <div className="flex items-center justify-between mb-8">
             <div>
