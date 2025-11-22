@@ -17,6 +17,7 @@ import {
   Users,
   Calendar,
   MoreHorizontal,
+  FileBarChart,
 } from "lucide-react";
 import { useAuth } from "@/contexts/auth-context";
 import { getChatHistory, deleteChat, type ChatHistoryItem } from "@/lib/api";
@@ -53,7 +54,7 @@ export default function Sidebar({ user }: SidebarProps) {
 
   const navigation = [
     { name: "Dashboard", href: "/", icon: LayoutDashboard },
-    { name: "Reports", href: "/daily-reports", icon: Calendar },
+    { name: "Reports", href: "/daily-reports", icon: FileBarChart },
     { name: "Teams", href: "/team", icon: Users },
   ];
 
@@ -168,7 +169,7 @@ export default function Sidebar({ user }: SidebarProps) {
       <div className="border-t border-gray-300 pt-4 pb-4 flex-1">
         <button
           onClick={() => setHistoryExpanded(!historyExpanded)}
-          className="w-full flex items-center justify-between px-4 py-3 text-sm font-normal text-gray-500 hover:bg-[#2c8492]/20 rounded-xl transition-colors"
+          className="w-full flex items-center justify-between px-4 py-3 text-sm font-normal text-gray-500 rounded-xl transition-colors"
         >
           <span>Recent Chats</span>
           <ChevronDown className={`h-4 w-4 text-gray-400 transition-transform duration-200 ${historyExpanded ? '' : '-rotate-90'}`} />
@@ -196,14 +197,14 @@ export default function Sidebar({ user }: SidebarProps) {
                   </div>
                 </div>
                 {/* Gradient fade overlay */}
-                <div className="absolute right-0 top-0 bottom-0 w-16 pointer-events-none opacity-0 group-hover/chat:opacity-100 transition-opacity rounded-r-xl" style={{ background: 'linear-gradient(to right, transparent, #E3E4EA 50%)' }} />
+                <div className="absolute right-0 top-0 bottom-0 w-20 pointer-events-none opacity-0 group-hover/chat:opacity-100 transition-opacity rounded-r-xl" style={{ background: 'linear-gradient(to right, transparent, #E3E4EA 60%)' }} />
                 {/* Delete button */}
                 <button
                   onClick={(e) => {
                     e.stopPropagation();
                     handleDeleteChat(chat.id, e);
                   }}
-                  className="absolute right-2 top-2 p-1 rounded hover:bg-[#2c8492]/30 transition-all opacity-0 group-hover/chat:opacity-100"
+                  className="absolute right-2 top-2 p-1 transition-all opacity-0 group-hover/chat:opacity-100"
                   style={{ color: '#2c8492' }}
                 >
                   <MoreHorizontal className="h-4 w-4" />

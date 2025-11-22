@@ -294,7 +294,7 @@ export default function ReportsPage() {
               <div className="mb-8">
                 <div className="mb-6">
                   <h1 className="text-3xl font-normal text-gray-900">
-                    {formatMonth(selectedMonth)}
+                    Month of {formatMonth(selectedMonth)}
                   </h1>
                   <p className="text-base text-gray-400 font-light mt-2">Viewing all end of month reports</p>
                 </div>
