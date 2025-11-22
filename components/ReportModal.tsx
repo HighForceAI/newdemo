@@ -78,19 +78,20 @@ export default function ReportModal({ isOpen, onClose, report }: ReportModalProp
         >
           {/* Header */}
           <div className="flex items-center justify-between px-8 py-6 border-b border-gray-200">
-            <div className="flex items-center gap-3">
-              <span className="text-3xl">{report.icon}</span>
-              <div>
-                <h2 className="text-2xl font-semibold text-gray-900">{report.title}</h2>
-                <p className="text-sm text-gray-500 mt-0.5">
-                  {new Date(report.generated_date).toLocaleDateString('en-US', {
-                    weekday: 'long',
-                    year: 'numeric',
-                    month: 'long',
-                    day: 'numeric'
-                  })}
+            <div>
+              <h2 className="text-2xl font-semibold text-gray-900 mb-1">{report.title}</h2>
+              <p className="text-sm text-gray-400 mb-1">
+                Daily Analysis - {new Date(report.generated_date).toLocaleDateString('en-US', {
+                  year: 'numeric',
+                  month: 'long',
+                  day: 'numeric'
+                })}
+              </p>
+              {report.sourceCount && (
+                <p className="text-sm text-gray-400">
+                  {report.sourceCount}
                 </p>
-              </div>
+              )}
             </div>
             <button
               onClick={onClose}

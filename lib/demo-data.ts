@@ -511,6 +511,7 @@ export interface DailyReport {
   content: string;
   sources: Source[];
   generated_date: string;
+  sourceCount?: string;
 }
 
 export const mockDailyReports: Record<string, DailyReport[]> = {
@@ -520,14 +521,9 @@ export const mockDailyReports: Record<string, DailyReport[]> = {
       type: 'client_relationships',
       title: 'Client Relationships & Pipeline',
       icon: '',
+      sourceCount: '8 emails • 4 Slack channels • 3 deals • 1 proposal • 1 budget sheet',
       summary: 'ACME Corp deal showing rare board approval at proposal stage with specific timeline acceleration request - cross-platform analysis reveals 85% close probability versus 75% Salesforce estimate. NetLogic referral from DataCorp represents $700K opportunity, largest in company history. Client sentiment trending 83% positive with referral flywheel generating 2.5x larger deals than cold outbound. Two expansion opportunities totaling $400K identified through communication pattern analysis. Critical insight: email response velocity predicting close probability better than traditional sales metrics.',
-      content: `
-# Client Relationships & Pipeline Intelligence
-**Daily Analysis - November 20, 2025**
-
-**Data Sources**: 8 emails • 4 Slack channels • 3 deals • 1 proposal • 1 budget sheet
-
-## Executive Summary
+      content: `## Executive Summary
 
 Your pipeline is tracking at **108% of Q4 target**, with $1.188M projected versus the $1.1M goal. The ACME Corp opportunity has reached a critical inflection point - board approval has been confirmed and they've requested an accelerated timeline. Based on cross-platform analysis of email language, Slack team readiness, and budget preparation, the Salesforce probability estimate of 75% should be updated to **85%**.
 
@@ -671,14 +667,9 @@ You're no longer operating on gut instinct or isolated data points. You're seein
       type: 'financial_overview',
       title: 'Financial Overview',
       icon: '',
+      sourceCount: '3 Salesforce deals • 2 Google Sheets • 1 email',
       summary: 'Q4 tracking at 108% of target with $1.188M projected versus $1.1M goal driven by $505K closed revenue and $683K weighted pipeline. Cross-platform analysis suggests pipeline weighting understates actual close probability - ACME should be 85% not 75% based on email signals raising weighted pipeline to $772K. Cash position strong at $502K net with Vertex final payment of $85K due December 15th providing year-end liquidity. Pipeline concentration shows ACME representing 58% of weighted value presenting manageable risk given board approval validation. Q1 2026 visibility building at $570-770K range from ACME Phase 1 continuation and expansion opportunities.',
-      content: `
-# Financial Overview & Pipeline Value
-**Daily Analysis - November 20, 2025**
-
-**Data Sources**: 3 Salesforce deals • 2 Google Sheets • 1 email
-
-## Executive Summary
+      content: `## Executive Summary
 
 Q4 revenue performance is tracking at **108% of target** with $1.188M projected against the $1.1M goal. This represents $505K in closed revenue and $683K in weighted pipeline value. The ACME Corp opportunity alone, if it closes as expected on December 31st, would push Q4 to 128% of target.
 
@@ -781,14 +772,9 @@ You're making financial decisions with operational and relationship context, not
       type: 'team_projects',
       title: 'Department Activity & Productivity',
       icon: '',
+      sourceCount: '5 Slack channels • 3 emails • 1 utilization sheet',
       summary: 'Team operating at 78% utilization with strong cross-functional coordination between sales and delivery departments. Email response time averaging 2.3 hours demonstrates high responsiveness without overload. Collaboration patterns from Slack show proactive capacity planning with team members self-organizing around resource availability. Performance signals exceptional - Alex Kumar delivering Vertex ahead of schedule and Jennifer Martinez requested by name for ACME engagement. Internal knowledge sharing active with Maria Santos supporting teammates on technical questions. Department dynamics healthy with no bottlenecks or communication silos detected.',
-      content: `
-# Department Activity & Productivity
-**Daily Analysis - November 20, 2025**
-
-**Data Sources**: 5 Slack channels • 3 emails • 1 utilization sheet
-
-## Executive Summary
+      content: `## Executive Summary
 
 Your team is operating at **78% utilization** across four key functions, sitting comfortably within the healthy 80-85% target range. Department collaboration patterns from Slack show strong cross-functional coordination with sales and delivery teams actively aligned on the ACME opportunity. Response time analysis reveals average email turnaround of **2.3 hours** on client communications, indicating high responsiveness without signs of overload.
 
