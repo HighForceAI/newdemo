@@ -29,10 +29,10 @@ const isDemoModeEnabled = () => {
 const createDemoUser = (): User => {
   return {
     id: "demo-user-id",
-    email: "Demo@highforce.ai",
+    email: "hayden@summitconsulting.com",
     app_metadata: {},
     user_metadata: {
-      name: "Demo",
+      name: "Hayden Woodburn",
     },
     aud: "authenticated",
     created_at: new Date().toISOString(),

@@ -16,7 +16,7 @@ export const mockSalesforceDeals: Source[] = [
     content: `Opportunity Details:
 
 Account: ACME Corporation
-Contact: Sarah Chen, VP of Digital Strategy
+Contact: Heidi Sheppard, VP of Digital Strategy
 Type: New Business
 Amount: $450,000
 Probability: 75%
@@ -30,7 +30,7 @@ Comprehensive digital transformation initiative including:
 - Change management and training
 
 Key Decision Makers:
-- Sarah Chen (Champion)
+- Heidi Sheppard (Champion)
 - Michael Roberts (CFO - Economic Buyer)
 - Lisa Park (CTO - Technical Evaluator)
 
@@ -45,7 +45,7 @@ Next Steps:
 4. Planned start date: January 6, 2026
 
 Notes:
-Sarah mentioned board approval is likely but wants to see Phase 1 accelerated. Need to revise timeline and present updated proposal. Jennifer Martinez requested as lead consultant based on prior CRM project success.`
+Sarah mentioned board approval is likely but wants to see Phase 1 accelerated. Need to revise timeline and present updated proposal. Nicole Kelly requested as lead consultant based on prior CRM project success.`
   },
 
   {
@@ -57,12 +57,12 @@ Sarah mentioned board approval is likely but wants to see Phase 1 accelerated. N
       dealValue: '$280,000',
       stage: 'Closed Won',
       closeDate: 'Aug 15, 2025',
-      owner: 'Alex Kumar'
+      owner: 'William Marquez'
     },
     content: `Opportunity Details:
 
 Account: Vertex Systems
-Contact: Michael Torres, CTO
+Contact: Brent Soto, CTO
 Type: New Business
 Amount: $280,000
 Probability: 100% (Closed Won)
@@ -93,7 +93,7 @@ Client Satisfaction: Excellent
 Reference Status: Confirmed willing to provide references
 
 Notes:
-Project executing ahead of schedule. Client extremely satisfied. Strong potential for future work. Michael Torres praised team expertise and professionalism.`
+Project executing ahead of schedule. Client extremely satisfied. Strong potential for future work. Brent Soto praised team expertise and professionalism.`
   },
 
   {
@@ -144,7 +144,7 @@ Next Steps:
 - Targeting contract signature mid-December
 
 Notes:
-David Park very engaged. Budget approved. Main risk is internal legal process timeline. Maria Santos interested in leading this project given her AI/ML background.`
+David Park very engaged. Budget approved. Main risk is internal legal process timeline. Isabella Reynolds interested in leading this project given her AI/ML background.`
   },
 
   {
@@ -156,7 +156,7 @@ David Park very engaged. Budget approved. Main risk is internal legal process ti
       dealValue: '$320,000',
       stage: 'Closed Won',
       closeDate: 'Jul 22, 2025',
-      owner: 'Maria Santos'
+      owner: 'Isabella Reynolds'
     },
     content: `Opportunity Details:
 
@@ -205,12 +205,12 @@ This is becoming a model client relationship. Lisa Wang is now actively referrin
       dealValue: '$185,000',
       stage: 'Closed Won',
       closeDate: 'Sep 10, 2025',
-      owner: 'Robert Kim'
+      owner: 'Jessie Montoya'
     },
     content: `Opportunity Details:
 
 Account: FinServe Solutions
-Contact: Robert Kim, Director of Technology
+Contact: Jessie Montoya, Director of Technology
 Type: New Business
 Amount: $185,000
 Probability: 100% (Closed Won)
@@ -245,7 +245,7 @@ Follow-on Opportunities:
 Reference Status: Confirmed - will provide references
 
 Notes:
-Robert Kim is a strong advocate. Mentioned us to GlobalManufacturing (new lead). QBR scheduled for early December to discuss expansion.`
+Jessie Montoya is a strong advocate. Mentioned us to GlobalManufacturing (new lead). QBR scheduled for early December to discuss expansion.`
   },
 
   {
@@ -262,7 +262,7 @@ Robert Kim is a strong advocate. Mentioned us to GlobalManufacturing (new lead).
     content: `Opportunity Details:
 
 Account: NetLogic Corp
-Contact: Maria Santos, COO
+Contact: Isabella Reynolds, COO
 Type: New Business
 Amount: $700,000
 Probability: 40%
@@ -366,7 +366,7 @@ Inbound referral from FinServe. Early stage but qualified lead. Will need to ass
       dealValue: '$280,000',
       stage: 'Closed Lost',
       closeDate: 'Oct 15, 2025',
-      owner: 'Jennifer Martinez'
+      owner: 'Nicole Kelly'
     },
     content: `Opportunity Details:
 
@@ -414,7 +414,7 @@ Actions:
       dealValue: '$220,000',
       stage: 'Nurture',
       closeDate: 'Mar 31, 2026',
-      owner: 'Robert Kim'
+      owner: 'Jessie Montoya'
     },
     content: `Opportunity Details:
 
@@ -468,7 +468,7 @@ Met at CloudTech conference. Interesting opportunity but need healthcare complia
       dealValue: '$45,000',
       stage: 'Proposal Sent',
       closeDate: 'Dec 10, 2025',
-      owner: 'Maria Santos'
+      owner: 'Isabella Reynolds'
     },
     content: `Opportunity Details:
 

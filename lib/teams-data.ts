@@ -21,50 +21,50 @@ export interface Team {
 export const mockUsers: User[] = [
   {
     id: 'user_001',
-    name: 'Demo',
-    email: 'demo@summitconsulting.com',
+    name: 'Hayden Woodburn',
+    email: 'hayden@summitconsulting.com',
     role: 'admin',
     teams: []
   },
   {
     id: 'user_002',
-    name: 'Jennifer Martinez',
-    email: 'jennifer@summitconsulting.com',
+    name: 'Nicole Kelly',
+    email: 'nicole@summitconsulting.com',
     role: 'manager',
     teams: ['team_001', 'team_002']
   },
   {
     id: 'user_003',
-    name: 'Alex Kumar',
-    email: 'alex@summitconsulting.com',
+    name: 'William Marquez',
+    email: 'william@summitconsulting.com',
     role: 'manager',
     teams: ['team_002']
   },
   {
     id: 'user_004',
-    name: 'Maria Santos',
-    email: 'maria@summitconsulting.com',
+    name: 'Isabella Reynolds',
+    email: 'isabella@summitconsulting.com',
     role: 'employee',
     teams: ['team_002', 'team_003']
   },
   {
     id: 'user_005',
-    name: 'Robert Kim',
-    email: 'robert@summitconsulting.com',
+    name: 'Jessie Montoya',
+    email: 'jessie@summitconsulting.com',
     role: 'employee',
     teams: ['team_001', 'team_003']
   },
   {
     id: 'user_006',
-    name: 'Sarah Chen',
-    email: 'sarah@summitconsulting.com',
+    name: 'Heidi Sheppard',
+    email: 'heidi@summitconsulting.com',
     role: 'employee',
     teams: ['team_001']
   },
   {
     id: 'user_007',
-    name: 'Michael Torres',
-    email: 'michael@summitconsulting.com',
+    name: 'Brent Soto',
+    email: 'brent@summitconsulting.com',
     role: 'employee',
     teams: ['team_003']
   }

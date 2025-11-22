@@ -18,7 +18,7 @@ const appConfig = {
   drive: { logo: '/logos/drive.png', name: 'Google Drive', plural: 'documents' },
   sheets: { logo: '/logos/google-sheets.png', name: 'Google Sheets', plural: 'sheets' },
   github: { logo: 'https://cdn.simpleicons.org/github', name: 'GitHub', plural: 'items' },
-  quickbooks: { logo: 'https://cdn.simpleicons.org/quickbooks', name: 'QuickBooks', plural: 'records' }
+  quickbooks: { logo: '/logos/quickbooks.png', name: 'QuickBooks', plural: 'records' }
 };
 
 export default function GroupedSourceCard({ appType, sources, count }: GroupedSourceCardProps) {

@@ -26,14 +26,14 @@ export const mockActionItems: ActionItem[] = [
       id: 'src_acme_request',
       appType: 'gmail',
       title: 'Re: Q4 Digital Transformation Project',
-      subtitle: 'Sarah Chen - ACME Corp',
+      subtitle: 'Heidi Sheppard - ACME Corp',
       metadata: {
-        from: 'Sarah Chen <schen@acmecorp.com>',
-        to: 'Demo <demo@highforce.ai>',
+        from: 'Heidi Sheppard <heidi@acmecorp.com>',
+        to: 'Hayden Woodburn <hayden@summitconsulting.com>',
         date: 'Nov 18, 2025 2:34 PM',
         subject: 'Re: Q4 Digital Transformation Project'
       },
-      content: `Hi Demo,
+      content: `Hi Hayden,
 
 Thank you for the comprehensive proposal. The board reviewed it last week and we're very impressed with your approach to our digital transformation initiative.
 
@@ -43,14 +43,14 @@ A few key points we'd like to discuss:
 
 2. Budget: The $450K estimate is within our approved range. However, we'd like to understand the breakdown for the cloud migration component.
 
-3. Team: Your proposed team structure looks solid. Will Jennifer Martinez be the lead consultant? We worked with her on the CRM project last year and she was fantastic.
+3. Team: Your proposed team structure looks solid. Will Nicole Kelly be the lead consultant? We worked with her on the CRM project last year and she was fantastic.
 
 4. Next Steps: Can we schedule a kickoff meeting for the week of December 2nd? I'd like to get the executive team aligned before the holidays.
 
 Looking forward to moving forward with this partnership.
 
 Best regards,
-Sarah Chen`
+Heidi Sheppard`
     }
   },
   {
@@ -70,10 +70,10 @@ Sarah Chen`
 November 25, 2025 at 9:00 AM
 
 ATTENDEES
-- Maria Santos (COO, NetLogic)
+- Isabella Reynolds (COO, NetLogic)
 - Tom Richardson (CTO, NetLogic)
-- Demo (Summit Strategy)
-- Jennifer Martinez (Summit Strategy)
+- Hayden (Summit Strategy)
+- Nicole Kelly (Summit Strategy)
 
 OBJECTIVES
 1. Understand technical complexity of 3-platform integration
@@ -142,14 +142,14 @@ This could establish us in M&A integration space OR overextend capabilities. Be 
       id: 'src_vertex_completion',
       appType: 'gmail',
       title: 'Vertex Project - Final Deliverables',
-      subtitle: 'Michael Torres - Vertex Systems',
+      subtitle: 'Brent Soto - Vertex Systems',
       metadata: {
-        from: 'Michael Torres <mtorres@vertexsys.com>',
-        to: 'Alex Kumar <akumar@summitconsulting.com>',
+        from: 'Brent Soto <brent@vertexsys.com>',
+        to: 'William Marquez <william@summitconsulting.com>',
         date: 'Nov 19, 2025 4:22 PM',
         subject: 'Final Deliverables Review - Cloud Migration'
       },
-      content: `Hi Alex,
+      content: `Hi William,
 
 I wanted to touch base on the final deliverables for our cloud migration project. We're extremely pleased with the progress and the December 15th completion date looks solid - actually, you might even finish a few days early at this pace.
 
@@ -165,7 +165,7 @@ Final payment ($85K) will be processed on December 15th as agreed.
 
 Thanks again for all the great work.
 
-Michael Torres
+Brent Soto
 CTO, Vertex Systems`
     }
   },
@@ -180,19 +180,19 @@ CTO, Vertex Systems`
       subtitle: 'TechStart status discussion',
       metadata: {
         channel: 'sales-pipeline',
-        participants: ['Demo', 'Maria Santos'],
+        participants: ['Demo', 'Isabella Reynolds'],
         date: 'Nov 20, 2025'
       },
-      content: `Demo  9:15 AM
+      content: `Hayden  9:15 AM
 TechStart deal has been in legal review for 5 days now. David Park said "ready to move forward" on Nov 19 but no contract movement yet.
 
-Maria Santos  9:17 AM
+Isabella Reynolds  9:17 AM
 That's normal for legal but worth a friendly check-in. Don't want it to stall during Thanksgiving week.
 
-Demo  9:18 AM
+Hayden  9:18 AM
 Good point. I'll send a gentle "happy to answer any questions" email to keep it top of mind.
 
-Maria Santos  9:20 AM
+Isabella Reynolds  9:20 AM
 Perfect approach. Not pushy, just helpful.`
     }
   },
@@ -207,11 +207,11 @@ Perfect approach. Not pushy, just helpful.`
       subtitle: 'CloudTech Summit',
       metadata: {
         from: 'Events Team <events@cloudtechsummit.com>',
-        to: 'Demo <demo@highforce.ai>',
+        to: 'Hayden Woodburn <hayden@summitconsulting.com>',
         date: 'Nov 10, 2025 2:20 PM',
         subject: 'Speaker Invitation - CloudTech Summit 2026'
       },
-      content: `Dear Demo,
+      content: `Dear Hayden,
 
 We're organizing CloudTech Summit 2026 (March 15-17, San Francisco) and would love to have you as a speaker.
 
@@ -244,7 +244,7 @@ export const mockAlerts: Alert[] = [
   {
     id: 'alert_002',
     level: 'critical',
-    title: 'Jennifer Martinez capacity constraint',
+    title: 'Nicole Kelly capacity constraint',
     message: 'Mentioned by name in 3 client emails this week (ACME, DataCorp, FinServe). High demand creates retention and allocation risk.',
     impact: 'Key person dependency across multiple high-value opportunities'
   },
@@ -266,7 +266,7 @@ export const mockAlerts: Alert[] = [
     id: 'alert_005',
     level: 'opportunity',
     title: 'Vertex early completion leverage',
-    message: 'Project finishing 3 days ahead of schedule. Use this as proof point in ACME proposal and request LinkedIn recommendations from Michael Torres.',
+    message: 'Project finishing 3 days ahead of schedule. Use this as proof point in ACME proposal and request LinkedIn recommendations from Brent Soto.',
     impact: 'Early delivery credibility strengthens $450K ACME close probability'
   }
 ];

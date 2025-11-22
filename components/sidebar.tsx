@@ -182,9 +182,9 @@ export default function Sidebar({ user }: SidebarProps) {
           <div className="mt-3 space-y-1">
             {mockChats.map((chat) => (
               <div key={chat.id} className="relative group/chat mb-1">
-                <button
+                <div
                   onClick={() => router.push(`/search?chat_id=${chat.id}`)}
-                  className="w-full h-auto py-2 px-4 text-sm font-normal text-gray-700 hover:bg-white/40 rounded-xl text-left relative"
+                  className="w-full h-auto py-2 px-4 text-sm font-normal text-gray-700 hover:bg-white/40 rounded-xl cursor-pointer relative"
                 >
                   <div>
                     <p className="text-sm font-normal">
@@ -195,13 +195,15 @@ export default function Sidebar({ user }: SidebarProps) {
                     </p>
                   </div>
                   <button
-                    onClick={(e) => e.stopPropagation()}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                    }}
                     className="absolute right-1 top-2 px-2.5 py-1.5 rounded hover:bg-white transition-colors opacity-0 group-hover/chat:opacity-100 text-gray-400"
                     style={{ backgroundColor: '#E3E4EA' }}
                   >
                     <MoreHorizontal className="h-4 w-4" />
                   </button>
-                </button>
+                </div>
               </div>
             ))}
           </div>

@@ -123,6 +123,7 @@ export default function DashboardPage() {
                         case 'slack': return '/logos/slack.png';
                         case 'drive': return '/logos/drive.png';
                         case 'sheets': return '/logos/google-sheets.png';
+                        case 'quickbooks': return '/logos/quickbooks.png';
                         default: return '';
                       }
                     });
@@ -231,10 +232,10 @@ export default function DashboardPage() {
                 <div className="bg-gray-50 rounded-2xl p-1 flex-1 overflow-y-auto">
                   <div className="space-y-1">
                     {sortedActions.map((action, idx) => (
-                      <button
+                      <div
                         key={action.id}
                         onClick={() => setSelectedSource(action.source)}
-                        className="w-full bg-white hover:bg-gray-50 rounded-xl p-4 transition-all duration-700 ease-in-out text-left group flex items-start gap-4 animate-in fade-in slide-in-from-top-2"
+                        className="w-full bg-white hover:bg-gray-50 rounded-xl p-4 transition-all duration-700 ease-in-out cursor-pointer group flex items-start gap-4 animate-in fade-in slide-in-from-top-2"
                         style={{ animationDelay: `${idx * 50}ms`, animationDuration: '600ms' }}
                       >
                         <div className="flex-1">
@@ -303,7 +304,7 @@ export default function DashboardPage() {
                             </div>
                           </div>
                         </div>
-                      </button>
+                      </div>
                     ))}
                   </div>
                 </div>
@@ -371,7 +372,7 @@ export default function DashboardPage() {
                           handleSearchSubmit(e);
                         }
                       }}
-                      placeholder="Ask me anything..."
+                      placeholder="Ask HighForce anything..."
                       className="flex-1 bg-transparent border-0 focus:outline-none focus:ring-0 text-gray-900 placeholder-gray-400 text-sm resize-none max-h-[400px] overflow-y-auto"
                       rows={1}
                       style={{ height: '20px', lineHeight: '20px' }}

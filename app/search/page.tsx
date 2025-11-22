@@ -173,7 +173,7 @@ function SearchPageContent() {
           <div className={`w-full space-y-4 ${messages.length > 0 ? 'pt-20' : ''} px-4`} style={{ maxWidth: 'calc(55rem + 2rem)' }}>
             {messages.length === 0 && (
               <div className="flex flex-col items-center justify-center min-h-[calc(100vh-12rem)] pt-[10vh]">
-                <h2 className="text-2xl font-normal text-gray-900 mb-3">Ask me anything, {user?.user_metadata?.name || user?.email?.split('@')[0] || 'there'}</h2>
+                <h2 className="text-2xl font-normal text-gray-900 mb-3">Welcome back, Hayden</h2>
                 <p className="text-gray-600 text-center max-w-md mb-8 text-base font-light">
                   Search across all your connected documents, emails, and data sources
                 </p>
@@ -204,7 +204,7 @@ function SearchPageContent() {
                                 handleSearch();
                               }
                             }}
-                            placeholder="Ask me anything..."
+                            placeholder="Ask HighForce anything..."
                             className="flex-1 bg-transparent border-0 focus:outline-none focus:ring-0 text-gray-900 placeholder-gray-400 text-sm resize-none max-h-[400px] overflow-y-auto"
                             disabled={loadingChat}
                             rows={1}
@@ -374,7 +374,7 @@ function SearchPageContent() {
                           handleSearch();
                         }
                       }}
-                      placeholder="Ask me anything..."
+                      placeholder="Ask HighForce anything..."
                       className="flex-1 bg-transparent border-0 focus:outline-none focus:ring-0 text-gray-900 placeholder-gray-400 text-sm resize-none max-h-[400px] overflow-y-auto"
                       disabled={loadingChat}
                       rows={1}

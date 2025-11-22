@@ -15,7 +15,7 @@ export const mockDriveDocs: Source[] = [
 Digital Transformation Proposal
 
 CLIENT: ACME Corporation
-PREPARED FOR: Sarah Chen, VP of Digital Strategy
+PREPARED FOR: Heidi Sheppard, VP of Digital Strategy
 DATE: November 17, 2025
 
 EXECUTIVE SUMMARY
@@ -55,10 +55,10 @@ Investment: $55,000
 TOTAL INVESTMENT: $450,000
 
 TEAM STRUCTURE
-Lead Consultant: Jennifer Martinez (AWS Certified Solutions Architect)
-Cloud Engineer: Alex Kumar (10+ years infrastructure experience)
-Data Architect: Maria Santos
-Change Management: Robert Kim
+Lead Consultant: Nicole Kelly (AWS Certified Solutions Architect)
+Cloud Engineer: William Marquez (10+ years infrastructure experience)
+Data Architect: Isabella Reynolds
+Change Management: Jessie Montoya
 
 EXPECTED OUTCOMES
 - 40% reduction in infrastructure costs
@@ -76,7 +76,7 @@ We're excited about the opportunity to partner with ACME Corporation on this tra
     subtitle: 'Google Docs',
     metadata: {
       lastModified: 'Nov 19, 2025',
-      owner: 'Alex Kumar'
+      owner: 'William Marquez'
     },
     content: `VERTEX SYSTEMS CLOUD MIGRATION
 Final Delivery Checklist
@@ -84,7 +84,7 @@ Final Delivery Checklist
 Project: AWS Cloud Migration
 Client: Vertex Systems
 Completion: December 15, 2025
-Lead: Alex Kumar
+Lead: William Marquez
 
 DELIVERABLES STATUS
 
@@ -117,7 +117,7 @@ Final Payment Trigger: December 15, 2025
 Amount: $70,000
 
 CLIENT FEEDBACK
-Michael Torres (CTO): "Exceptional work. Ahead of schedule and exceeding expectations."
+Brent Soto (CTO): "Exceptional work. Ahead of schedule and exceeding expectations."
 
 POST-PROJECT ACTIONS
 - Request reference confirmation
@@ -134,14 +134,14 @@ POST-PROJECT ACTIONS
     subtitle: 'Google Docs',
     metadata: {
       lastModified: 'Nov 16, 2025',
-      owner: 'Maria Santos'
+      owner: 'Isabella Reynolds'
     },
     content: `TECHSTART AI IMPLEMENTATION
 Technical Architecture Document
 
 Project: Customer Support Automation
 Client: TechStart Inc
-Prepared by: Maria Santos
+Prepared by: Isabella Reynolds
 Date: November 16, 2025
 
 SOLUTION OVERVIEW
@@ -206,10 +206,10 @@ Year 1 included in $125K total cost:
 November 12, 2025
 
 Attendees:
-- Maria Santos (COO, NetLogic)
+- Isabella Reynolds (COO, NetLogic)
 - Tom Richardson (CTO, NetLogic)
-- Demo (Summit Strategy)
-- Jennifer Martinez (Summit Strategy)
+- Hayden (Summit Strategy)
+- Nicole Kelly (Summit Strategy)
 
 COMPANY BACKGROUND
 - B2B SaaS company
@@ -238,7 +238,7 @@ REQUIREMENTS
 - Complete within 18 months
 
 DECISION MAKERS
-- Maria Santos (budget owner, champion)
+- Isabella Reynolds (budget owner, champion)
 - Tom Richardson (technical evaluator)
 - Board (final approval - already indicated support)
 
@@ -269,7 +269,7 @@ NEXT STEPS
 - Decision expected mid-January
 
 NOTES
-This could be our biggest project ever. Complex but achievable. Maria Santos is a strong champion. Need to nail the technical approach.`
+This could be our biggest project ever. Complex but achievable. Isabella Reynolds is a strong champion. Need to nail the technical approach.`
   },
 
   {
@@ -319,9 +319,9 @@ Target Range: 80-85%
 Status: Healthy capacity for new work
 
 Available Capacity Q1 2026:
-- Alex Kumar: Full (Vertex completing)
-- Maria Santos: 80% (DataCorp maintenance is light)
-- Jennifer Martinez: 50% (can lead new project)
+- William Marquez: Full (Vertex completing)
+- Isabella Reynolds: 80% (DataCorp maintenance is light)
+- Nicole Kelly: 50% (can lead new project)
 
 STRATEGIC INITIATIVES
 
@@ -359,7 +359,7 @@ Financial health is excellent. Ready for growth.`
     subtitle: 'Google Docs',
     metadata: {
       lastModified: 'Nov 16, 2025',
-      owner: 'Robert Kim'
+      owner: 'Jessie Montoya'
     },
     content: `CASE STUDY: DATACORP ANALYTICS TRANSFORMATION
 

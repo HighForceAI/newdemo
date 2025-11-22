@@ -5,6 +5,7 @@ import { mockSlackMessages } from './slack';
 import { mockSalesforceDeals } from './salesforce';
 import { mockDriveDocs } from './drive';
 import { mockSheets } from './sheets';
+import { mockQuickBooksRecords } from './quickbooks';
 
 // Export organized by type
 export const sources = {
@@ -12,7 +13,8 @@ export const sources = {
   slack: mockSlackMessages,
   salesforce: mockSalesforceDeals,
   drive: mockDriveDocs,
-  sheets: mockSheets
+  sheets: mockSheets,
+  quickbooks: mockQuickBooksRecords
 };
 
 // Export flat array of all sources
@@ -21,7 +23,8 @@ export const allSources = [
   ...mockSlackMessages,
   ...mockSalesforceDeals,
   ...mockDriveDocs,
-  ...mockSheets
+  ...mockSheets,
+  ...mockQuickBooksRecords
 ];
 
 // Helper to get sources by IDs
@@ -41,5 +44,6 @@ export const sourceCounts = {
   salesforce: mockSalesforceDeals.length,
   drive: mockDriveDocs.length,
   sheets: mockSheets.length,
+  quickbooks: mockQuickBooksRecords.length,
   total: allSources.length
 };

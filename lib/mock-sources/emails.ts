@@ -6,14 +6,14 @@ export const mockEmails: Source[] = [
     id: 'email_001',
     appType: 'gmail',
     title: 'Re: Q4 Digital Transformation Project',
-    subtitle: 'Sarah Chen - ACME Corp',
+    subtitle: 'Heidi Sheppard - ACME Corp',
     metadata: {
-      from: 'Sarah Chen <schen@acmecorp.com>',
-      to: 'Demo <demo@highforce.ai>',
+      from: 'Heidi Sheppard <heidi@acmecorp.com>',
+      to: 'Hayden Woodburn <hayden@summitconsulting.com>',
       date: 'Nov 18, 2025 2:34 PM',
       subject: 'Re: Q4 Digital Transformation Project'
     },
-    content: `Hi Demo,
+    content: `Hi Hayden,
 
 Thank you for the comprehensive proposal. The board reviewed it last week and we're very impressed with your approach to our digital transformation initiative.
 
@@ -23,14 +23,14 @@ A few key points we'd like to discuss:
 
 2. Budget: The $450K estimate is within our approved range. However, we'd like to understand the breakdown for the cloud migration component.
 
-3. Team: Your proposed team structure looks solid. Will Jennifer Martinez be the lead consultant? We worked with her on the CRM project last year and she was fantastic.
+3. Team: Your proposed team structure looks solid. Will Nicole Kelly be the lead consultant? We worked with her on the CRM project last year and she was fantastic.
 
 4. Next Steps: Can we schedule a kickoff meeting for the week of December 2nd? I'd like to get the executive team aligned before the holidays.
 
 Looking forward to moving forward with this partnership.
 
 Best regards,
-Sarah Chen
+Heidi Sheppard
 VP of Digital Strategy
 ACME Corporation`
   },
@@ -39,14 +39,14 @@ ACME Corporation`
     id: 'email_002',
     appType: 'gmail',
     title: 'Initial Proposal Request',
-    subtitle: 'Sarah Chen - ACME Corp',
+    subtitle: 'Heidi Sheppard - ACME Corp',
     metadata: {
-      from: 'Sarah Chen <schen@acmecorp.com>',
-      to: 'Demo <demo@highforce.ai>',
+      from: 'Heidi Sheppard <heidi@acmecorp.com>',
+      to: 'Hayden Woodburn <hayden@summitconsulting.com>',
       date: 'Nov 10, 2025 10:15 AM',
       subject: 'Digital Transformation Initiative - Request for Proposal'
     },
-    content: `Hi Demo,
+    content: `Hi Hayden,
 
 I hope this email finds you well. I'm reaching out regarding a significant digital transformation initiative we're planning for 2026.
 
@@ -66,7 +66,7 @@ Could we schedule a discovery call next week to discuss our requirements in deta
 Looking forward to hearing from you.
 
 Best,
-Sarah Chen
+Heidi Sheppard
 VP of Digital Strategy
 ACME Corporation`
   },
@@ -75,14 +75,14 @@ ACME Corporation`
     id: 'email_003',
     appType: 'gmail',
     title: 'Vertex Project - Final Deliverables',
-    subtitle: 'Michael Torres - Vertex Systems',
+    subtitle: 'Brent Soto - Vertex Systems',
     metadata: {
-      from: 'Michael Torres <mtorres@vertexsys.com>',
-      to: 'Alex Kumar <akumar@summitconsulting.com>',
+      from: 'Brent Soto <brent@vertexsys.com>',
+      to: 'William Marquez <william@summitconsulting.com>',
       date: 'Nov 19, 2025 4:22 PM',
       subject: 'Final Deliverables Review - Cloud Migration'
     },
-    content: `Hi Alex,
+    content: `Hi William,
 
 I wanted to touch base on the final deliverables for our cloud migration project. We're extremely pleased with the progress and the December 15th completion date looks solid.
 
@@ -98,7 +98,7 @@ Final payment ($85K) will be processed on December 15th as agreed.
 
 Thanks again for all the great work.
 
-Michael Torres
+Brent Soto
 CTO, Vertex Systems`
   },
 
@@ -109,11 +109,11 @@ CTO, Vertex Systems`
     subtitle: 'David Park - TechStart Inc',
     metadata: {
       from: 'David Park <dpark@techstart.io>',
-      to: 'Demo <demo@highforce.ai>',
+      to: 'Hayden Woodburn <hayden@summitconsulting.com>',
       date: 'Nov 17, 2025 11:05 AM',
       subject: 'AI Implementation - Scope Clarification Needed'
     },
-    content: `Hi Demo,
+    content: `Hi Hayden,
 
 Thanks for the initial consultation last week. Our team has been discussing the AI implementation project internally and we have a few questions before moving forward.
 
@@ -141,11 +141,11 @@ Head of Product, TechStart Inc`
     subtitle: 'Lisa Wang - DataCorp',
     metadata: {
       from: 'Lisa Wang <lwang@datacorp.com>',
-      to: 'Demo <demo@highforce.ai>',
+      to: 'Hayden Woodburn <hayden@summitconsulting.com>',
       date: 'Nov 16, 2025 9:30 AM',
       subject: 'Reference Request - Analytics Platform Project'
     },
-    content: `Hi Demo,
+    content: `Hi Hayden,
 
 I hope you're doing well! We've been live with the analytics platform for about a month now and the results have been fantastic. The executive team is thrilled with the insights we're now able to generate.
 
@@ -168,14 +168,14 @@ VP Analytics, DataCorp`
     id: 'email_006',
     appType: 'gmail',
     title: 'FinServe - Quarterly Business Review',
-    subtitle: 'Robert Kim - FinServe Solutions',
+    subtitle: 'Jessie Montoya - FinServe Solutions',
     metadata: {
-      from: 'Robert Kim <rkim@finserve.com>',
-      to: 'Demo <demo@highforce.ai>',
+      from: 'Jessie Montoya <jessie@finserve.com>',
+      to: 'Hayden Woodburn <hayden@summitconsulting.com>',
       date: 'Nov 15, 2025 3:15 PM',
       subject: 'QBR Scheduling - Q4 2025'
     },
-    content: `Hi Demo,
+    content: `Hi Hayden,
 
 Time for our quarterly business review! The modernization project we completed in early November has been running smoothly.
 
@@ -190,7 +190,7 @@ I'd like to schedule our QBR for the first or second week of December to review 
 How does your calendar look?
 
 Best,
-Robert Kim
+Jessie Montoya
 Director of Technology, FinServe Solutions`
   },
 
@@ -201,11 +201,11 @@ Director of Technology, FinServe Solutions`
     subtitle: 'Amanda Foster - CloudScale Partners',
     metadata: {
       from: 'Amanda Foster <afoster@cloudscale.com>',
-      to: 'Demo <demo@highforce.ai>',
+      to: 'Hayden Woodburn <hayden@summitconsulting.com>',
       date: 'Nov 14, 2025 1:45 PM',
       subject: 'Strategic Partnership Discussion'
     },
-    content: `Hi Demo,
+    content: `Hi Hayden,
 
 I'm Amanda Foster, VP of Partnerships at CloudScale. We're a cloud cost optimization platform and we're building a network of implementation partners.
 
@@ -232,13 +232,13 @@ VP Partnerships, CloudScale`
     subtitle: 'James Mitchell - GlobalManufacturing',
     metadata: {
       from: 'James Mitchell <jmitchell@globalmfg.com>',
-      to: 'Demo <demo@highforce.ai>',
+      to: 'Hayden Woodburn <hayden@summitconsulting.com>',
       date: 'Nov 13, 2025 10:30 AM',
       subject: 'ERP Modernization Project Inquiry'
     },
     content: `Hello,
 
-I was referred to Summit Strategy Consulting by Robert Kim at FinServe Solutions. We're a mid-sized manufacturing company looking to modernize our ERP system.
+I was referred to Summit Strategy Consulting by Jessie Montoya at FinServe Solutions. We're a mid-sized manufacturing company looking to modernize our ERP system.
 
 Current Situation:
 - Running on legacy SAP system (15+ years old)
@@ -265,11 +265,11 @@ Director of IT, GlobalManufacturing Co`
     subtitle: 'David Park - TechStart Inc',
     metadata: {
       from: 'David Park <dpark@techstart.io>',
-      to: 'Demo <demo@highforce.ai>',
+      to: 'Hayden Woodburn <hayden@summitconsulting.com>',
       date: 'Nov 19, 2025 2:50 PM',
       subject: 'Re: AI Implementation Proposal - Moving Forward'
     },
-    content: `Hi Demo,
+    content: `Hi Hayden,
 
 Thanks for addressing all our questions so thoroughly. The team reviewed the updated proposal and we're ready to move forward.
 
@@ -296,14 +296,14 @@ Head of Product, TechStart Inc`
     id: 'email_010',
     appType: 'gmail',
     title: 'Referral - Enterprise Solutions Needed',
-    subtitle: 'Maria Santos - NetLogic Corp',
+    subtitle: 'Isabella Reynolds - NetLogic Corp',
     metadata: {
-      from: 'Maria Santos <msantos@netlogic.com>',
-      to: 'Demo <demo@highforce.ai>',
+      from: 'Isabella Reynolds <isabella@netlogic.com>',
+      to: 'Hayden Woodburn <hayden@summitconsulting.com>',
       date: 'Nov 12, 2025 4:10 PM',
       subject: 'Introduction via Lisa Wang (DataCorp)'
     },
-    content: `Hi Demo,
+    content: `Hi Hayden,
 
 Lisa Wang from DataCorp recommended I reach out to you. We're looking for help with a complex enterprise integration project.
 
@@ -327,7 +327,7 @@ Timeline: 18-month project, starting Q1 2026
 This is a complex undertaking and Lisa assured me you have the expertise. Would you be interested in learning more?
 
 Best,
-Maria Santos
+Isabella Reynolds
 COO, NetLogic Corp`
   },
 
@@ -335,22 +335,22 @@ COO, NetLogic Corp`
     id: 'email_011',
     appType: 'gmail',
     title: 'ACME - Introduction to CTO',
-    subtitle: 'Sarah Chen - ACME Corp',
+    subtitle: 'Heidi Sheppard - ACME Corp',
     metadata: {
-      from: 'Sarah Chen <schen@acmecorp.com>',
-      to: 'Demo <demo@highforce.ai>',
+      from: 'Heidi Sheppard <heidi@acmecorp.com>',
+      to: 'Hayden Woodburn <hayden@summitconsulting.com>',
       date: 'Nov 8, 2025 11:20 AM',
       subject: 'Introduction to Lisa Park, our CTO'
     },
-    content: `Hi Demo,
+    content: `Hi Hayden,
 
 Following up on our discovery call yesterday. I wanted to introduce you to Lisa Park, our CTO. Lisa will be the technical evaluator for the digital transformation project.
 
-Lisa - Demo and I discussed the modernization initiative. I've forwarded you the initial proposal. Please review the technical architecture sections and let me know if you have any concerns or questions.
+Lisa - Hayden and I discussed the modernization initiative. I've forwarded you the initial proposal. Please review the technical architecture sections and let me know if you have any concerns or questions.
 
-Demo - Lisa has deep AWS experience and will want to dive into the cloud migration approach. She's particularly interested in the data warehouse modernization component.
+Hayden - Lisa has deep AWS experience and will want to dive into the cloud migration approach. She's particularly interested in the data warehouse modernization component.
 
-I'm thinking we should have a technical deep-dive call next week with Lisa, Demo, and perhaps your lead architect?
+I'm thinking we should have a technical deep-dive call next week with Lisa, Hayden, and perhaps your lead architect?
 
 Let me know what works for both of you.
 
@@ -362,14 +362,14 @@ Sarah`
     id: 'email_012',
     appType: 'gmail',
     title: 'Vertex - Mid-Project Check-in',
-    subtitle: 'Michael Torres - Vertex Systems',
+    subtitle: 'Brent Soto - Vertex Systems',
     metadata: {
-      from: 'Michael Torres <mtorres@vertexsys.com>',
-      to: 'Alex Kumar <akumar@summitconsulting.com>',
+      from: 'Brent Soto <brent@vertexsys.com>',
+      to: 'William Marquez <william@summitconsulting.com>',
       date: 'Oct 28, 2025 3:45 PM',
       subject: 'Project Status - Looking Great'
     },
-    content: `Hi Alex,
+    content: `Hi William,
 
 Quick note to say the cloud migration is progressing beautifully. We just completed the test environment migration and everything performed better than expected.
 
@@ -395,11 +395,11 @@ Michael`
     subtitle: 'Lisa Wang - DataCorp',
     metadata: {
       from: 'Lisa Wang <lwang@datacorp.com>',
-      to: 'Demo <demo@highforce.ai>',
+      to: 'Hayden Woodburn <hayden@summitconsulting.com>',
       date: 'Nov 11, 2025 9:15 AM',
       subject: 'Annual Support Contract Renewal'
     },
-    content: `Hi Demo,
+    content: `Hi Hayden,
 
 Our annual support contract is up for renewal in January. Given how well the analytics platform has performed, we'd like to renew and actually expand the support scope.
 
@@ -424,9 +424,9 @@ Lisa`
     id: 'email_014',
     appType: 'gmail',
     title: 'Summit Team - Q4 Goals Check-in',
-    subtitle: 'Internal - Jennifer Martinez',
+    subtitle: 'Internal - Nicole Kelly',
     metadata: {
-      from: 'Jennifer Martinez <jmartinez@summitconsulting.com>',
+      from: 'Nicole Kelly <nicole@summitconsulting.com>',
       to: 'Team <team@summitconsulting.com>',
       date: 'Nov 18, 2025 8:30 AM',
       subject: 'Q4 Goals - We\'re Crushing It!'
@@ -459,11 +459,11 @@ JM`
     subtitle: 'CloudTech Summit',
     metadata: {
       from: 'Events Team <events@cloudtechsummit.com>',
-      to: 'Demo <demo@highforce.ai>',
+      to: 'Hayden Woodburn <hayden@summitconsulting.com>',
       date: 'Nov 10, 2025 2:20 PM',
       subject: 'Speaker Invitation - CloudTech Summit 2026'
     },
-    content: `Dear Demo,
+    content: `Dear Hayden,
 
 We're organizing CloudTech Summit 2026 (March 15-17, San Francisco) and would love to have you as a speaker.
 

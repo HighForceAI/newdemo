@@ -43,7 +43,7 @@ const appConfig = {
     iconBg: 'bg-gray-100'
   },
   quickbooks: {
-    logo: 'https://cdn.simpleicons.org/quickbooks',
+    logo: '/logos/quickbooks.png',
     name: 'QuickBooks',
     bgColor: 'bg-green-50',
     iconBg: 'bg-green-100'
