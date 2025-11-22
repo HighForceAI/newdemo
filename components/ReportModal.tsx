@@ -102,7 +102,7 @@ export default function ReportModal({ isOpen, onClose, report }: ReportModalProp
           </div>
 
           {/* Report Content */}
-          <div className="flex-1 overflow-y-auto px-8 py-6">
+          <div className="flex-1 overflow-y-auto px-8 pt-4 pb-6">
             <div className="prose prose-sm max-w-none mb-8">
               <SmartMarkdown content={report.content} />
             </div>

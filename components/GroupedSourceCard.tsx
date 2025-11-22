@@ -16,7 +16,7 @@ const appConfig = {
   salesforce: { logo: '/logos/salesforce.png', name: 'Salesforce', plural: 'records' },
   slack: { logo: '/logos/slack.png', name: 'Slack', plural: 'messages' },
   drive: { logo: '/logos/drive.png', name: 'Google Drive', plural: 'documents' },
-  sheets: { logo: '/logos/google-sheets.webp', name: 'Google Sheets', plural: 'sheets' },
+  sheets: { logo: '/logos/google-sheets.png', name: 'Google Sheets', plural: 'sheets' },
   github: { logo: 'https://cdn.simpleicons.org/github', name: 'GitHub', plural: 'items' },
   quickbooks: { logo: 'https://cdn.simpleicons.org/quickbooks', name: 'QuickBooks', plural: 'records' }
 };
