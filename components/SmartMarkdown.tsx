@@ -16,7 +16,7 @@ const SmartMarkdown = ({ content, onLinkClick }: SmartMarkdownProps) => {
           </code>
         </pre>
       ) : (
-        <code className="bg-blue-50 text-blue-700 px-2 py-1 rounded-md text-sm font-mono font-semibold" {...props}>
+        <code className="bg-gray-100 text-gray-900 px-2 py-1 rounded-md text-sm font-mono font-semibold" {...props}>
           {children}
         </code>
       )
@@ -64,7 +64,7 @@ const SmartMarkdown = ({ content, onLinkClick }: SmartMarkdownProps) => {
       </strong>
       ),
     em: ({ children }: any) => (
-      <em className="text-blue-600 italic font-medium">
+      <em className="text-gray-900 italic font-medium">
         {children}
       </em>
     ),
