@@ -4,7 +4,7 @@ import { useAuth } from "@/contexts/auth-context";
 import { useRouter } from "next/navigation";
 import Sidebar from "@/components/sidebar";
 import { ArrowUp, Plus, Mic, Calendar, AlertTriangle, TrendingUp, Info, ChevronDown, SlidersHorizontal, Flag, MoreVertical, Check, Trash2 } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -32,6 +32,11 @@ export default function DashboardPage() {
   const [flaggedActions, setFlaggedActions] = useState<string[]>([]);
   const [completedActions, setCompletedActions] = useState<string[]>([]);
   const [showCompleted, setShowCompleted] = useState<'none' | '30' | '60' | '90' | 'all'>('none');
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  useEffect(() => {
+    setIsLoaded(true);
+  }, []);
 
   const handleSearchSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -96,15 +101,20 @@ export default function DashboardPage() {
 
   return (
     <div className="flex h-screen bg-white">
-      {/* Grey bubble sidebar wrapper */}
+      {/* Loading overlay */}
+      {!isLoaded && (
+        <div className="fixed inset-0 bg-white z-50" />
+      )}
+
+      {/* Grey bubble sidebar wrapper - no animation */}
       <div className="p-6">
         <div className="rounded-3xl" style={{ height: 'calc(100vh - 48px)', backgroundColor: '#E3E4EA', boxShadow: '4px 4px 12px rgba(0, 0, 0, 0.08)', overflow: 'hidden' }}>
           <Sidebar user={user} />
         </div>
       </div>
 
-      {/* Main content area */}
-      <div className="flex-1 overflow-y-auto p-8 pt-12">
+      {/* Main content area with fade-in */}
+      <div className={`flex-1 overflow-y-auto p-8 pt-12 transition-opacity duration-1000 ease-out ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
         <div className="max-w-7xl mx-auto">
           {/* Two Column Layout */}
           <div className="grid grid-cols-3 gap-6" style={{ minWidth: '900px' }}>

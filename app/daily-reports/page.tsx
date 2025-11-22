@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Sidebar from "@/components/sidebar";
 import { useAuth } from "@/contexts/auth-context";
 import { Button } from "@/components/ui/button";
@@ -16,6 +16,11 @@ export default function DailyReportsPage() {
   const [selectedDate, setSelectedDate] = useState<Date>(new Date());
   const [calendarOpen, setCalendarOpen] = useState(false);
   const [selectedReport, setSelectedReport] = useState<DailyReport | null>(null);
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  useEffect(() => {
+    setIsLoaded(true);
+  }, []);
 
   const formatDateToString = (date: Date): string => {
     const yyyy = date.getFullYear();
@@ -45,12 +50,20 @@ export default function DailyReportsPage() {
 
   return (
     <div className="flex h-screen bg-white">
+      {/* Loading overlay */}
+      {!isLoaded && (
+        <div className="fixed inset-0 bg-white z-50" />
+      )}
+
+      {/* Sidebar - no animation */}
       <div className="p-6">
         <div className="rounded-3xl" style={{ height: 'calc(100vh - 48px)', backgroundColor: '#E3E4EA', boxShadow: '4px 4px 12px rgba(0, 0, 0, 0.08)', overflow: 'hidden' }}>
           <Sidebar user={user} />
         </div>
       </div>
-      <div className="flex-1 overflow-y-auto p-8 pt-12">
+
+      {/* Main content with fade-in */}
+      <div className={`flex-1 overflow-y-auto p-8 pt-12 transition-opacity duration-1000 ease-out ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
         <div className="max-w-7xl mx-auto" style={{ minWidth: '800px' }}>
           {/* Header with Date and Calendar */}
           <div className="flex items-end justify-between mb-12">

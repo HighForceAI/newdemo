@@ -28,6 +28,14 @@ function SearchPageContent() {
   const [selectedSource, setSelectedSource] = useState<DemoSource | null>(null);
   const [loadingTextIndex, setLoadingTextIndex] = useState(0);
   const messagesEndRef = useRef<HTMLDivElement>(null);
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoaded(true);
+    }, 50);
+    return () => clearTimeout(timer);
+  }, []);
 
   const loadingTexts = [
     "Searching",
@@ -158,16 +166,14 @@ function SearchPageContent() {
   if (!user) return null;
 
   return (
-    <div className="flex h-screen bg-white">
-      {/* Grey bubble sidebar wrapper */}
-      <div className="p-6">
-        <div className="rounded-3xl" style={{ height: 'calc(100vh - 48px)', backgroundColor: '#E3E4EA', boxShadow: '4px 4px 12px rgba(0, 0, 0, 0.08)', overflow: 'hidden' }}>
-          <Sidebar user={user} />
-        </div>
-      </div>
+    <>
+      {/* Loading overlay for main content only */}
+      {!isLoaded && (
+        <div className="fixed bg-white z-50" style={{ left: 'calc(256px + 48px)', top: 0, right: 0, bottom: 0 }} />
+      )}
 
-      {/* Main Content */}
-      <div className="flex-1 flex flex-col overflow-hidden">
+      {/* Main Content container */}
+      <div className={`flex-1 flex flex-col overflow-hidden transition-opacity duration-1000 ease-out ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
         {/* Messages Area */}
         <div className="flex-1 overflow-y-auto flex justify-center" style={{ paddingTop: '24px', paddingBottom: messages.length > 0 ? 'calc(180px + 5vh)' : '24px' }}>
           <div className={`w-full space-y-4 ${messages.length > 0 ? 'pt-20' : ''} px-4`} style={{ maxWidth: 'calc(55rem + 2rem)' }}>
@@ -413,18 +419,32 @@ function SearchPageContent() {
           source={selectedSource}
         />
       )}
-    </div>
+    </>
   );
 }
 
 export default function SearchPage() {
+  const { user } = useAuth();
+
   return (
-    <Suspense fallback={
-      <div className="flex h-screen items-center justify-center bg-gray-50">
-        <Loader2 className="h-12 w-12 animate-spin text-blue-500" />
+    <div className="flex h-screen bg-white">
+      {/* Grey bubble sidebar wrapper - fixed position to prevent any movement */}
+      <div className="fixed left-0 top-0 bottom-0 p-6" style={{ width: 'calc(256px + 48px)', zIndex: 10 }}>
+        <div className="rounded-3xl" style={{ height: 'calc(100vh - 48px)', backgroundColor: '#E3E4EA', boxShadow: '4px 4px 12px rgba(0, 0, 0, 0.08)', overflow: 'hidden' }}>
+          <Sidebar user={user} />
+        </div>
       </div>
-    }>
-      <SearchPageContent />
-    </Suspense>
+
+      {/* Spacer for fixed sidebar */}
+      <div style={{ width: 'calc(256px + 48px)', flexShrink: 0 }} />
+
+      <Suspense fallback={
+        <div className="flex-1 flex items-center justify-center bg-white">
+          <Loader2 className="h-12 w-12 animate-spin text-blue-500" />
+        </div>
+      }>
+        <SearchPageContent />
+      </Suspense>
+    </div>
   );
 }

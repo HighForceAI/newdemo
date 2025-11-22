@@ -50,6 +50,11 @@ export default function ConnectionsPage() {
   const [connecting, setConnecting] = useState<Record<string, boolean>>({});
   const [syncing, setSyncing] = useState<Record<string, boolean>>({});
   const [syncModalProvider, setSyncModalProvider] = useState<string | null>(null);
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  useEffect(() => {
+    setIsLoaded(true);
+  }, []);
 
   useEffect(() => {
     if (!authLoading && !user) {
@@ -232,9 +237,16 @@ export default function ConnectionsPage() {
 
   return (
     <div className="flex h-full">
+      {/* Loading overlay */}
+      {!isLoaded && (
+        <div className="fixed inset-0 bg-white z-50" />
+      )}
+
+      {/* Sidebar - no animation */}
       <Sidebar user={user} />
 
-      <div className="flex-1 overflow-y-auto">
+      {/* Main content with fade-in */}
+      <div className={`flex-1 overflow-y-auto transition-opacity duration-1000 ease-out ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
         <div className="max-w-6xl mx-auto p-8">
           {/* Header */}
           <div className="mb-8">

@@ -51,6 +51,11 @@ export default function ReportsPage() {
   const [selectedReport, setSelectedReport] = useState<any | null>(null);
   const [modalOpen, setModalOpen] = useState(false);
   const router = useRouter();
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  useEffect(() => {
+    setIsLoaded(true);
+  }, []);
 
   useEffect(() => {
     loadReports();
@@ -153,8 +158,16 @@ export default function ReportsPage() {
 
   return (
     <div className="flex h-full">
+      {/* Loading overlay */}
+      {!isLoaded && (
+        <div className="fixed inset-0 bg-white z-50" />
+      )}
+
+      {/* Sidebar - no animation */}
       <Sidebar user={user} />
-      <div className="flex-1 overflow-y-auto p-8">
+
+      {/* Main content with fade-in */}
+      <div className={`flex-1 overflow-y-auto p-8 transition-opacity duration-1000 ease-out ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
         <div className="max-w-7xl mx-auto">
           <div className="flex items-center justify-between mb-8">
             <div>
