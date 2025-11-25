@@ -254,7 +254,7 @@ export default function DashboardPage() {
                   </DropdownMenu>
                 </div>
                 <div className="bg-gray-50 rounded-2xl p-1 flex-1 overflow-y-auto">
-                  <div className="space-y-1">
+                  <div className="space-y-1 pb-40">
                     {sortedActions.map((action, idx) => (
                       <div
                         key={action.id}
@@ -349,7 +349,7 @@ export default function DashboardPage() {
             {/* Right Column - Alerts */}
             <div className="col-span-1 flex flex-col" style={{ maxHeight: '730px', minWidth: '300px' }}>
               <h2 className="text-3xl font-normal text-gray-900 mb-4">Alerts</h2>
-              <div className="space-y-3 overflow-y-auto flex-1 rounded-2xl">
+              <div className="space-y-3 overflow-y-auto flex-1 rounded-2xl pb-40">
                 {mockAlerts.map((alert) => (
                   <div
                     key={alert.id}
