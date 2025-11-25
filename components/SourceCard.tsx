@@ -1,3 +1,5 @@
+import Image from 'next/image';
+
 interface SourceCardProps {
   appType: 'gmail' | 'salesforce' | 'slack' | 'drive' | 'github' | 'quickbooks' | 'sheets';
   title: string;
@@ -61,10 +63,13 @@ export default function SourceCard({ appType, title, subtitle, onClick }: Source
       <div className="flex items-start gap-3">
         {/* App Logo */}
         <div className="w-6 h-6 flex items-center justify-center flex-shrink-0 mt-0.5">
-          <img
+          <Image
             src={config.logo}
             alt={config.name}
-            className="w-full h-full object-contain"
+            width={24}
+            height={24}
+            className="object-contain"
+            priority
           />
         </div>
 

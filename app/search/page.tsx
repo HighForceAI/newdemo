@@ -8,6 +8,7 @@ import SourceCard from "@/components/SourceCard";
 import SourceModal from "@/components/SourceModal";
 import GroupedSourceCard from "@/components/GroupedSourceCard";
 import { Loader2, ArrowUp, Plus, Mic } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import SmartMarkdown from '@/components/SmartMarkdown';
 import { mockChatConversations, getDemoConversation, Source as DemoSource } from "@/lib/demo-data";
 
@@ -243,27 +244,30 @@ function SearchPageContent() {
 
                 {/* Suggestion chips */}
                 <div className={`flex flex-wrap gap-3 justify-center max-w-2xl transition-opacity duration-500 ${input.trim() ? 'opacity-0' : 'opacity-100'}`}>
-                  <button
+                  <Button
+                    variant="outline"
                     onClick={() => setInput("Summarize recent business emails")}
-                    style={{ backgroundColor: '#FFFFFF', boxShadow: '0 0 20px rgba(255, 255, 255, 0.8)' }}
-                    className="px-4 py-2 border border-gray-300 rounded-xl text-sm font-normal text-gray-700 hover:bg-gray-50 transition-colors"
+                    className="font-normal"
+                    style={{ boxShadow: '0 0 20px rgba(255, 255, 255, 0.8)' }}
                   >
                     Recent business emails
-                  </button>
-                  <button
+                  </Button>
+                  <Button
+                    variant="outline"
                     onClick={() => setInput("Show me financial documents")}
-                    style={{ backgroundColor: '#FFFFFF', boxShadow: '0 0 20px rgba(255, 255, 255, 0.8)' }}
-                    className="px-4 py-2 border border-gray-300 rounded-xl text-sm font-normal text-gray-700 hover:bg-gray-50 transition-colors"
+                    className="font-normal"
+                    style={{ boxShadow: '0 0 20px rgba(255, 255, 255, 0.8)' }}
                   >
                     Financial docs
-                  </button>
-                  <button
+                  </Button>
+                  <Button
+                    variant="outline"
                     onClick={() => setInput("What meetings do I have this week?")}
-                    style={{ backgroundColor: '#FFFFFF', boxShadow: '0 0 20px rgba(255, 255, 255, 0.8)' }}
-                    className="px-4 py-2 border border-gray-300 rounded-xl text-sm font-normal text-gray-700 hover:bg-gray-50 transition-colors"
+                    className="font-normal"
+                    style={{ boxShadow: '0 0 20px rgba(255, 255, 255, 0.8)' }}
                   >
                     This week's meetings
-                  </button>
+                  </Button>
                 </div>
               </div>
             )}

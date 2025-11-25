@@ -1,5 +1,6 @@
 "use client";
 
+import Image from 'next/image';
 import { ChevronRight } from "lucide-react";
 import { useState } from "react";
 import { Source } from "@/lib/demo-data";
@@ -36,10 +37,13 @@ export default function GroupedSourceCard({ appType, sources, count }: GroupedSo
         <div className="flex items-start gap-3">
           {/* App Logo */}
           <div className="w-6 h-6 flex items-center justify-center flex-shrink-0 mt-0.5">
-            <img
+            <Image
               src={config.logo}
               alt={config.name}
-              className="w-full h-full object-contain"
+              width={24}
+              height={24}
+              className="object-contain"
+              priority
             />
           </div>
 
@@ -85,7 +89,7 @@ export default function GroupedSourceCard({ appType, sources, count }: GroupedSo
             {/* Header */}
             <div className="px-6 py-4 border-b border-gray-200">
               <div className="flex items-center gap-3">
-                <img src={config.logo} alt={config.name} className="w-8 h-8 object-contain" />
+                <Image src={config.logo} alt={config.name} width={32} height={32} className="object-contain" priority />
                 <div>
                   <h3 className="text-lg font-semibold text-gray-900">{count} {config.plural}</h3>
                   <p className="text-sm text-gray-500">{config.name}</p>

@@ -1,5 +1,6 @@
 "use client";
 
+import Image from 'next/image';
 import { useAuth } from "@/contexts/auth-context";
 import { useRouter } from "next/navigation";
 import Sidebar from "@/components/sidebar";
@@ -26,6 +27,7 @@ export default function DashboardPage() {
   const router = useRouter();
   const [searchInput, setSearchInput] = useState("");
   const [selectedSource, setSelectedSource] = useState<any>(null);
+  const [selectedActionItem, setSelectedActionItem] = useState<any>(null);
   const [selectedReport, setSelectedReport] = useState<any>(null);
   const [actionFilters, setActionFilters] = useState<string[]>([]);
   const [actionSort, setActionSort] = useState<string>('date');
@@ -166,11 +168,14 @@ export default function DashboardPage() {
                         {/* Source logos */}
                         <div className="flex items-center gap-2 mb-3 pt-3 border-t border-gray-100">
                           {appLogos.map((logo, idx) => (
-                            <img
+                            <Image
                               key={idx}
                               src={logo}
                               alt="source"
-                              className="w-4 h-4 object-contain"
+                              width={16}
+                              height={16}
+                              className="object-contain"
+                              priority
                             />
                           ))}
                         </div>
@@ -191,7 +196,7 @@ export default function DashboardPage() {
                   <h2 className="text-3xl font-normal text-gray-900 mb-0">Key Action Items</h2>
                   <DropdownMenu>
                     <DropdownMenuTrigger asChild>
-                      <Button variant="outline" size="sm" className="gap-2">
+                      <Button variant="outline" size="sm" className="gap-2 hover:bg-accent hover:text-accent-foreground">
                         <SlidersHorizontal className="h-4 w-4" />
                         <span className="text-xs">Filter</span>
                         <ChevronDown className="h-3 w-3" />
@@ -203,23 +208,23 @@ export default function DashboardPage() {
                       </DropdownMenuItem>
                       <DropdownMenuSeparator />
                       <DropdownMenuItem onClick={() => toggleFilter('gmail')} className="gap-2">
-                        <img src="/logos/gmail.webp" alt="Gmail" className="w-4 h-4 object-contain" />
+                        <Image src="/logos/gmail.webp" alt="Gmail" width={16} height={16} className="object-contain" />
                         {actionFilters.includes('gmail') ? '✓ ' : ''}Gmail
                       </DropdownMenuItem>
                       <DropdownMenuItem onClick={() => toggleFilter('slack')} className="gap-2">
-                        <img src="/logos/slack.png" alt="Slack" className="w-4 h-4 object-contain" />
+                        <Image src="/logos/slack.png" alt="Slack" width={16} height={16} className="object-contain" />
                         {actionFilters.includes('slack') ? '✓ ' : ''}Slack
                       </DropdownMenuItem>
                       <DropdownMenuItem onClick={() => toggleFilter('drive')} className="gap-2">
-                        <img src="/logos/drive.png" alt="Drive" className="w-4 h-4 object-contain" />
+                        <Image src="/logos/drive.png" alt="Drive" width={16} height={16} className="object-contain" />
                         {actionFilters.includes('drive') ? '✓ ' : ''}Drive
                       </DropdownMenuItem>
                       <DropdownMenuItem onClick={() => toggleFilter('sheets')} className="gap-2">
-                        <img src="/logos/google-sheets.png" alt="Sheets" className="w-4 h-4 object-contain" />
+                        <Image src="/logos/google-sheets.png" alt="Sheets" width={16} height={16} className="object-contain" />
                         {actionFilters.includes('sheets') ? '✓ ' : ''}Sheets
                       </DropdownMenuItem>
                       <DropdownMenuItem onClick={() => toggleFilter('salesforce')} className="gap-2">
-                        <img src="/logos/salesforce.png" alt="Salesforce" className="w-4 h-4 object-contain" />
+                        <Image src="/logos/salesforce.png" alt="Salesforce" width={16} height={16} className="object-contain" />
                         {actionFilters.includes('salesforce') ? '✓ ' : ''}Salesforce
                       </DropdownMenuItem>
                       <DropdownMenuSeparator />
@@ -253,7 +258,10 @@ export default function DashboardPage() {
                     {sortedActions.map((action, idx) => (
                       <div
                         key={action.id}
-                        onClick={() => setSelectedSource(action.source)}
+                        onClick={() => {
+                          setSelectedSource(action.source);
+                          setSelectedActionItem(action);
+                        }}
                         className="w-full bg-white hover:bg-gray-50 rounded-xl p-4 transition-all duration-700 ease-in-out cursor-pointer group flex items-start gap-4 animate-in fade-in slide-in-from-top-2"
                         style={{ animationDelay: `${idx * 50}ms`, animationDuration: '600ms' }}
                       >
@@ -315,14 +323,17 @@ export default function DashboardPage() {
                           <div className="flex items-center gap-2">
                             <p className="text-xs text-gray-400">{action.createdAt}</p>
                             <div className="flex items-center gap-1.5 px-2 py-0.5 bg-white border border-gray-200 rounded-full max-w-xs">
-                              <img
+                              <Image
                                 src={action.source.appType === 'gmail' ? '/logos/gmail.webp' :
                                      action.source.appType === 'slack' ? '/logos/slack.png' :
                                      action.source.appType === 'drive' ? '/logos/drive.png' :
                                      action.source.appType === 'sheets' ? '/logos/google-sheets.png' :
                                      '/logos/salesforce.png'}
                                 alt={action.source.appType}
-                                className="w-3 h-3 object-contain flex-shrink-0"
+                                width={12}
+                                height={12}
+                                className="object-contain flex-shrink-0"
+                                priority
                               />
                               <span className="text-xs text-gray-500 truncate">{action.source.title}</span>
                             </div>
@@ -428,8 +439,12 @@ export default function DashboardPage() {
       {selectedSource && (
         <SourceModal
           isOpen={!!selectedSource}
-          onClose={() => setSelectedSource(null)}
+          onClose={() => {
+            setSelectedSource(null);
+            setSelectedActionItem(null);
+          }}
           source={selectedSource}
+          actionItem={selectedActionItem}
         />
       )}
 

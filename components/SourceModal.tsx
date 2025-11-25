@@ -1,5 +1,6 @@
 "use client";
 
+import Image from 'next/image';
 import { X, DollarSign, Calendar, TrendingUp, User, Building2, Mail, Users, Clock, FileText, ArrowLeft } from "lucide-react";
 import { useEffect } from "react";
 
@@ -35,6 +36,11 @@ interface SourceModalProps {
   onClose: () => void;
   onBack?: () => void;
   source: SourceData;
+  actionItem?: {
+    id: string;
+    title: string;
+    createdAt: string;
+  } | null;
 }
 
 const appConfig = {
@@ -47,7 +53,7 @@ const appConfig = {
   quickbooks: { logo: '/logos/quickbooks.png', name: 'QuickBooks', color: '#2CA01C' }
 };
 
-export default function SourceModal({ isOpen, onClose, onBack, source }: SourceModalProps) {
+export default function SourceModal({ isOpen, onClose, onBack, source, actionItem }: SourceModalProps) {
   const config = appConfig[source.appType];
 
   // Prevent body scroll when modal is open
@@ -366,7 +372,8 @@ export default function SourceModal({ isOpen, onClose, onBack, source }: SourceM
           onClick={(e) => e.stopPropagation()}
         >
         {/* Header */}
-        <div className="flex items-center justify-between px-8 py-6 border-b border-gray-200">
+        <div className="border-b border-gray-200">
+          <div className="flex items-center justify-between px-8 py-6">
           <div className="flex items-center gap-4">
             {onBack && (
               <button
@@ -379,7 +386,7 @@ export default function SourceModal({ isOpen, onClose, onBack, source }: SourceM
               </button>
             )}
             <div className="w-12 h-12 rounded-2xl flex items-center justify-center bg-white border border-gray-200">
-              <img src={config.logo} alt={config.name} className="w-7 h-7 object-contain" />
+              <Image src={config.logo} alt={config.name} width={28} height={28} className="object-contain" priority />
             </div>
             <div>
               <h2 className="text-xl font-semibold text-gray-900">{source.title}</h2>
@@ -393,6 +400,20 @@ export default function SourceModal({ isOpen, onClose, onBack, source }: SourceM
           >
             <X className="h-5 w-5 text-gray-500" />
           </button>
+          </div>
+
+          {/* Action Item Banner */}
+          {actionItem && (
+            <div className="px-8 py-4 border-t border-gray-200" style={{ backgroundColor: 'rgba(44, 132, 146, 0.1)' }}>
+              <div className="flex items-start gap-3">
+                <div className="flex-1 min-w-0">
+                  <p className="text-xs font-semibold uppercase tracking-wide mb-1" style={{ color: '#2c8492' }}>Action Item</p>
+                  <p className="text-sm text-gray-900 font-medium">{actionItem.title}</p>
+                  <p className="text-xs text-gray-500 mt-1">{actionItem.createdAt}</p>
+                </div>
+              </div>
+            </div>
+          )}
         </div>
 
         {/* App-specific content */}
