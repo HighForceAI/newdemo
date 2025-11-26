@@ -30,6 +30,15 @@ function SearchPageContent() {
   const [loadingTextIndex, setLoadingTextIndex] = useState(0);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const [isLoaded, setIsLoaded] = useState(false);
+  const [streamingText, setStreamingText] = useState("");
+  const [isStreaming, setIsStreaming] = useState(false);
+  const [recentChats, setRecentChats] = useState<Array<{id: string, title: string, created_at: string}>>([]);
+  const [autoScroll, setAutoScroll] = useState(true);
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
+
+  // Calculate textarea height based on line count
+  const lineCount = input.split('\n').length;
+  const textareaHeight = Math.min(lineCount * 20 + 20, 300);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -37,6 +46,7 @@ function SearchPageContent() {
     }, 50);
     return () => clearTimeout(timer);
   }, []);
+
 
   const loadingTexts = [
     "Searching",
@@ -118,12 +128,29 @@ function SearchPageContent() {
   };
 
   const scrollToBottom = () => {
-    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+    if (autoScroll) {
+      messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+    }
   };
 
   useEffect(() => {
     scrollToBottom();
-  }, [messages]);
+  }, [messages, streamingText, autoScroll]);
+
+  // Detect manual scroll to disable auto-scroll
+  useEffect(() => {
+    const container = scrollContainerRef.current;
+    if (!container) return;
+
+    const handleScroll = () => {
+      const { scrollTop, scrollHeight, clientHeight } = container;
+      const isAtBottom = Math.abs(scrollHeight - clientHeight - scrollTop) < 50;
+      setAutoScroll(isAtBottom);
+    };
+
+    container.addEventListener('scroll', handleScroll);
+    return () => container.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const handleSearch = (queryText?: string) => {
     const searchQuery = queryText || input;
@@ -134,26 +161,76 @@ function SearchPageContent() {
     setInput("");
     setLoadingChat(true);
 
-    // Simulate API delay
+    // Create new chat ID
+    const newChatId = `chat_${Date.now()}`;
+    const chatTitle = searchQuery.substring(0, 50) + (searchQuery.length > 50 ? '...' : '');
+
+    // Update URL to reflect new chat
+    router.push(`/search?chat_id=${newChatId}`);
+    setCurrentChatId(newChatId);
+
+    // 6 second delay before streaming starts
     setTimeout(() => {
-      // Simple demo: match query to predefined conversations or show generic response
-      const demoConvo = mockChatConversations.find(c =>
-        c.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        c.messages[0].content.toLowerCase().includes(searchQuery.toLowerCase())
-      );
+      setLoadingChat(false);
+
+      // Always use the NetLogic chat (chat_004) for demo purposes
+      const demoConvo = mockChatConversations.find(c => c.id === 'chat_004');
 
       if (demoConvo && demoConvo.messages[1]) {
-        setMessages((prev) => [...prev, demoConvo.messages[1]]);
+        const responseContent = demoConvo.messages[1].content;
+        const responseSources = demoConvo.messages[1].sources || [];
+
+        // Start streaming
+        setIsStreaming(true);
+        setStreamingText("");
+
+        let currentIndex = 0;
+        const streamInterval = setInterval(() => {
+          if (currentIndex < responseContent.length) {
+            setStreamingText(responseContent.substring(0, currentIndex + 1));
+            currentIndex += Math.floor(Math.random() * 5) + 3; // Stream 3-7 characters at a time (50% faster)
+
+            if (currentIndex >= responseContent.length) {
+              setStreamingText(responseContent);
+              setIsStreaming(false);
+              clearInterval(streamInterval);
+
+              // Add complete message with sources
+              setMessages((prev) => [...prev, {
+                role: "assistant",
+                content: responseContent,
+                sources: responseSources
+              }]);
+              setStreamingText("");
+
+              // After 2 seconds, add chat to Recent Chats with streaming title
+              setTimeout(() => {
+                // Save to localStorage so sidebar can pick it up
+                const newChat = {
+                  id: newChatId,
+                  title: chatTitle,
+                  created_at: new Date().toISOString()
+                };
+
+                const existingChats = JSON.parse(localStorage.getItem('demoChats') || '[]');
+                localStorage.setItem('demoChats', JSON.stringify([newChat, ...existingChats]));
+
+                // Trigger storage event for sidebar to update
+                window.dispatchEvent(new Event('storage'));
+              }, 2000);
+            }
+          }
+        }, 20); // 20ms per chunk (faster from 30ms)
+
       } else {
-        // Generic response
+        // Generic response for unmatched queries
         setMessages((prev) => [...prev, {
           role: "assistant",
-          content: "I understand you're asking about " + searchQuery + ". Based on your connected data sources, I don't have specific information about this query in the demo environment. Try asking about ACME Corp, revenue, or recent client communications.",
+          content: "I understand you're asking about " + searchQuery + ". Based on your connected data sources, I don't have specific information about this query in the demo environment. Try asking about ACME Corp, NetLogic coordination, revenue analysis, or recent client communications.",
           sources: []
         }]);
       }
-      setLoadingChat(false);
-    }, 1500);
+    }, 6000); // 6 second delay
   };
 
   if (loading) {
@@ -179,7 +256,11 @@ function SearchPageContent() {
         style={{ willChange: isLoaded ? 'auto' : 'opacity' }}
       >
         {/* Messages Area */}
-        <div className="flex-1 overflow-y-auto flex justify-center" style={{ paddingTop: '24px', paddingBottom: messages.length > 0 ? 'calc(180px + 5vh)' : '24px' }}>
+        <div
+          ref={scrollContainerRef}
+          className="flex-1 overflow-y-auto flex justify-center"
+          style={{ paddingTop: '24px', paddingBottom: messages.length > 0 ? 'calc(180px + 5vh)' : '24px' }}
+        >
           <div className={`w-full space-y-4 ${messages.length > 0 ? 'pt-20' : ''} px-4`} style={{ maxWidth: 'calc(55rem + 2rem)' }}>
             {messages.length === 0 && (
               <div className="flex flex-col items-center justify-center min-h-[calc(100vh-12rem)] pt-[10vh]">
@@ -192,7 +273,7 @@ function SearchPageContent() {
                 <div className="w-full mb-8 px-4" style={{ maxWidth: '55rem', minWidth: '400px' }}>
                   <form onSubmit={(e) => { e.preventDefault(); handleSearch(); }}>
                     <div className="relative">
-                      <div className="relative bg-white/95 backdrop-blur-xl rounded-full border border-gray-300" style={{ boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)' }}>
+                      <div className={`relative bg-white/95 backdrop-blur-xl border border-gray-300 transition-all duration-150 ease-out ${textareaHeight > 40 ? 'rounded-3xl' : 'rounded-full'}`} style={{ boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)' }}>
                         <div className="flex items-center gap-3 pl-4 pr-6 py-3">
                           <button
                             type="button"
@@ -202,12 +283,7 @@ function SearchPageContent() {
                           </button>
                           <textarea
                             value={input}
-                            onChange={(e) => {
-                              setInput(e.target.value);
-                              const target = e.target as HTMLTextAreaElement;
-                              target.style.height = 'auto';
-                              target.style.height = Math.min(target.scrollHeight, 400) + 'px';
-                            }}
+                            onChange={(e) => setInput(e.target.value)}
                             onKeyDown={(e) => {
                               if (e.key === 'Enter' && !e.shiftKey) {
                                 e.preventDefault();
@@ -215,10 +291,10 @@ function SearchPageContent() {
                               }
                             }}
                             placeholder="Ask HighForce anything..."
-                            className="flex-1 bg-transparent border-0 focus:outline-none focus:ring-0 text-gray-900 placeholder-gray-400 text-sm resize-none max-h-[400px] overflow-y-auto"
+                            className="flex-1 bg-transparent border-0 focus:outline-none focus:ring-0 text-gray-900 placeholder-gray-400 text-sm resize-none max-h-[400px] overflow-y-auto transition-all duration-150 ease-out"
                             disabled={loadingChat}
                             rows={1}
-                            style={{ height: '20px', lineHeight: '20px' }}
+                            style={{ height: textareaHeight + 'px', lineHeight: '20px' }}
                           />
                           <button
                             type="button"
@@ -336,10 +412,23 @@ function SearchPageContent() {
 
             {loadingChat && (
               <div className="flex justify-start">
-                <div className="bg-white rounded-3xl border border-gray-200 px-6 py-4">
-                  <div className="flex items-center gap-3">
-                    <Loader2 className="h-4 w-4 animate-spin text-blue-500" />
-                    <span className="text-sm text-gray-600">{loadingTexts[loadingTextIndex]}...</span>
+                <div className="w-full">
+                  <div className="bg-white rounded-2xl p-5">
+                    <span className="text-sm text-gray-600 animate-pulse font-normal">
+                      {loadingTexts[loadingTextIndex]}...
+                    </span>
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {isStreaming && streamingText && (
+              <div className="flex justify-start">
+                <div className="w-full">
+                  <div className="bg-white rounded-2xl p-5">
+                    <div className="prose prose-sm max-w-none prose-code:text-gray-900 prose-code:bg-gray-100">
+                      <SmartMarkdown content={streamingText} />
+                    </div>
                   </div>
                 </div>
               </div>

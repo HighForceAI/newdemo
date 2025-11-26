@@ -198,8 +198,8 @@ export default function TeamPage() {
                   return (
                     <div
                       key={u.id}
-                      className="grid grid-cols-12 gap-4 px-6 py-6 border-t border-gray-100 hover:bg-blue-50 transition-colors group"
-                      style={{ '--hover-glow': 'rgba(44, 132, 146, 0.05)' } as any}
+                      className="grid grid-cols-12 gap-4 px-6 border-t border-gray-100 hover:bg-blue-50 transition-colors group"
+                      style={{ '--hover-glow': 'rgba(44, 132, 146, 0.05)', height: '84px' } as any}
                     >
                       {/* Name & Email */}
                       <div className="col-span-4 flex items-center gap-3">
@@ -239,7 +239,7 @@ export default function TeamPage() {
                       <div className="col-span-1 flex items-center justify-end">
                         <DropdownMenu>
                           <DropdownMenuTrigger asChild>
-                            <Button variant="ghost" size="lg" className="h-8 w-8 p-0">
+                            <Button variant="ghost" size="lg" className="h-8 w-8 p-0 hover:bg-transparent opacity-100">
                               <MoreVertical className="h-4 w-4 text-gray-400" />
                             </Button>
                           </DropdownMenuTrigger>
@@ -286,7 +286,7 @@ export default function TeamPage() {
             </TabsContent>
 
             {/* Teams Tab - Table Layout */}
-            <TabsContent value="teams" className="mt-6">
+            <TabsContent value="teams" className="mt-0">
               <div className="bg-white border border-gray-200 rounded-2xl overflow-hidden">
                 {/* Header */}
                 <div className="grid grid-cols-12 gap-4 px-6 py-4 text-xs font-semibold text-gray-600 uppercase tracking-wide" style={{ backgroundColor: 'rgba(44, 132, 146, 0.25)' }}>
@@ -303,40 +303,42 @@ export default function TeamPage() {
                   return (
                     <div
                       key={team.id}
-                      className="grid grid-cols-12 gap-4 px-6 py-6 border-t border-gray-100 hover:bg-blue-50 transition-colors"
+                      className="grid grid-cols-12 gap-4 px-6 border-t border-gray-100 hover:bg-blue-50 transition-colors"
+                      style={{ height: '84px' }}
                     >
                       {/* Team Name */}
-                      <div className="col-span-3 flex flex-col justify-center">
+                      <div className="col-span-3 flex items-center">
                         <p className="text-sm font-medium text-gray-900">{team.name}</p>
-                        {team.description && (
-                          <p className="text-xs text-gray-500 mt-0.5">{team.description}</p>
-                        )}
                       </div>
 
                       {/* Manager */}
                       <div className="col-span-2 flex items-center">
-                        <span className="text-sm text-gray-700">{manager?.name || 'Unassigned'}</span>
+                        <p className="text-sm text-gray-700">{manager?.name || 'Unassigned'}</p>
                       </div>
 
                       {/* Members */}
                       <div className="col-span-6 flex items-center">
-                        <div className="flex flex-wrap gap-1.5">
-                          {members.slice(0, 4).map(member => (
-                            <span key={member.id} className="text-xs text-gray-600 bg-gray-50 px-2 py-1 rounded">
-                              {member.name}
-                            </span>
-                          ))}
-                          {members.length > 4 && (
-                            <span className="text-xs text-gray-500">+{members.length - 4} more</span>
-                          )}
-                        </div>
+                        {members.length > 0 ? (
+                          <div className="flex items-center gap-2">
+                            {members.map((member, idx) => (
+                              <div key={member.id} className="flex items-center gap-2">
+                                <span className="text-sm text-gray-700">{member.name}</span>
+                                {idx < members.length - 1 && (
+                                  <div className="w-px h-4 bg-gray-300"></div>
+                                )}
+                              </div>
+                            ))}
+                          </div>
+                        ) : (
+                          <span className="text-sm text-gray-400">No members</span>
+                        )}
                       </div>
 
                       {/* Actions */}
                       <div className="col-span-1 flex items-center justify-end">
                         <DropdownMenu>
                           <DropdownMenuTrigger asChild>
-                            <Button variant="ghost" size="lg" className="h-8 w-8 p-0">
+                            <Button variant="ghost" size="lg" className="h-8 w-8 p-0 hover:bg-transparent opacity-100">
                               <MoreVertical className="h-4 w-4 text-gray-400" />
                             </Button>
                           </DropdownMenuTrigger>

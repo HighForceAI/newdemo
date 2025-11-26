@@ -125,18 +125,18 @@ export default function ReportsPage() {
             {/* Daily Tab */}
             <TabsContent value="daily" className="mt-0">
               <div className="mb-8">
-                <div className="mb-6">
-                  <h1 className="text-3xl font-normal text-gray-900">
-                    {selectedDate.toLocaleDateString('en-US', {
-                      weekday: 'long',
-                      year: 'numeric',
-                      month: 'long',
-                      day: 'numeric'
-                    })}
-                  </h1>
-                  <p className="text-base text-gray-400 font-light mt-2">Viewing all reports for this day</p>
-                </div>
+                <h1 className="text-3xl font-normal text-gray-900">
+                  {selectedDate.toLocaleDateString('en-US', {
+                    weekday: 'long',
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric'
+                  })}
+                </h1>
+                <p className="text-base text-gray-400 font-light mt-2">Viewing all reports for this day</p>
+              </div>
 
+              <div className="mb-8">
                 <div className="flex items-center justify-between">
                   <ButtonGroup>
                     <Button
@@ -211,13 +211,13 @@ export default function ReportsPage() {
             {/* Weekly Tab */}
             <TabsContent value="weekly" className="mt-0">
               <div className="mb-8">
-                <div className="mb-6">
-                  <h1 className="text-3xl font-normal text-gray-900">
-                    Week of {formatWeekRange(selectedWeek)}
-                  </h1>
-                  <p className="text-base text-gray-400 font-light mt-2">Viewing all end of week reports</p>
-                </div>
+                <h1 className="text-3xl font-normal text-gray-900">
+                  Week of {formatWeekRange(selectedWeek)}
+                </h1>
+                <p className="text-base text-gray-400 font-light mt-2">Viewing all end of week reports</p>
+              </div>
 
+              <div className="mb-8">
                 <div className="flex items-center justify-between">
                   <ButtonGroup>
                     <Button
@@ -292,13 +292,13 @@ export default function ReportsPage() {
             {/* Monthly Tab */}
             <TabsContent value="monthly" className="mt-0">
               <div className="mb-8">
-                <div className="mb-6">
-                  <h1 className="text-3xl font-normal text-gray-900">
-                    Month of {formatMonth(selectedMonth)}
-                  </h1>
-                  <p className="text-base text-gray-400 font-light mt-2">Viewing all end of month reports</p>
-                </div>
+                <h1 className="text-3xl font-normal text-gray-900">
+                  Month of {formatMonth(selectedMonth)}
+                </h1>
+                <p className="text-base text-gray-400 font-light mt-2">Viewing all end of month reports</p>
+              </div>
 
+              <div className="mb-8">
                 <div className="flex items-center justify-between">
                   <ButtonGroup>
                     <Button

@@ -517,6 +517,112 @@ The ACME opportunity shows strong buying signals with board approval and specifi
         ]
       }
     ]
+  },
+  {
+    id: 'chat_004',
+    title: 'NetLogic team coordination',
+    created_at: new Date(Date.now() - 8 * 60 * 60 * 1000).toISOString(),
+    messages: [
+      {
+        role: 'user',
+        content: 'Are we properly coordinating between sales and delivery on the NetLogic opportunity?'
+      },
+      {
+        role: 'assistant',
+        content: `I've analyzed coordination on the NetLogic opportunity ($700K, your largest potential deal) across Slack, Gmail, Drive, and Salesforce.
+
+---
+
+## Coordination Status: Partially Effective
+
+You're coordinating well on **commercial aspects** (budget, timeline, relationship) but under-coordinating on **technical capability assessment**. The November 25th discovery call is in 5 days, and there's no evidence of delivery team validation happening.
+
+---
+
+## What's Working
+
+**Gmail:** Isabella Reynolds' (NetLogic COO) referral from Lisa Wang (DataCorp) shows strong relationship foundation. Lisa said *"I assured her you have the expertise"* - putting her 95/100 customer health score at stake.
+
+**Drive:** Discovery call notes properly identify the challenge: consolidating three platforms (Ruby/Rails, Node.js, Python/Django) post-acquisition. Attendees include Hayden and Nicole Howell.
+
+**Salesforce:** Opportunity tracked at $700K, 40% probability. Notes show Big 4 eliminated (too expensive), positioning you well.
+
+**Slack:** When Hayden posted about NetLogic, Nicole immediately responded asking about size and timeline - good initial coordination.
+
+---
+
+## Critical Gap: Capability Assessment
+
+Your Drive notes list *"Identify capability gaps (do we need specialist partner?)"* as a discovery call objective. **The problem:** This assessment should happen BEFORE the client call, not during it.
+
+**Technical Complexity:**
+- Three different tech stacks + databases to unify
+- Customer data fragmentation across all platforms
+- Live service continuity required during migration
+- $700K over 18 months = thin margins if underestimated
+
+**Pattern Recognition:**
+You lost RetailCo ($280K) because they wanted proven e-commerce expertise. Salesforce notes: *"Better to pass than win project we're not ideal for."* NetLogic is similar - M&A integration isn't your core strength (cloud migration is).
+
+---
+
+## The Referral Pressure Dynamic
+
+Lisa Wang's referral creates subtle pressure to say yes. QuickBooks shows DataCorp at $362K lifetime value with $175K Phase 2 pending. Her November email mentioned introducing you to 2-3 companies - NetLogic is first. Success here opens more $700K referrals. Failure shuts down the engine and risks the DataCorp relationship.
+
+Your team might feel this pressure without discussing it explicitly.
+
+---
+
+## Team Capacity vs Capability
+
+**Nicole Howell:** Dashboard alert shows capacity constraint - mentioned by name in 3 client emails. Already allocated to ACME (38%) and requested for NetLogic. If both close, she's over-allocated.
+
+**William Marquez:** Vertex ends Dec 15, committed to ACME Jan 6. Strong technical skills but no M&A integration specialty.
+
+**Isabella Reynolds:** Available (50% internal time) but ML/AI focused, not integration architecture.
+
+**The Reality:** You have hours (78% utilization) but potentially lack M&A integration expertise. Question isn't "do we have time?" but "do we have the right skills and are we being honest about it?"
+
+---
+
+## Actions Required This Week
+
+**Before Nov 25 Discovery Call:**
+
+1. **Technical Workshop** - Hayden, Nicole, William, Isabella
+   - Honest capability assessment: Can we deliver at 90%+ confidence?
+   - Decision: Direct delivery, partner model, or professional decline
+
+2. **Partner Research** (if needed)
+   - Identify integration specialists for co-delivery
+   - Have partnership option ready for call
+
+3. **Reference Validation**
+   - Do you have M&A integration references?
+   - If not, signals capability gap
+
+**The Missing Coordination:**
+No Slack thread shows delivery team pressure-testing the technical approach. Compare to ACME: #client-acme channel had Nicole confirming availability, William committing to Jan 6 start, team consensus. NetLogic needs same validation depth.
+
+---
+
+## Bottom Line
+
+**Status:** Coordinating on sales but not delivery readiness.
+
+**Risk:** Walking into client call uncertain about delivery approach, with referral pressure influencing objectivity.
+
+**Fix:** 2-hour technical workshop this week. Make build-vs-partner-vs-pass decision before the client sees you. Lisa Wang's credibility (and yours) depends on honest capability assessment, not optimistic assumptions.`,
+        sources: [
+          mockEmails[9],   // NetLogic referral email
+          mockDriveDocs[3], // NetLogic Discovery Call Notes
+          mockSalesforceDeals[5], // NetLogic deal
+          mockSlackMessages[1],  // Sales pipeline coordination
+          mockSheets[2]    // Team utilization
+        ]
+      }
+    ]
   }
 ];
 

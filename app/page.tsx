@@ -303,7 +303,6 @@ export default function DashboardPage() {
                                     }
                                   }}>
                                     {completedActions.includes(action.id) && <Check className="h-4 w-4 mr-2" />}
-                                    {!completedActions.includes(action.id) && <div className="w-4 h-4 mr-2" />}
                                     {completedActions.includes(action.id) ? 'Unmark as Done' : 'Mark as Done'}
                                   </DropdownMenuItem>
                                   <DropdownMenuItem
