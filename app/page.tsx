@@ -380,7 +380,7 @@ export default function DashboardPage() {
       </div>
 
       {/* Search Bar at Bottom */}
-      <div className="fixed bottom-8 left-0 right-0 flex justify-center px-8" style={{ left: 'calc(256px + 48px)' }}>
+      <div className="fixed bottom-8 left-0 right-0 flex justify-center px-8">
           <div className="w-full max-w-3xl" style={{ minWidth: '400px' }}>
             <form onSubmit={handleSearchSubmit}>
               <div className="relative">
