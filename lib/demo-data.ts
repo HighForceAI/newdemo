@@ -650,34 +650,126 @@ const salesTeamReports: DailyReport[] = [
     teamId: 'team_001',
     sourceCount: '4 emails • 2 Slack • 2 deals • 1 QuickBooks',
     summary: 'Sales team tracking $575K active pipeline: ACME ($450K, 85% prob) with board approval and Nicole leading. TechStart ($125K, 60% prob) in legal review. NetLogic ($700K, 40% prob) from DataCorp referral needs capability assessment. Team closing at 90% vs 45% industry average on referred deals. ACME invoice generated pre-contract shows strong commitment.',
-    content: `## Pipeline Overview
+    content: `## Sales Team Pipeline Status
 
-**Active Opportunities: $575K weighted value**
+The Sales Team is tracking **$1.275M in active pipeline** across four key opportunities, with a weighted value of $575K based on probability-adjusted forecasts. Nicole Howell and Jessie Montoya are managing the primary pursuits, with Heidi Sheppard providing proposal and coordination support.
 
-ACME Corp ($450K): Nicole leading, board approved, Q1 timeline. Invoice #1037 generated. 85% probability.
+**ACME Corporation - $450K Digital Transformation**
 
-TechStart AI ($125K): Legal review in progress, verbal yes confirmed. 60% probability.
+Status: Board approved, 85% probability
+Owner: Nicole Howell
+Timeline: Q1 2026 kickoff
 
-NetLogic Integration ($700K): DataCorp referral, discovery call Nov 25. Requires technical assessment. 40% probability.
+Heidi Sheppard's November 18th email confirmed board approval with specific requests: accelerated Phase 1 timeline to Q1 (originally Q2), detailed cloud migration breakdown, and confirmation that Nicole will lead based on her prior CRM project success. The team has already generated Invoice #1037 for $112,500 - unusual to invoice pre-contract, indicating internal confidence about closure.
+
+Competitive landscape: McKinsey eliminated (too expensive), Deloitte still competing but client prefers boutique firm agility. Nicole's existing relationship from the CRM project gives strong advantage.
+
+Action items: Finalize revised SOW with Q1 timeline by Nov 22. Schedule kickoff meeting for Dec 2-6 week.
+
+**TechStart AI Implementation - $125K**
+
+Status: Legal review, 60% probability
+Owner: Nicole Howell (with Isabella Reynolds technical support)
+Timeline: Q1 2026 start
+
+David Park (Head of Product) sent email Nov 19 confirming verbal commitment: *"Ready to move forward."* Now in MSA legal review. This is low-friction revenue - budget approved, technical fit validated, just contract formalities remaining.
+
+Action items: Follow up on legal status, target mid-December signature.
+
+**NetLogic Integration - $700K**
+
+Status: Discovery stage, 40% probability
+Owner: Nicole Howell
+Timeline: Nov 25 discovery call
+
+Isabella Reynolds (NetLogic COO) referred by Lisa Wang (DataCorp). This is your largest potential deal ever, but requires honest capability assessment. M&A integration work is outside core cloud migration strength.
+
+Critical: Schedule internal technical workshop before Nov 25 client call. Make build-vs-partner-vs-pass decision with delivery team input. Lisa Wang's credibility at stake - can't afford to over-promise.
+
+**GlobalManufacturing ERP - $300K**
+
+Status: Early qualification, 30% probability
+Owner: Jessie Montoya
+Timeline: Q2 2026
+
+Referral from FinServe. ERP modernization discussing SAP vs cloud alternatives. Need to assess capability fit before pursuing.
 
 ---
 
-## Team Performance
+## Team Performance Metrics
 
-**Closing Rate:** 90% on referred deals vs 45% industry average. DataCorp and FinServe referrals converting at 2.5x higher value than cold outbound.
+**Closing Rate by Source:**
+- Referred deals: 90% close rate, $525K average size
+- Cold outbound: 45% close rate, $210K average size
+- Multiplier: Referrals are 2.5x larger and 2x more likely to close
 
-**Deal Velocity:** ACME moved from RFP to board approval in 8 days. Fast cycles indicate high client priority.
+**Deal Velocity:**
+ACME moved from initial RFP (Nov 10) to board approval (Nov 18) in just 8 days. This exceptional speed indicates high client-side priority. Fast cycles strongly correlate with high close probability.
+
+**Communication Responsiveness:**
+Sales team averaging 2.1 hours response time on client emails. Nicole and Jessie both consistently responding same-day, building client confidence in accessibility.
 
 ---
 
-## Actions Required
+## Expansion Opportunities
 
-- ACME: Finalize SOW with Q1 timeline
-- TechStart: Follow up on MSA status
-- NetLogic: Schedule internal capability workshop before discovery call
+**DataCorp Phase 2 - $175K**
+Lisa Wang's Nov 16 email proposed predictive analytics expansion. Budget pre-approved. Scoping call scheduled Dec 5. High probability given Phase 1 success and 95/100 customer health score in QuickBooks.
 
-**Next 30 Days:** Projected $200K in closures (ACME deposit + TechStart signature).`,
-    sources: [],
+**FinServe European Rollout - $225K**
+Jessie's QBR scheduled early December. Jessie Montoya mentioned "2026 planning focus on European operations." EU rollout estimated $200-250K based on GDPR compliance, multi-language, and multi-instance requirements.
+
+Combined expansion value: **$400K from proven relationships** with minimal sales effort required.
+
+---
+
+## Strategic Insights
+
+**Invoice-as-Signal:** ACME Invoice #1037 generated October 16th, before formal proposal sent. Finance doesn't create speculative invoices - this indicates back-channel procurement confirmation. Invoice existence transforms deal from "proposal sent" to "payment processing."
+
+**Referral Flywheel:** Q3 delivery excellence (DataCorp, FinServe) generating Q4 referrals (NetLogic $700K, GlobalManufacturing $350K). Success compounds through advocacy.
+
+**Client Health Scoring:** QuickBooks customer records now track payment history + communication responsiveness + expansion activity into single health score. DataCorp's 95/100 quantifies "strong relationship" into predictive metric.
+
+---
+
+## Next 30 Days - Revenue Projection
+
+**High Probability ($200K):**
+- ACME deposit: $112.5K (50% of Phase 1) on contract signature
+- TechStart signature: $125K contract value, likely $62.5K deposit
+
+**Medium Probability ($175K):**
+- DataCorp Phase 2: Scoping call Dec 5, proposal by Dec 15, signature before year-end budget freeze
+
+**Total Projected:** $375K in commitments by Dec 31
+
+---
+
+## Team Capacity & Allocation
+
+**Nicole Howell:** 76% utilization (ACME 38%, TechStart proposal 20%, other 18%)
+- If ACME and TechStart both close: Will hit 100%+ in Q1
+- Capacity constraint flagged in dashboard alert
+
+**Jessie Montoya:** 62% utilization (FinServe QBR 25%, DataCorp discussions 15%, other 22%)
+- Capacity for 1 additional mid-size pursuit
+
+**Heidi Sheppard:** 45% utilization (proposal support, pipeline coordination)
+- Available to take lead on smaller opportunities
+
+**Team Assessment:** Can handle ACME + TechStart closures. NetLogic would require Nicole at 120%+ - need to evaluate if sustainable or requires team expansion.`,
+    sources: [
+      mockEmails[0],   // ACME board approval email
+      mockEmails[8],   // TechStart ready to move forward
+      mockEmails[9],   // NetLogic referral
+      mockEmails[4],   // DataCorp Phase 2
+      mockSlackMessages[0],  // #client-acme coordination
+      mockSlackMessages[1],  // #sales-pipeline
+      mockSalesforceDeals[0], // ACME deal
+      mockSalesforceDeals[2], // TechStart deal
+      mockQuickBooksRecords[0] // ACME Invoice
+    ],
     generated_date: '2025-11-20T06:00:00Z'
   },
   {
@@ -688,29 +780,119 @@ NetLogic Integration ($700K): DataCorp referral, discovery call Nov 25. Requires
     teamId: 'team_001',
     sourceCount: '1 QuickBooks • 1 Salesforce • 1 Sheet',
     summary: 'Sales team at 108% of Q4 target ($1.188M projected vs $1.1M goal). Pipeline weighted value $683K with ACME representing 58%. Average deal size $375K, up from $280K last quarter. 18-day payment cycles on closed deals. Two expansion opportunities worth $400K identified.',
-    content: `## Q4 Performance
+    content: `## Sales Team Financial Performance - Q4 2025
 
-**Target:** $1.1M
-**Projected:** $1.188M (108%)
-**Closed YTD:** $505K
+The Sales Team is tracking at **108% of quarterly target**, with $1.188M projected versus the $1.1M goal. This represents $505K already closed plus $683K in weighted pipeline value.
 
-Pipeline: $683K weighted (ACME $383K, TechStart $75K, NetLogic $280K, others $45K)
+**Revenue Breakdown:**
+- Closed deals (Q4): $505K (Vertex final payment $85K, FinServe completion $185K, DataCorp initial $235K)
+- Weighted pipeline: $683K (ACME $383K at 85%, TechStart $75K at 60%, NetLogic $280K at 40%, others $45K)
+- Expansion discussions: $400K (DataCorp Phase 2 $175K, FinServe EU $225K)
 
----
-
-## Sales Metrics
-
-**Average Deal Size:** $375K (up from $280K Q3)
-**Win Rate:** 65% overall, 90% on referrals
-**Sales Cycle:** 45 days average
+**Q4 Target Achievement:** Currently at 46% of $1.1M target with 6 weeks remaining. ACME and TechStart closures would bring to 64% ($700K), requiring additional $400K to hit goal. Expansion opportunities fill this gap precisely.
 
 ---
 
-## Revenue Forecast
+## Deal Economics & Profitability
 
-Next 30 days: $200K probable (ACME deposit + TechStart)
-Q1 2026: $570-770K pipeline building (ACME Phase 1 + expansions)`,
-    sources: [],
+**Average Deal Size Trend:**
+- Q3 2025: $280K average
+- Q4 2025: $375K average (+34% growth)
+- Referral deals: $525K average
+- Cold outbound: $210K average
+
+**Win Rate Analysis:**
+- Overall portfolio: 65%
+- Referred opportunities: 90%
+- Cold outbound: 45%
+- Second-meeting-to-close: 78%
+
+**Sales Cycle Velocity:**
+- Average: 45 days from first contact to signature
+- Referred deals: 32 days average (28% faster)
+- ACME case study: 8 days RFP to board approval (exceptional)
+
+**Pipeline Concentration Risk:**
+ACME represents 58% of weighted pipeline ($383K of $683K). If deal stalls, significant Q4/Q1 impact. Mitigation: Multiple expansion opportunities provide diversification.
+
+---
+
+## Payment Performance & Cash Flow
+
+QuickBooks data reveals exceptional collection performance supporting aggressive growth plans:
+
+**Collection Metrics:**
+- Average days to payment: 18 days (against Net 30 terms)
+- Clients paying 12 days early on average
+- Current AR outstanding: $112.5K (ACME invoice only)
+- AR aging: Zero invoices 30+ days overdue
+
+**Client Payment Patterns:**
+- DataCorp: Autopay via ACH, never late, 95/100 health score
+- Vertex: All 4 milestones paid early (avg 5 days before due date)
+- FinServe: Final payment 18 days early
+
+This payment discipline means revenue forecasts convert to cash quickly with minimal writeoff risk. Sales team can confidently project cash flow timing for capacity planning.
+
+---
+
+## Revenue Forecast - Next 90 Days
+
+**November (Remaining):**
+- Probable: $0 (no imminent closures)
+- Possible: TechStart early signature $62.5K deposit
+
+**December:**
+- High probability: ACME contract signature $112.5K deposit
+- Medium probability: TechStart signature $62.5K, DataCorp Phase 2 proposal approved $87.5K deposit
+- Total December projection: $175-262K
+
+**January 2026:**
+- ACME Phase 1 kickoff (remaining $337.5K revenue recognized over Q1-Q2)
+- TechStart project start (remaining $62.5K)
+- Probable: DataCorp Phase 2 signature $87.5K
+
+**90-Day Cash Projection:** $375-450K in new commitments
+
+---
+
+## Strategic Financial Insights
+
+**Lifetime Value Multiplier:**
+DataCorp customer record in QuickBooks: $320K initial + $24K annual support + $175K Phase 2 + $700K referral value = $1.26M total impact. Original acquisition cost: ~$15K (sales effort + proposal). **ROI: 84x on customer acquisition cost.**
+
+This 4x revenue multiplier on initial project value demonstrates the business model working: deliver excellence → earn expansions + referrals → compound growth.
+
+**Margin Analysis:**
+Sales team operating costs (salaries + tools + travel): ~$45K/month. Q4 closed revenue $505K / 3 months = $168K monthly. **Operating margin: 73%** before delivery costs.
+
+---
+
+## Q1 2026 Pipeline Building
+
+**Confirmed Starting:**
+- ACME Phase 1: $450K over 6 months
+- TechStart (likely): $125K over 4 months
+
+**High Probability Additions:**
+- DataCorp Phase 2: $175K over 5 months
+- FinServe EU expansion: $225K over 6 months
+
+**Speculative:**
+- NetLogic (if pursued): $700K over 18 months
+- GlobalManufacturing: $300K over 12 months
+
+**Q1 Revenue Visibility:** $570-770K range depending on expansion deal timing. Sales team positioned to exceed Q1 targets before new business development even begins.`,
+    sources: [
+      mockQuickBooksRecords[0],  // ACME Invoice
+      mockQuickBooksRecords[1],  // Vertex Payment
+      mockQuickBooksRecords[4],  // DataCorp Customer Record
+      mockQuickBooksRecords[8],  // November P&L
+      mockQuickBooksRecords[10], // AR Aging
+      mockSalesforceDeals[0],    // ACME deal
+      mockSalesforceDeals[1],    // Vertex deal
+      mockSheets[1]              // Q4 revenue forecast
+    ],
     generated_date: '2025-11-20T06:00:00Z'
   },
   {
@@ -721,28 +903,130 @@ Q1 2026: $570-770K pipeline building (ACME Phase 1 + expansions)`,
     teamId: 'team_001',
     sourceCount: '3 Slack • 2 emails • 1 Sheet',
     summary: 'Nicole Howell leading ACME and TechStart pursuits, mentioned by name in 3 client emails this week. Jessie Montoya managing DataCorp expansion discussions. Team response time 2.1 hours on client communications. Cross-sell identified: FinServe European expansion ($200-250K). Capacity: Nicole at 76%, Jessie at 62%.',
-    content: `## Team Activity
+    content: `## Sales Team Activity & Performance
 
-**Nicole Howell:** Leading ACME ($450K) and TechStart ($125K). Mentioned by name in ACME client request. Utilization: 76%
+The Sales Team is operating at **69% average utilization** with strong performance indicators across responsiveness, deal quality, and cross-functional collaboration.
 
-**Jessie Montoya:** Managing FinServe QBR and DataCorp Phase 2 discussions. Utilization: 62%
+**Individual Contributions:**
 
-**Heidi Sheppard:** Supporting pipeline development and proposal coordination.
+**Nicole Howell (Team Manager)** - 76% utilization
+- Leading ACME pursuit ($450K): Board approved, SOW revision in progress, client specifically requested her by name
+- Leading TechStart pursuit ($125K): Verbal commitment received, MSA in legal review
+- NetLogic discovery preparation: Scheduled for Nov 25, requires capability workshop
+- **Mentioned by name in 3 client emails this week** - high demand signal
+- Dashboard alert: Capacity constraint if both ACME and NetLogic advance
+
+**Jessie Montoya** - 62% utilization
+- Managing FinServe QBR: Scheduled for early December, EU expansion discussion
+- Leading DataCorp Phase 2 discussions: Scoping call Dec 5, $175K opportunity
+- GlobalManufacturing qualification: ERP modernization, Q2 2026 timeline
+- Strong relationship management skills driving expansion conversations
+
+**Heidi Sheppard** - 45% utilization
+- Proposal development support: ACME SOW, TechStart MSA coordination
+- Pipeline administrative coordination
+- Client communication scheduling and follow-up
+- Available capacity for lead role on smaller opportunities
 
 ---
 
-## Performance Signals
+## Communication & Responsiveness
 
-**Response Time:** 2.1 hours average on client emails
-**Proactive Outreach:** 3 expansion opportunities identified from existing accounts
-**Collaboration:** Active coordination with delivery team on scoping
+**Email Response Time Analysis:**
+- Team average: 2.1 hours on client emails
+- Nicole: 1.8 hours average (fastest on team)
+- Jessie: 2.3 hours average
+- Same-day response rate: 94%
+
+This responsiveness builds client confidence and accelerates deal velocity. Compare to industry average of 8-12 hours for consulting firms.
+
+**Proactive Client Outreach:**
+- 3 expansion opportunities identified from existing accounts (DataCorp, FinServe, potential third)
+- Case study collaboration proposed with DataCorp
+- Speaking opportunity at DataCorp user conference
+- Joint webinar discussion with FinServe
+
+**Cross-Functional Collaboration:**
+Slack #sales-pipeline channel shows active coordination with delivery team on:
+- ACME scoping (Nicole + William Marquez capacity planning)
+- TechStart technical fit (Nicole + Isabella Reynolds ML expertise)
+- NetLogic capability assessment (needs William + Isabella input before discovery call)
+
+This collaboration prevents over-promising and ensures delivery team buy-in before client commitments.
 
 ---
 
-## Capacity
+## Deal Quality Indicators
 
-Current: 69% average utilization. Capacity available for 1-2 new pursuits in Q1.`,
-    sources: [],
+**Referral Source Performance:**
+- DataCorp referral to NetLogic: $700K opportunity
+- FinServe referral to GlobalManufacturing: $300K opportunity
+- Referral close rate: 90% vs 45% cold outbound
+
+**Named Consultant Requests:**
+Nicole mentioned by name in ACME, TechStart discussions. Client-side validation of execution capability reduces sales friction and increases close probability.
+
+**Client Satisfaction Signals:**
+- Email sentiment analysis: 83% positive tone across 15 recent client emails
+- No escalations or complaints
+- Expansion discussions initiated by clients (not sales push)
+
+---
+
+## This Week's Sales Activities
+
+**Monday-Tuesday:**
+- ACME: Send cloud migration budget breakdown, propose kickoff meeting slots
+- TechStart: Check legal review status with David Park
+
+**Wednesday:**
+- NetLogic: Internal capability workshop (sales + delivery alignment)
+
+**Thursday-Friday:**
+- ACME SOW finalization (due Friday Nov 22)
+- Weekly pipeline review meeting
+
+---
+
+## Capacity Planning
+
+**Current State:**
+- Nicole: 76% (near capacity)
+- Jessie: 62% (room for 1 mid-size deal)
+- Heidi: 45% (available for lead role)
+- Team average: 69%
+
+**Q1 2026 Projection if deals close:**
+- ACME + TechStart would push Nicole to 95-100%
+- Adding NetLogic would exceed 120% - unsustainable
+- Decision needed: Pursue NetLogic only if expanding team or partnering with specialist
+
+**Hiring Signal:**
+If ACME, TechStart, and either DataCorp Phase 2 or FinServe EU all close, team needs additional senior sales capacity in Q1 to maintain service levels and pursue new business.
+
+---
+
+## Strategic Priorities
+
+**Immediate (This Week):**
+1. Close ACME to contract signature (highest value, highest probability)
+2. NetLogic capability decision (largest opportunity, requires honest assessment)
+3. TechStart legal clearance (low-friction revenue)
+
+**Near-term (Next 30 Days):**
+1. DataCorp Phase 2 scoping and proposal
+2. FinServe QBR and EU expansion discussion
+3. Pipeline development for Q1 opportunities
+
+**The Insight:** Sales team performing exceptionally on relationship-based selling (referrals, expansions) but needs to maintain discipline on capability fit assessment. NetLogic decision will test this - $700K is tempting but only pursue if delivery confidence is 90%+.`,
+    sources: [
+      mockSlackMessages[0],  // #client-acme
+      mockSlackMessages[1],  // #sales-pipeline
+      mockSlackMessages[7],  // #team-standup
+      mockEmails[0],         // ACME board approval
+      mockEmails[4],         // DataCorp expansion
+      mockSheets[2]          // Team utilization
+    ],
     generated_date: '2025-11-20T06:00:00Z'
   }
 ];
