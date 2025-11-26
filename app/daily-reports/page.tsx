@@ -59,7 +59,7 @@ export default function ReportsPage() {
     return date.toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
   };
 
-  const reports = getDailyReports(formatDateToString(selectedDate));
+  const reports = getDailyReports(formatDateToString(selectedDate), selectedTeam);
 
   const handleDateSelect = (date: Date | undefined) => {
     if (date) {

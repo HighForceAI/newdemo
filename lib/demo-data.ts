@@ -1063,10 +1063,16 @@ export const getDemoConversation = (chatId: string): ChatConversation | null => 
   return mockChatConversations.find(c => c.id === chatId) || null;
 };
 
-export const getDailyReports = (dateString: string): DailyReport[] => {
-  // Always return the Nov 20 reports for any date (demo purposes)
-  // Update the generated_date to match the selected date
-  const baseReports = mockDailyReports['2025-11-20'] || [];
+export const getDailyReports = (dateString: string, teamId: string = 'all'): DailyReport[] => {
+  // Filter reports by team
+  let baseReports = mockDailyReports['2025-11-20'] || [];
+
+  if (teamId === 'team_001') {
+    baseReports = salesTeamReports;
+  } else if (teamId === 'all') {
+    // Return company-wide reports
+    baseReports = mockDailyReports['2025-11-20'] || [];
+  }
 
   return baseReports.map(report => ({
     ...report,
