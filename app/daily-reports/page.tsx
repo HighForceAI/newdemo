@@ -8,8 +8,10 @@ import { Calendar } from "@/components/ui/calendar";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { ButtonGroup } from "@/components/ui/button-group";
-import { Calendar as CalendarIcon, ChevronLeft, ChevronRight } from "lucide-react";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Calendar as CalendarIcon, ChevronLeft, ChevronRight, Users } from "lucide-react";
 import { getDailyReports, DailyReport } from "@/lib/demo-data";
+import { mockTeams } from "@/lib/teams-data";
 import ReportCard from "@/components/ReportCard";
 import ReportModal from "@/components/ReportModal";
 
@@ -22,6 +24,7 @@ export default function ReportsPage() {
   const [calendarOpen, setCalendarOpen] = useState(false);
   const [selectedReport, setSelectedReport] = useState<DailyReport | null>(null);
   const [isLoaded, setIsLoaded] = useState(false);
+  const [selectedTeam, setSelectedTeam] = useState<string>('all');
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -137,7 +140,8 @@ export default function ReportsPage() {
               </div>
 
               <div className="mb-8">
-                <div className="flex items-center justify-between">
+                <div className="flex items-center justify-between gap-4">
+                  <div className="flex items-center gap-4">
                   <ButtonGroup>
                     <Button
                       variant={activeTab === 'daily' ? 'default' : 'outline'}
@@ -164,6 +168,24 @@ export default function ReportsPage() {
                       Monthly
                     </Button>
                   </ButtonGroup>
+
+                  <Select value={selectedTeam} onValueChange={setSelectedTeam}>
+                    <SelectTrigger className="w-[200px]">
+                      <div className="flex items-center gap-2">
+                        <Users className="h-4 w-4" />
+                        <SelectValue />
+                      </div>
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="all">All Teams</SelectItem>
+                      {mockTeams.map(team => (
+                        <SelectItem key={team.id} value={team.id}>
+                          {team.name}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                  </div>
 
                   <div className="flex gap-2">
                     <Button variant="outline" size="lg" onClick={() => navigateDay('prev')} className="font-normal">
@@ -218,7 +240,8 @@ export default function ReportsPage() {
               </div>
 
               <div className="mb-8">
-                <div className="flex items-center justify-between">
+                <div className="flex items-center justify-between gap-4">
+                  <div className="flex items-center gap-4">
                   <ButtonGroup>
                     <Button
                       variant={activeTab === 'daily' ? 'default' : 'outline'}
@@ -245,6 +268,24 @@ export default function ReportsPage() {
                       Monthly
                     </Button>
                   </ButtonGroup>
+
+                  <Select value={selectedTeam} onValueChange={setSelectedTeam}>
+                    <SelectTrigger className="w-[200px]">
+                      <div className="flex items-center gap-2">
+                        <Users className="h-4 w-4" />
+                        <SelectValue />
+                      </div>
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="all">All Teams</SelectItem>
+                      {mockTeams.map(team => (
+                        <SelectItem key={team.id} value={team.id}>
+                          {team.name}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                  </div>
 
                   <div className="flex gap-2">
                     <Button variant="outline" size="lg" onClick={() => navigateWeek('prev')} className="font-normal">
@@ -299,7 +340,8 @@ export default function ReportsPage() {
               </div>
 
               <div className="mb-8">
-                <div className="flex items-center justify-between">
+                <div className="flex items-center justify-between gap-4">
+                  <div className="flex items-center gap-4">
                   <ButtonGroup>
                     <Button
                       variant={activeTab === 'daily' ? 'default' : 'outline'}
@@ -326,6 +368,24 @@ export default function ReportsPage() {
                       Monthly
                     </Button>
                   </ButtonGroup>
+
+                  <Select value={selectedTeam} onValueChange={setSelectedTeam}>
+                    <SelectTrigger className="w-[200px]">
+                      <div className="flex items-center gap-2">
+                        <Users className="h-4 w-4" />
+                        <SelectValue />
+                      </div>
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="all">All Teams</SelectItem>
+                      {mockTeams.map(team => (
+                        <SelectItem key={team.id} value={team.id}>
+                          {team.name}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                  </div>
 
                   <div className="flex gap-2">
                     <Button variant="outline" size="lg" onClick={() => navigateMonth('prev')} className="font-normal">
