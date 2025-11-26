@@ -637,7 +637,115 @@ export interface DailyReport {
   sources: Source[];
   generated_date: string;
   sourceCount?: string;
+  teamId?: string;
 }
+
+// Sales Team Reports
+const salesTeamReports: DailyReport[] = [
+  {
+    id: 'sales_report_001',
+    type: 'client_relationships',
+    title: 'Client Relationships & Pipeline',
+    icon: '',
+    teamId: 'team_001',
+    sourceCount: '4 emails • 2 Slack • 2 deals • 1 QuickBooks',
+    summary: 'Sales team tracking $575K active pipeline: ACME ($450K, 85% prob) with board approval and Nicole leading. TechStart ($125K, 60% prob) in legal review. NetLogic ($700K, 40% prob) from DataCorp referral needs capability assessment. Team closing at 90% vs 45% industry average on referred deals. ACME invoice generated pre-contract shows strong commitment.',
+    content: `## Pipeline Overview
+
+**Active Opportunities: $575K weighted value**
+
+ACME Corp ($450K): Nicole leading, board approved, Q1 timeline. Invoice #1037 generated. 85% probability.
+
+TechStart AI ($125K): Legal review in progress, verbal yes confirmed. 60% probability.
+
+NetLogic Integration ($700K): DataCorp referral, discovery call Nov 25. Requires technical assessment. 40% probability.
+
+---
+
+## Team Performance
+
+**Closing Rate:** 90% on referred deals vs 45% industry average. DataCorp and FinServe referrals converting at 2.5x higher value than cold outbound.
+
+**Deal Velocity:** ACME moved from RFP to board approval in 8 days. Fast cycles indicate high client priority.
+
+---
+
+## Actions Required
+
+- ACME: Finalize SOW with Q1 timeline
+- TechStart: Follow up on MSA status
+- NetLogic: Schedule internal capability workshop before discovery call
+
+**Next 30 Days:** Projected $200K in closures (ACME deposit + TechStart signature).`,
+    sources: [],
+    generated_date: '2025-11-20T06:00:00Z'
+  },
+  {
+    id: 'sales_report_002',
+    type: 'financial_overview',
+    title: 'Financial Overview',
+    icon: '',
+    teamId: 'team_001',
+    sourceCount: '1 QuickBooks • 1 Salesforce • 1 Sheet',
+    summary: 'Sales team at 108% of Q4 target ($1.188M projected vs $1.1M goal). Pipeline weighted value $683K with ACME representing 58%. Average deal size $375K, up from $280K last quarter. 18-day payment cycles on closed deals. Two expansion opportunities worth $400K identified.',
+    content: `## Q4 Performance
+
+**Target:** $1.1M
+**Projected:** $1.188M (108%)
+**Closed YTD:** $505K
+
+Pipeline: $683K weighted (ACME $383K, TechStart $75K, NetLogic $280K, others $45K)
+
+---
+
+## Sales Metrics
+
+**Average Deal Size:** $375K (up from $280K Q3)
+**Win Rate:** 65% overall, 90% on referrals
+**Sales Cycle:** 45 days average
+
+---
+
+## Revenue Forecast
+
+Next 30 days: $200K probable (ACME deposit + TechStart)
+Q1 2026: $570-770K pipeline building (ACME Phase 1 + expansions)`,
+    sources: [],
+    generated_date: '2025-11-20T06:00:00Z'
+  },
+  {
+    id: 'sales_report_003',
+    type: 'team_projects',
+    title: 'Department Activity & Productivity',
+    icon: '',
+    teamId: 'team_001',
+    sourceCount: '3 Slack • 2 emails • 1 Sheet',
+    summary: 'Nicole Howell leading ACME and TechStart pursuits, mentioned by name in 3 client emails this week. Jessie Montoya managing DataCorp expansion discussions. Team response time 2.1 hours on client communications. Cross-sell identified: FinServe European expansion ($200-250K). Capacity: Nicole at 76%, Jessie at 62%.',
+    content: `## Team Activity
+
+**Nicole Howell:** Leading ACME ($450K) and TechStart ($125K). Mentioned by name in ACME client request. Utilization: 76%
+
+**Jessie Montoya:** Managing FinServe QBR and DataCorp Phase 2 discussions. Utilization: 62%
+
+**Heidi Sheppard:** Supporting pipeline development and proposal coordination.
+
+---
+
+## Performance Signals
+
+**Response Time:** 2.1 hours average on client emails
+**Proactive Outreach:** 3 expansion opportunities identified from existing accounts
+**Collaboration:** Active coordination with delivery team on scoping
+
+---
+
+## Capacity
+
+Current: 69% average utilization. Capacity available for 1-2 new pursuits in Q1.`,
+    sources: [],
+    generated_date: '2025-11-20T06:00:00Z'
+  }
+];
 
 export const mockDailyReports: Record<string, DailyReport[]> = {
   '2025-11-20': [
