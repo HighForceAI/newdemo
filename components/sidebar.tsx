@@ -41,7 +41,7 @@ interface SidebarProps {
 export default function Sidebar({ user }: SidebarProps) {
   const pathname = usePathname();
   const router = useRouter();
-  const searchParams = useSearchParams();
+  const searchParams = typeof window !== 'undefined' ? useSearchParams() : null;
   const { signOut, isDemoMode } = useAuth();
   const [settingsOpen, setSettingsOpen] = useState(false);
   const [chatHistory, setChatHistory] = useState<ChatHistoryItem[]>([]);
@@ -90,7 +90,7 @@ export default function Sidebar({ user }: SidebarProps) {
   ];
 
   // Get current chat ID from URL
-  const currentChatId = searchParams?.get?.('chat_id');
+  const currentChatId = searchParams?.get('chat_id') || null;
 
   // Load chat history only once when user is available
   useEffect(() => {
