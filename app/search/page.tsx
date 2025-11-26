@@ -30,6 +30,7 @@ function SearchPageContent() {
   const [loadingTextIndex, setLoadingTextIndex] = useState(0);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const [isLoaded, setIsLoaded] = useState(false);
+  const [textareaHeight, setTextareaHeight] = useState(20);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -182,7 +183,7 @@ function SearchPageContent() {
         <div className="flex-1 overflow-y-auto flex justify-center" style={{ paddingTop: '24px', paddingBottom: messages.length > 0 ? 'calc(180px + 5vh)' : '24px' }}>
           <div className={`w-full space-y-4 ${messages.length > 0 ? 'pt-20' : ''} px-4`} style={{ maxWidth: 'calc(55rem + 2rem)' }}>
             {messages.length === 0 && (
-              <div className="flex flex-col items-center justify-center min-h-[calc(100vh-12rem)] pt-[10vh]">
+              <div className="flex flex-col items-center min-h-[calc(100vh-12rem)] pt-[28vh]">
                 <h2 className="text-2xl font-normal text-gray-900 mb-3">Welcome back, Hayden</h2>
                 <p className="text-gray-600 text-center max-w-md mb-8 text-base font-light">
                   Search across all your connected documents, emails, and data sources
@@ -192,7 +193,7 @@ function SearchPageContent() {
                 <div className="w-full mb-8 px-4" style={{ maxWidth: '55rem', minWidth: '400px' }}>
                   <form onSubmit={(e) => { e.preventDefault(); handleSearch(); }}>
                     <div className="relative">
-                      <div className="relative bg-white/95 backdrop-blur-xl rounded-full border border-gray-300" style={{ boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)' }}>
+                      <div className={`relative bg-white/95 backdrop-blur-xl border border-gray-300 ${textareaHeight > 40 ? 'rounded-3xl' : 'rounded-full'}`} style={{ boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)' }}>
                         <div className="flex items-center gap-3 pl-4 pr-6 py-3">
                           <button
                             type="button"
@@ -206,7 +207,9 @@ function SearchPageContent() {
                               setInput(e.target.value);
                               const target = e.target as HTMLTextAreaElement;
                               target.style.height = 'auto';
-                              target.style.height = Math.min(target.scrollHeight, 400) + 'px';
+                              const newHeight = Math.min(target.scrollHeight, 280);
+                              target.style.height = newHeight + 'px';
+                              setTextareaHeight(newHeight);
                             }}
                             onKeyDown={(e) => {
                               if (e.key === 'Enter' && !e.shiftKey) {
@@ -215,7 +218,7 @@ function SearchPageContent() {
                               }
                             }}
                             placeholder="Ask HighForce anything..."
-                            className="flex-1 bg-transparent border-0 focus:outline-none focus:ring-0 text-gray-900 placeholder-gray-400 text-sm resize-none max-h-[400px] overflow-y-auto"
+                            className="flex-1 bg-transparent border-0 focus:outline-none focus:ring-0 text-gray-900 placeholder-gray-400 text-sm resize-none max-h-[280px] overflow-y-auto"
                             disabled={loadingChat}
                             rows={1}
                             style={{ height: '20px', lineHeight: '20px' }}
