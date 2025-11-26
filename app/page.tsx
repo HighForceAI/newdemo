@@ -34,6 +34,7 @@ export default function DashboardPage() {
   const [flaggedActions, setFlaggedActions] = useState<string[]>([]);
   const [completedActions, setCompletedActions] = useState<string[]>([]);
   const [showCompleted, setShowCompleted] = useState<'none' | '30' | '60' | '90' | 'all'>('none');
+  const [searchTextareaHeight, setSearchTextareaHeight] = useState(20);
   const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
@@ -384,7 +385,7 @@ export default function DashboardPage() {
           <div className="w-full max-w-3xl" style={{ minWidth: '400px' }}>
             <form onSubmit={handleSearchSubmit}>
               <div className="relative">
-                <div className="relative bg-white/95 backdrop-blur-xl rounded-full border border-gray-300" style={{ boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)' }}>
+                <div className={`relative bg-white/95 backdrop-blur-xl border border-gray-300 ${searchTextareaHeight > 40 ? 'rounded-3xl' : 'rounded-full'}`} style={{ boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)' }}>
                   <div className="flex items-center gap-3 pl-4 pr-6 py-3">
                     <button
                       type="button"
@@ -398,7 +399,9 @@ export default function DashboardPage() {
                         setSearchInput(e.target.value);
                         const target = e.target as HTMLTextAreaElement;
                         target.style.height = 'auto';
-                        target.style.height = Math.min(target.scrollHeight, 400) + 'px';
+                        const newHeight = Math.min(target.scrollHeight, 280);
+                        target.style.height = newHeight + 'px';
+                        setSearchTextareaHeight(newHeight);
                       }}
                       onKeyDown={(e) => {
                         if (e.key === 'Enter' && !e.shiftKey) {
@@ -407,7 +410,7 @@ export default function DashboardPage() {
                         }
                       }}
                       placeholder="Ask HighForce anything..."
-                      className="flex-1 bg-transparent border-0 focus:outline-none focus:ring-0 text-gray-900 placeholder-gray-400 text-sm resize-none max-h-[400px] overflow-y-auto"
+                      className="flex-1 bg-transparent border-0 focus:outline-none focus:ring-0 text-gray-900 placeholder-gray-400 text-sm resize-none max-h-[280px] overflow-y-auto"
                       rows={1}
                       style={{ height: '20px', lineHeight: '20px' }}
                     />
