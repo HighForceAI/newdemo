@@ -9,7 +9,7 @@ export const mockSlackMessages: Source[] = [
     subtitle: 'Deal strategy discussion',
     metadata: {
       channel: 'client-acme',
-      participants: ['Demo', 'Nicole Howell', 'William Marquez'],
+      participants: ['Hayden Woodburn', 'Nicole Howell', 'William Marquez'],
       date: 'Nov 19, 2025'
     },
     content: `Nicole Howell  11:24 AM
@@ -44,7 +44,7 @@ William Marquez  11:35 AM
     subtitle: 'Weekly pipeline review',
     metadata: {
       channel: 'sales-pipeline',
-      participants: ['Demo', 'Nicole Howell', 'Jessie Montoya', 'Isabella Reynolds'],
+      participants: ['Hayden Woodburn', 'Nicole Howell', 'Jessie Montoya', 'Isabella Reynolds'],
       date: 'Nov 12, 2025'
     },
     content: `Hayden  2:15 PM
@@ -111,7 +111,7 @@ Exactly. Already started reviewing their infrastructure docs.`
     subtitle: 'Team celebration',
     metadata: {
       channel: 'general',
-      participants: ['Demo', 'Nicole Howell', 'William Marquez', 'Isabella Reynolds', 'Jessie Montoya'],
+      participants: ['Hayden Woodburn', 'Nicole Howell', 'William Marquez', 'Isabella Reynolds', 'Jessie Montoya'],
       date: 'Nov 14, 2025'
     },
     content: `Hayden  5:30 PM
@@ -146,7 +146,7 @@ I'm in. Great quarter everyone!`
     subtitle: 'Partnership discussion',
     metadata: {
       channel: 'bizdev',
-      participants: ['Demo', 'Nicole Howell', 'Jessie Montoya'],
+      participants: ['Hayden Woodburn', 'Nicole Howell', 'Jessie Montoya'],
       date: 'Nov 15, 2025'
     },
     content: `Hayden  10:45 AM
@@ -181,7 +181,7 @@ Agreed. I'll schedule something for next week.`
     subtitle: 'TechStart opportunity',
     metadata: {
       channel: 'sales-pipeline',
-      participants: ['Demo', 'Isabella Reynolds'],
+      participants: ['Hayden Woodburn', 'Isabella Reynolds'],
       date: 'Nov 17, 2025'
     },
     content: `Hayden  3:20 PM
@@ -213,7 +213,7 @@ Perfect. Let me loop you in once we get the green light.`
     subtitle: 'Phase 2 expansion',
     metadata: {
       channel: 'client-datacorp',
-      participants: ['Demo', 'Isabella Reynolds', 'Jessie Montoya'],
+      participants: ['Hayden Woodburn', 'Isabella Reynolds', 'Jessie Montoya'],
       date: 'Nov 16, 2025'
     },
     content: `Isabella Reynolds  2:10 PM
@@ -245,7 +245,7 @@ I'll schedule a scoping call for early December.`
     subtitle: 'Daily standup - Nov 20',
     metadata: {
       channel: 'team-standup',
-      participants: ['Demo', 'Nicole Howell', 'William Marquez', 'Isabella Reynolds', 'Jessie Montoya'],
+      participants: ['Hayden Woodburn', 'Nicole Howell', 'William Marquez', 'Isabella Reynolds', 'Jessie Montoya'],
       date: 'Nov 20, 2025'
     },
     content: `Hayden  9:00 AM
@@ -309,7 +309,7 @@ You got it boss!`
     subtitle: 'Celebrating success',
     metadata: {
       channel: 'wins',
-      participants: ['Demo', 'All Team'],
+      participants: ['Hayden Woodburn', 'All Team'],
       date: 'Nov 12, 2025'
     },
     content: `Hayden  4:45 PM
@@ -338,7 +338,7 @@ Hayden  4:51 PM
     subtitle: 'New inbound lead',
     metadata: {
       channel: 'sales-pipeline',
-      participants: ['Demo', 'Nicole Howell'],
+      participants: ['Hayden Woodburn', 'Nicole Howell'],
       date: 'Nov 13, 2025'
     },
     content: `Hayden  3:40 PM
@@ -399,7 +399,7 @@ Absolutely. Happy to help.`
     subtitle: 'Content planning',
     metadata: {
       channel: 'marketing',
-      participants: ['Demo', 'Jessie Montoya'],
+      participants: ['Hayden Woodburn', 'Jessie Montoya'],
       date: 'Nov 11, 2025'
     },
     content: `Jessie Montoya  11:00 AM
@@ -428,7 +428,7 @@ Good idea. Exposure to their network could be valuable.`
     subtitle: 'Project delivery',
     metadata: {
       channel: 'client-vertex',
-      participants: ['William Marquez', 'Demo'],
+      participants: ['William Marquez', 'Hayden Woodburn'],
       date: 'Nov 19, 2025'
     },
     content: `William Marquez  4:50 PM
@@ -457,7 +457,7 @@ Excellent work Alex. This is the kind of delivery that builds reputation.`
     subtitle: '2026 planning',
     metadata: {
       channel: 'leadership',
-      participants: ['Demo', 'Nicole Howell', 'Jessie Montoya'],
+      participants: ['Hayden Woodburn', 'Nicole Howell', 'Jessie Montoya'],
       date: 'Nov 14, 2025'
     },
     content: `Hayden  2:00 PM

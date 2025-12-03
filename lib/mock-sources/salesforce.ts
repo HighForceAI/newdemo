@@ -11,7 +11,7 @@ export const mockSalesforceDeals: Source[] = [
       dealValue: '$450,000',
       stage: 'Proposal Sent',
       closeDate: 'Dec 31, 2025',
-      owner: 'Demo'
+      owner: 'Nicole Howell'
     },
     content: `Opportunity Details:
 
@@ -105,7 +105,7 @@ Project executing ahead of schedule. Client extremely satisfied. Strong potentia
       dealValue: '$125,000',
       stage: 'Proposal Sent',
       closeDate: 'Dec 20, 2025',
-      owner: 'Demo'
+      owner: 'Isabella Reynolds'
     },
     content: `Opportunity Details:
 
@@ -257,7 +257,7 @@ Jessie Montoya is a strong advocate. Mentioned us to GlobalManufacturing (new le
       dealValue: '$700,000',
       stage: 'Discovery',
       closeDate: 'Jan 31, 2026',
-      owner: 'Demo'
+      owner: 'Hayden Woodburn'
     },
     content: `Opportunity Details:
 
@@ -311,7 +311,7 @@ Referral from Lisa Wang (DataCorp). Strong endorsement. This is a complex projec
       dealValue: '$350,000',
       stage: 'Qualification',
       closeDate: 'Feb 28, 2026',
-      owner: 'Demo'
+      owner: 'Hayden Woodburn'
     },
     content: `Opportunity Details:
 

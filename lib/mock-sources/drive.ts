@@ -9,7 +9,7 @@ export const mockDriveDocs: Source[] = [
     subtitle: 'Google Docs',
     metadata: {
       lastModified: 'Nov 17, 2025',
-      owner: 'Demo'
+      owner: 'Nicole Howell'
     },
     content: `SUMMIT STRATEGY CONSULTING
 Digital Transformation Proposal
@@ -200,7 +200,7 @@ Year 1 included in $125K total cost:
     subtitle: 'Google Docs',
     metadata: {
       lastModified: 'Nov 12, 2025',
-      owner: 'Demo'
+      owner: 'Hayden Woodburn'
     },
     content: `NETLOGIC CORP - DISCOVERY CALL NOTES
 November 12, 2025
@@ -279,7 +279,7 @@ This could be our biggest project ever. Complex but achievable. Isabella Reynold
     subtitle: 'Google Docs',
     metadata: {
       lastModified: 'Nov 20, 2025',
-      owner: 'Demo'
+      owner: 'Hayden Woodburn'
     },
     content: `SUMMIT STRATEGY CONSULTING
 Q4 2025 Business Review
@@ -416,7 +416,7 @@ This project demonstrates Summit Strategy's ability to deliver measurable busine
     subtitle: 'Google Docs',
     metadata: {
       lastModified: 'Nov 5, 2025',
-      owner: 'Demo'
+      owner: 'Hayden Woodburn'
     },
     content: `SUMMIT STRATEGY CONSULTING
 Company Overview

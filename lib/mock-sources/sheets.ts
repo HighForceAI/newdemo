@@ -9,7 +9,7 @@ export const mockSheets: Source[] = [
     subtitle: 'Google Sheets',
     metadata: {
       lastModified: 'Nov 18, 2025',
-      owner: 'Demo',
+      owner: 'Nicole Howell',
       sheetData: {
         headers: ['Phase', 'Line Item', 'Amount', 'Timeline', 'Status'],
         rows: [
@@ -47,7 +47,7 @@ export const mockSheets: Source[] = [
     subtitle: 'Google Sheets',
     metadata: {
       lastModified: 'Nov 20, 2025',
-      owner: 'Demo',
+      owner: 'Hayden Woodburn',
       sheetData: {
         headers: ['Deal', 'Amount', 'Probability', 'Weighted', 'Expected Close', 'Status'],
         rows: [
@@ -79,7 +79,7 @@ export const mockSheets: Source[] = [
     subtitle: 'Google Sheets',
     metadata: {
       lastModified: 'Nov 20, 2025',
-      owner: 'Demo',
+      owner: 'Hayden Woodburn',
       sheetData: {
         headers: ['Consultant', 'Project', 'Hours This Week', 'Billable %', 'Status'],
         rows: [

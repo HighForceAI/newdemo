@@ -64,7 +64,7 @@ Heidi Sheppard`
       subtitle: 'Google Docs',
       metadata: {
         lastModified: 'Nov 19, 2025',
-        owner: 'Demo'
+        owner: 'Hayden Woodburn'
       },
       content: `NETLOGIC DISCOVERY CALL - PREPARATION
 November 25, 2025 at 9:00 AM
@@ -118,7 +118,7 @@ This could establish us in M&A integration space OR overextend capabilities. Be 
       subtitle: 'Google Sheets',
       metadata: {
         lastModified: 'Nov 18, 2025',
-        owner: 'Demo',
+        owner: 'Nicole Howell',
         sheetData: {
           headers: ['Component', 'Amount', 'Timeline', 'Notes'],
           rows: [
