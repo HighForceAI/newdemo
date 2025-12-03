@@ -106,7 +106,7 @@ ACME Corporation`
       dealValue: '$450,000',
       stage: 'Proposal Sent',
       closeDate: 'Dec 31, 2025',
-      owner: 'Demo'
+      owner: 'Nicole Howell'
     },
     content: `Opportunity Details:
 
@@ -150,7 +150,7 @@ Sarah mentioned board approval is likely but wants to see Phase 1 accelerated. N
     subtitle: 'Team discussion',
     metadata: {
       channel: 'client-acme',
-      participants: ['Demo', 'Nicole Howell', 'William Marquez'],
+      participants: ['Hayden Woodburn', 'Nicole Howell', 'William Marquez'],
       date: 'Nov 19, 2025'
     },
     content: `Nicole Howell  11:24 AM
@@ -185,7 +185,7 @@ William Marquez  11:35 AM
     subtitle: 'Google Docs',
     metadata: {
       lastModified: 'Nov 17, 2025',
-      owner: 'Demo'
+      owner: 'Nicole Howell'
     },
     content: `SUMMIT STRATEGY CONSULTING
 Digital Transformation Proposal
@@ -252,7 +252,7 @@ We're excited about the opportunity to partner with ACME Corporation on this tra
     subtitle: 'Google Sheets',
     metadata: {
       lastModified: 'Nov 18, 2025',
-      owner: 'Demo',
+      owner: 'Nicole Howell',
       sheetData: {
         headers: ['Phase', 'Line Item', 'Amount', 'Timeline', 'Status'],
         rows: [
@@ -326,7 +326,7 @@ ACME Corporation`
     subtitle: 'Sales team discussion',
     metadata: {
       channel: 'sales-pipeline',
-      participants: ['Demo', 'Nicole Howell', 'Jessie Montoya'],
+      participants: ['Hayden Woodburn', 'Nicole Howell', 'Jessie Montoya'],
       date: 'Nov 12, 2025'
     },
     content: `Hayden  2:15 PM
